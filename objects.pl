@@ -1,11 +1,12 @@
 
+% Projectile(name, prob, wt, cost, sdam, ldam, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
 projectile("arrow", 55, 1, 2, 6, 6, 0, iron, p_bow, 3.5, 3.5).
 projectile("elven arrow", 20, 1, 2, 7, 6, 0, wood, p_bow, 4.0, 3.5).
 projectile("orcish arrow", 20, 1, 2, 5, 6, 0, iron, p_bow, 3.0, 3.5).
 projectile("silver arrow", 12, 1, 5, 6, 6, 0, silver, p_bow, 3.5, 3.5).
 projectile("ya", 15, 1, 4, 7, 7, 1, metal, p_bow, 4.0, 4.0).
 projectile("crossbow bolt", 55, 1, 2, 4, 6, 0, iron, p_crossbow, 3.5, 4.5).
-% Weapon(name,mg,bi,aboundance,weight,cost,sdam,ldam,hitbonus,type,sub,material,damage_to_small_monsters,damage_to_large_monsters)
+% Weapon(name, mg, bi, aboundance, weight, cost, sdam, ldam, hitbonus, type, sub, material, damage_to_small_monsters, damage_to_large_monsters)
 weapon("dart", 1, 0, 60, 1, 2, 3, 2, 0, p, p_dart, iron, 2.0, 1.5).
 weapon("shuriken", 1, 0, 35, 1, 5, 8, 6, 2, p, p_shuriken, iron, 4.5, 3.5).
 weapon("boomerang", 1, 0, 15, 5, 20, 9, 9, 0, 0, p_boomerang, wood, 5.0, 5.0).
@@ -64,12 +65,14 @@ weapon("quarterstaff", 0, 1, 11, 40, 5, 6, 6, 0, b, p_quarterstaff, wood, 3.5, 3
 weapon("aklys", 0, 0, 8, 15, 4, 6, 3, 0, b, p_club, iron, 3.5, 2.0).
 weapon("flail", 0, 0, 40, 15, 4, 6, 4, 0, b, p_flail, iron, 4.5, 5.0).
 weapon("bullwhip", 0, 0, 2, 20, 4, 2, 1, 0, 0, p_whip, leather, 1.5, 1.0).
+% Bow(name, prob, wt, cost, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
 bow("bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
 bow("crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
+% Helm(name, mgc, power, prob, delay, wt, cost, ac, can, metal)
 helm("elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
 helm("orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
 helm("dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
@@ -81,6 +84,7 @@ helm("helmet", 0, 0, 10, 1, 30, 10, 9, 0, iron).
 helm("helm of brilliance", 1, 0, 6, 1, 50, 50, 9, 0, iron).
 helm("helm of opposite alignment", 1, 0, 6, 1, 50, 50, 9, 0, iron).
 helm("helm of telepathy", 1, telepat, 2, 1, 50, 50, 9, 0, iron).
+% Drgn_armr(name, mgc, power, cost, ac)
 drgn_armr("gray dragon scale mail", 1, antimagic, 1200, 1).
 drgn_armr("silver dragon scale mail", 1, reflecting, 1200, 1).
 drgn_armr("red dragon scale mail", 1, fire_res, 900, 1).
@@ -99,7 +103,7 @@ drgn_armr("black dragon scales", 0, disint_res, 700, 7).
 drgn_armr("blue dragon scales", 0, shock_res, 500, 7).
 drgn_armr("green dragon scales", 0, poison_res, 500, 7).
 drgn_armr("yellow dragon scales", 0, acid_res, 500, 7).
-% Armor(name,desc,mgc,blk,power,aboundance,delay,wt,cost,ac,can,sub,metal,c)
+% Armor(name, mgc, blk, power, aboundance, delay, weight, cost, ac, can, sub, metal)
 armor("plate mail", 0, 1, 0, 44, 5, 450, 600, 3, 2, arm_suit, iron).
 armor("crystal plate mail", 0, 1, 0, 10, 5, 450, 820, 3, 2, arm_suit, glass).
 armor("bronze plate mail", 0, 1, 0, 25, 5, 450, 400, 4, 1, arm_suit, copper).
@@ -117,6 +121,7 @@ armor("leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather).
 armor("leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather).
 armor("hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth).
 armor("t-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth).
+% Cloak(name, mgc, power, prob, delay, weight, cost, ac, can, metal)
 cloak("mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
 cloak("elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
 cloak("orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth).
@@ -129,6 +134,7 @@ cloak("cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth).
 cloak("cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth).
 cloak("cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth).
 cloak("cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth).
+% Shield(name, mgc, blk, power, aboundance, delay, weight, cost, ac, can, metal):
 shield("small shield", 0, 0, 0, 6, 0, 30, 3, 9, 0, wood).
 shield("elven shield", 0, 0, 0, 2, 0, 40, 7, 8, 0, wood).
 shield("uruk-hai shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
@@ -136,6 +142,7 @@ shield("orcish shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
 shield("large shield", 0, 1, 0, 7, 0, 100, 10, 8, 0, iron).
 shield("dwarvish roundshield", 0, 0, 0, 4, 0, 100, 10, 8, 0, iron).
 shield("shield of reflection", 1, 0, reflecting, 3, 0, 50, 50, 8, 0, silver).
+% Gloves(name, mgc, power, aboundance, delay, weight, cost, ac, can, metal):
 gloves("leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather).
 gloves("gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather).
 gloves("gauntlets of power", 1, 0, 8, 1, 30, 50, 9, 0, iron).
