@@ -56,11 +56,11 @@ def get_probability(arr, appearence, obj):
 
 a = np.ones((4, 4))/4  # all appearences have same probability
 
-# I find 50 padded gloves(must be very common, like leather gloves)
+print("I find 50 padded gloves(must be very common, like leather gloves)")
 for i in range(50):
     found(a, "padded gloves")
 
-# I find some information about riding gloves(must be fumbling)
+print("I find some information about riding gloves(must be fumbling)")
 is_not(a, "riding gloves", "gauntlets of power")
 is_not(a, "riding gloves", "gauntlets of dexterity")
 
@@ -77,11 +77,14 @@ for i in range(100):
     summse.append(from1[i] + froma[i])
 #    if from1[i] + froma[i] < ???: break
 
-print(get_probability(b, "riding gloves", "gauntlets of fumbling"))
-print(get_probability(b, "padded gloves", "gauntlets of power"))
-print(get_probability(b, "padded gloves", "leather gloves"))
+print("I am ", get_probability(b, "riding gloves", "gauntlets of fumbling")*100, "% sure that riding gloves are gauntlets of fumbling")
+print("I am ", get_probability(b, "padded gloves", "gauntlets of power")*100, "% sure that padded gloves are gauntlets of power")
+print("I am ", get_probability(b, "padded gloves", "leather gloves")*100, "% sure that padded gloves are leather gloves")
 
+'''
 from matplotlib import pyplot as plt
 plt.plot(from1)
 plt.plot(froma)
 plt.plot(summse)
+plt.show()
+'''
