@@ -29,8 +29,8 @@ appearences = ["old gloves",
 
 def norm_step(arr):
     norm_by_column = arr / arr.sum(axis=0)
-    norm_by_row = arr.transpose() / arr.sum(axis=1)
-    mean = (norm_by_column + norm_by_row.transpose())/2
+    norm_by_row = arr / arr.sum(axis=1).reshape(-1,1)
+    mean = (norm_by_column + norm_by_row)/2
     return mean
 
 
