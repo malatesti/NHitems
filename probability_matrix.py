@@ -28,9 +28,8 @@ appearences = ["old gloves",
 
 
 def sinkhorn_knopp_step(arr, c, r):
-    c = 1/(arr.transpose()@r)
-    r = 1/(arr@c)
-    return (c, r)
+    c = 1/(r@arr)
+    return c, 1/(arr@c)
 
 
 def is_not(arr, appearence, obj):

@@ -1,5 +1,5 @@
 
-% Projectile(name, prob, wt, cost, sdam, ldam, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
+% Projectile(name, prob, weight, cost, sdam, ldam, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
 projectile("arrow", 55, 1, 2, 6, 6, 0, iron, p_bow, 3.5, 3.5).
 projectile("elven arrow", 20, 1, 2, 7, 6, 0, wood, p_bow, 4.0, 3.5).
 projectile("orcish arrow", 20, 1, 2, 5, 6, 0, iron, p_bow, 3.0, 3.5).
@@ -65,14 +65,14 @@ weapon("quarterstaff", 0, 1, 11, 40, 5, 6, 6, 0, b, p_quarterstaff, wood, 3.5, 3
 weapon("aklys", 0, 0, 8, 15, 4, 6, 3, 0, b, p_club, iron, 3.5, 2.0).
 weapon("flail", 0, 0, 40, 15, 4, 6, 4, 0, b, p_flail, iron, 4.5, 5.0).
 weapon("bullwhip", 0, 0, 2, 20, 4, 2, 1, 0, 0, p_whip, leather, 1.5, 1.0).
-% Bow(name, prob, wt, cost, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
+% Bow(name, prob, weight, cost, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
 bow("bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
 bow("crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
-% Helm(name, mgc, power, prob, delay, wt, cost, ac, can, metal)
+% Helm(name, mgc, power, prob, delay, weight, cost, ac, can, metal)
 helm("elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
 helm("orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
 helm("dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
@@ -249,11 +249,11 @@ tool("bell", 0, 0, 0, 2, 30, 50, copper).
 tool("bugle", 0, 0, 0, 4, 10, 15, copper).
 tool("leather drum", 0, 0, 0, 4, 25, 25, leather).
 tool("drum of earthquake", 0, 1, 1, 2, 25, 25, leather).
-% QuestItem(name,wt)
+% QuestItem(name,weight)
 questitem("candelabrum of invocation", 10).
 questitem("bell of opening", 10).
 % questitem("book of the dead", "papyrus", wt=20).
-% Food(name,aboundance,delay,wt,unk,tin,nutrition)
+% Food(name,aboundance,delay,weight,unk,tin,nutrition)
 food("tripe ration", 140, 2, 10, 0, flesh, 200).
 food("corpse", 0, 1, none, 0, flesh, 0).
 food("egg", 85, 1, 1, 1, flesh, 80).
@@ -416,7 +416,7 @@ wand("death", 5, 500, 1, ray).
 wand("lightning", 40, 175, 1, ray).
 % Rocks are GEM_CLASS
 
-% Gem(name,desc,aboundance,wt,gval,nutr,mohs,glass)
+% Gem(name,desc,aboundance,weight,gval,nutr,mohs,glass)
 gem("dilithium crystal", 2, 1, 4500, 15, 5, gemstone).
 gem("diamond", 3, 1, 4000, 15, 10, gemstone).
 gem("ruby", 4, 1, 3500, 15, 9, gemstone).
@@ -782,8 +782,8 @@ kind(X, scroll) :- scroll(X, _, _, _), \+ member(X, ["mail", "blank paper"]). % 
 coin("gold piece", 1000, gold, 1, 0.01000001).
 /* 
 a special, one of a kind, spellbook
-% Misc(name,desc,wt)
-misc("novel", "paperback", wt=50).
+% Misc(name,desc,weight)
+misc("novel", "paperback", 50).
 */
 
 
