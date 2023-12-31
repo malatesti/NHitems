@@ -27,11 +27,10 @@ appearences = ["old gloves",
                "fencing gloves"]
 
 
-def norm_step(arr):
-    norm_by_column = arr / arr.sum(axis=0)
-    norm_by_row = arr / arr.sum(axis=1).reshape(-1,1)
-    mean = (norm_by_column + norm_by_row)/2
-    return mean
+def sinkhorn_knopp_step(arr, c, r):
+    c = 1/(arr.transpose()@r)
+    r = 1/(arr@c)
+    return (c, r)
 
 
 def is_not(arr, appearence, obj):
@@ -66,25 +65,17 @@ is_not(a, "riding gloves", "gauntlets of dexterity")
 
 mse = lambda x,y: ((x-y)**2).mean()
 from1 = []
-froma = []
-summse = []
-b = a.copy()
 # reasoning...
+c, r = np.ones((2, 4))
 for i in range(100):
-    b = norm_step(b)
+    c, r = sinkhorn_knopp_step(a, c, r)
+    b = a*c*r.reshape(-1, 1)
     from1.append(mse(np.concatenate((b.sum(axis=0), b.sum(axis=1))), 1))
-    froma.append(mse(b, a))
-    summse.append(from1[i] + froma[i])
-#    if from1[i] + froma[i] < ???: break
 
 print("I am ", get_probability(b, "riding gloves", "gauntlets of fumbling")*100, "% sure that riding gloves are gauntlets of fumbling")
 print("I am ", get_probability(b, "padded gloves", "gauntlets of power")*100, "% sure that padded gloves are gauntlets of power")
 print("I am ", get_probability(b, "padded gloves", "leather gloves")*100, "% sure that padded gloves are leather gloves")
 
-'''
 from matplotlib import pyplot as plt
 plt.plot(from1)
-plt.plot(froma)
-plt.plot(summse)
 plt.show()
-'''
