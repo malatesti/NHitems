@@ -3,9 +3,9 @@ import numpy as np
 Questo modello permette all'agente di vedere quale sia la probabilità che un oggetto abbia una certa apparenza in una partita di Nethack.
 Il modello consiste in una matrice quadrata, nella quale a ogni riga è associata un'apparenza e a ogni colonna un oggetto.
 In questa matrice, nella cella alla riga i e colonna j, è memorizzata la probabilità che l'oggetto j abbia l'apparenza i.
-Un oggetto può avere una sola apparenza e una apparenza può appartenere ad un solo oggetto, quindi in questa matrice la somma per righe e per colonne deve valere sempre 1(è bistocastica).
+Un oggetto può avere una sola apparenza e una apparenza può appartenere ad un solo oggetto, quindi in questa matrice per ogni riga e per ogni colonna, la somma degli elementi deve valere sempre 1(è bistocastica).
 Un oggetto ha una rarità, inversamente proporzionale alla sua entry in aboundance.
-Il modello è capace di approssimare nuove probabilità di associazioni (oggetto,apparenza) in base alle probabilità date in input, facendo una sequenza di passi. Ad ogni passo la matrice viene aggiornata con il risultato di norm_step, che non è altro che il valor medio tra la matrice con colonne normalizzate e la matrice con righe normalizzate. Fare il valor medio permette di avvicinarsi ad una buona approssimazione con un percorso più uniforme(senza effetto zig-zag che può derivare dall'alternarsi di normalizzazione per righe e colonne). Esistono metodi più avanzati per trovare la matrice bistocastica più vicina a una matrice presa in input, è quindi possibile migliorare norm_step
+Il modello è capace di approssimare nuove probabilità di associazioni (oggetto,apparenza) in base alle probabilità date in input, usando l'algoritmo di sinkhorn_knopp per portare la somma degli elementi sulle righe e colonne a 1
 '''
 
 objects = ["leather gloves",
