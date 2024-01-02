@@ -628,155 +628,155 @@ can_be(wand, "jeweled", 410).
 can_be("blank paper", "unlabeled", 399). % scroll
 can_be("blank paper", "plain", 380). % spellbook
 % can_be("mail", "stamped").
-can_be("elven arrow", "runed arrow").
-can_be("orcish arrow", "crude arrow").
-can_be("ya", "bamboo arrow").
-can_be("shuriken", "throwing star").
-can_be("elven spear", "runed spear").
-can_be("orcish spear", "crude spear").
-can_be("dwarvish spear", "stout spear").
-can_be("javelin", "throwing spear").
-can_be("elven dagger", "runed dagger").
-can_be("orcish dagger", "crude dagger").
-can_be("battle-axe", "double-headed axe").
-can_be("elven short sword", "runed short sword").
-can_be("orcish short sword", "crude short sword").
-can_be("dwarvish short sword", "broad short sword").
-can_be("scimitar", "curved sword").
-can_be("elven broadsword", "runed broadsword").
-can_be("katana", "samurai sword").
-can_be("tsurugi", "long samurai sword").
-can_be("runesword", "runed broadsword").
-can_be("partisan", "vulgar polearm").
-can_be("ranseur", "hilted polearm").
-can_be("spetum", "forked polearm").
-can_be("glaive", "single-edged polearm").
-can_be("halberd", "angled poleaxe").
-can_be("bardiche", "long poleaxe").
-can_be("voulge", "pole cleaver").
-can_be("dwarvish mattock", "broad pick").
-can_be("fauchard", "pole sickle").
-can_be("guisarme", "pruning hook").
-can_be("bill-guisarme", "hooked polearm").
-can_be("lucern hammer", "pronged polearm").
-can_be("bec de corbin", "beaked polearm").
-can_be("quarterstaff", "staff").
-can_be("aklys", "thonged club").
-can_be("elven bow", "runed bow").
-can_be("orcish bow", "crude bow").
-can_be("yumi", "long bow").
-can_be("elven leather helm", "leather hat").
-can_be("orcish helm", "iron skull cap").
-can_be("dwarvish iron helm", "hard hat").
-can_be("cornuthaum", "conical hat").
-can_be("dunce cap", "conical hat").
-can_be("helmet", "plumed helmet").
-can_be("helm of brilliance", "etched helmet").
-can_be("helm of opposite alignment", "crested helmet").
-can_be("helm of telepathy", "visored helmet").
-can_be("orcish chain mail", "crude chain mail").
-can_be("orcish ring mail", "crude ring mail").
-can_be("elven cloak", "faded pall").
-can_be("orcish cloak", "coarse mantelet").
-can_be("dwarvish cloak", "hooded cloak").
-can_be("oilskin cloak", "slippery cloak").
-can_be("alchemy smock", "apron").
-can_be("cloak of protection", "tattered cape").
-can_be("cloak of invisibility", "opera cloak").
-can_be("cloak of magic resistance", "ornamental cope").
-can_be("cloak of displacement", "piece of cloth").
-can_be("elven shield", "blue and green shield").
-can_be("uruk-hai shield", "white-handed shield").
-can_be("orcish shield", "red-eyed shield").
-can_be("dwarvish roundshield", "large round shield").
-can_be("shield of reflection", "polished silver shield").
-can_be(gloves, "old gloves").
-can_be(gloves, "padded gloves").
-can_be(gloves, "riding gloves").
-can_be(gloves, "fencing gloves").
-can_be("low boots", "walking shoes").
-can_be("iron shoes", "hard shoes").
-can_be("high boots", "jackboots").
-can_be(boots, "combat boots").
-can_be(boots, "jungle boots").
-can_be(boots, "hiking boots").
-can_be(boots, "mud boots").
-can_be(boots, "buckled boots").
-can_be(boots, "riding boots").
-can_be(boots, "snow boots").
-can_be(amulet, "circular").
-can_be(amulet, "spherical").
-can_be(amulet, "oval").
-can_be(amulet, "triangular").
-can_be(amulet, "pyramidal").
-can_be(amulet, "square").
-can_be(amulet, "concave").
-can_be(amulet, "hexagonal").
-can_be(amulet, "octagonal").
-can_be("cheap plastic imitation of the amulet of yendor", "amulet of yendor").
-can_be("sack", "bag").
-can_be("oilskin sack", "bag").
-can_be("bag of holding", "bag").
-can_be("bag of tricks", "bag").
-can_be("skeleton key", "key").
-can_be("tallow candle", "candle").
-can_be("wax candle", "candle").
-can_be("oil lamp", "lamp").
-can_be("magic lamp", "lamp").
-can_be("mirror", "looking glass").
-can_be("crystal ball", "glass orb").
-can_be("tin whistle", "whistle").
-can_be("magic whistle", "whistle").
-can_be("wooden flute", "flute").
-can_be("magic flute", "flute").
-can_be("tooled horn", "horn").
-can_be("frost horn", "horn").
-can_be("fire horn", "horn").
-can_be("horn of plenty", "horn").
-can_be("wooden harp", "harp").
-can_be("magic harp", "harp").
-can_be("leather drum", "drum").
-can_be("drum of earthquake", "drum").
-can_be("grappling hook", "iron hook").
-can_be("candelabrum of invocation", "candelabrum").
-can_be("bell of opening", "silver bell").
-can_be("water", "clear").
-can_be("dilithium crystal", "white").
-can_be("diamond", "white").
-can_be("ruby", "red").
-can_be("jacinth", "orange").
-can_be("sapphire", "blue").
-can_be("black opal", "black").
-can_be("emerald", "green").
-can_be("turquoise", "green").
-can_be("turquoise", "blue").
-can_be("citrine", "yellow").
-can_be("aquamarine", "blue").
-can_be("aquamarine", "green").
-can_be("amber", "yellowish brown").
-can_be("topaz", "yellowish brown").
-can_be("jet", "black").
-can_be("opal", "white").
-can_be("chrysoberyl", "yellow").
-can_be("garnet", "red").
-can_be("amethyst", "violet").
-can_be("jasper", "red").
-can_be("fluorite", "blue").
-can_be("fluorite", "green").
-can_be("fluorite", "brown").
-can_be("fluorite", "violet").
-can_be("obsidian", "black").
-can_be("agate", "orange").
-can_be("jade", "green").
-can_be("worthless piece of white glass", "white").
-can_be("worthless piece of blue glass", "blue").
-can_be("worthless piece of red glass", "red").
-can_be("worthless piece of yellowish brown glass", "yellowish brown").
-can_be("worthless piece of orange glass", "orange").
-can_be("worthless piece of yellow glass", "yellow").
-can_be("worthless piece of black glass", "black").
-can_be("worthless piece of green glass", "green").
-can_be("worthless piece of violet glass", "violet").
+can_be("elven arrow", "runed arrow", 2).
+can_be("orcish arrow", "crude arrow", 3).
+can_be("ya", "bamboo arrow", 5).
+can_be("shuriken", "throwing star", 8).
+can_be("elven spear", "runed spear", 11).
+can_be("orcish spear", "crude spear", 12).
+can_be("dwarvish spear", "stout spear", 13).
+can_be("javelin", "throwing spear", 15).
+can_be("elven dagger", "runed dagger", 18).
+can_be("orcish dagger", "crude dagger", 19).
+can_be("battle-axe", "double-headed axe", 28).
+can_be("elven short sword", "runed short sword", 30).
+can_be("orcish short sword", "crude short sword", 31).
+can_be("dwarvish short sword", "broad short sword", 32).
+can_be("scimitar", "curved sword", 33).
+can_be("elven broadsword", "runed broadsword", 36).
+can_be("katana", "samurai sword", 39).
+can_be("tsurugi", "long samurai sword", 40).
+can_be("runesword", "runed broadsword", 41).
+can_be("partisan", "vulgar polearm", 42).
+can_be("ranseur", "hilted polearm", 43).
+can_be("spetum", "forked polearm", 44).
+can_be("glaive", "single-edged polearm", 45).
+can_be("halberd", "angled poleaxe", 47).
+can_be("bardiche", "long poleaxe", 48).
+can_be("voulge", "pole cleaver", 49).
+can_be("dwarvish mattock", "broad pick", 50).
+can_be("fauchard", "pole sickle", 51).
+can_be("guisarme", "pruning hook", 52).
+can_be("bill-guisarme", "hooked polearm", 53).
+can_be("lucern hammer", "pronged polearm", 54).
+can_be("bec de corbin", "beaked polearm", 55).
+can_be("quarterstaff", "staff", 61).
+can_be("aklys", "thonged club", 62).
+can_be("elven bow", "runed bow", 66).
+can_be("orcish bow", "crude bow", 67).
+can_be("yumi", "long bow", 68).
+can_be("elven leather helm", "leather hat", 71).
+can_be("orcish helm", "iron skull cap", 72).
+can_be("dwarvish iron helm", "hard hat", 73).
+can_be("cornuthaum", "conical hat", 75).
+can_be("dunce cap", "conical hat", 76).
+can_be(helm, "plumed helmet", 78).
+can_be(helm, "etched helmet", 79).
+can_be(helm, "crested helmet", 80).
+can_be(helm, "visored helmet", 81).
+can_be("orcish chain mail", "crude chain mail", 108).
+can_be("orcish ring mail", "crude ring mail", 112).
+can_be("elven cloak", "faded pall", 118).
+can_be("orcish cloak", "coarse mantelet", 119).
+can_be("dwarvish cloak", "hooded cloak", 120).
+can_be("oilskin cloak", "slippery cloak", 121).
+can_be("alchemy smock", "apron", 123).
+can_be(cloak, "tattered cape", 125).
+can_be(cloak, "opera cloak", 126).
+can_be(cloak, "ornamental cope", 127).
+can_be(cloak, "piece of cloth", 128).
+can_be("elven shield", "blue and green shield", 130).
+can_be("uruk-hai shield", "white-handed shield", 131).
+can_be("orcish shield", "red-eyed shield", 132).
+can_be("dwarvish roundshield", "large round shield", 134).
+can_be("shield of reflection", "polished silver shield", 135).
+can_be(gloves, "old gloves", 136).
+can_be(gloves, "padded gloves", 137).
+can_be(gloves, "riding gloves", 138).
+can_be(gloves, "fencing gloves", 139).
+can_be("low boots", "walking shoes", 140).
+can_be("iron shoes", "hard shoes", 141).
+can_be("high boots", "jackboots", 142).
+can_be(boots, "combat boots", 143).
+can_be(boots, "jungle boots", 144).
+can_be(boots, "hiking boots", 145).
+can_be(boots, "mud boots", 146).
+can_be(boots, "buckled boots", 147).
+can_be(boots, "riding boots", 148).
+can_be(boots, "snow boots", 149).
+can_be(amulet, "circular", 178).
+can_be(amulet, "spherical", 179).
+can_be(amulet, "oval", 180).
+can_be(amulet, "triangular", 181).
+can_be(amulet, "pyramidal", 182).
+can_be(amulet, "square", 183).
+can_be(amulet, "concave", 184).
+can_be(amulet, "hexagonal", 185).
+can_be(amulet, "octagonal", 186).
+can_be("cheap plastic imitation of the amulet of yendor", "amulet of yendor", 187).
+can_be("sack", "bag", 192).
+can_be("oilskin sack", "bag", 193).
+can_be("bag of holding", "bag", 194).
+can_be("bag of tricks", "bag", 195).
+can_be("skeleton key", "key", 196).
+can_be("tallow candle", "candle", 199).
+can_be("wax candle", "candle", 200).
+can_be("oil lamp", "lamp", 202).
+can_be("magic lamp", "lamp", 203).
+can_be("mirror", "looking glass", 205).
+can_be("crystal ball", "glass orb", 206).
+can_be("tin whistle", "whistle", 220).
+can_be("magic whistle", "whistle", 221).
+can_be("wooden flute", "flute", 222).
+can_be("magic flute", "flute", 223).
+can_be("tooled horn", "horn", 224).
+can_be("frost horn", "horn", 225).
+can_be("fire horn", "horn", 226).
+can_be("horn of plenty", "horn", 227).
+can_be("wooden harp", "harp", 228).
+can_be("magic harp", "harp", 229).
+can_be("leather drum", "drum", 232).
+can_be("drum of earthquake", "drum", 233).
+can_be("grappling hook", "iron hook", 235).
+can_be("candelabrum of invocation", "candelabrum", 237).
+can_be("bell of opening", "silver bell", 238).
+can_be("water", "clear", 297).
+can_be("dilithium crystal", "white", 411).
+can_be("diamond", "white", 412).
+can_be("ruby", "red", 413).
+can_be("jacinth", "orange", 414).
+can_be("sapphire", "blue", 415).
+can_be("black opal", "black", 416).
+can_be("emerald", "green", 417).
+can_be("turquoise", "green", 418).
+can_be("turquoise", "blue", 415).
+can_be("citrine", "yellow", 419).
+can_be("aquamarine", "blue", 415).
+can_be("aquamarine", "green", 420).
+can_be("amber", "yellowish brown", 421).
+can_be("topaz", "yellowish brown", 422).
+can_be("jet", "black", 423).
+can_be("opal", "white", 424).
+can_be("chrysoberyl", "yellow", 425).
+can_be("garnet", "red", 426).
+can_be("amethyst", "violet", 427).
+can_be("jasper", "red", 428).
+can_be("fluorite", "blue", 415).
+can_be("fluorite", "green", 417).
+can_be("fluorite", "white", 412).
+can_be("fluorite", "violet", 429).
+can_be("obsidian", "black", 430).
+can_be("agate", "orange", 431).
+can_be("jade", "green", 432).
+can_be("worthless piece of white glass", "white", 433).
+can_be("worthless piece of blue glass", "blue", 434).
+can_be("worthless piece of red glass", "red", 435).
+can_be("worthless piece of yellowish brown glass", "yellowish brown", 436).
+can_be("worthless piece of orange glass", "orange", 437).
+can_be("worthless piece of yellow glass", "yellow", 438).
+can_be("worthless piece of black glass", "black", 439).
+can_be("worthless piece of green glass", "green", 440).
+can_be("worthless piece of violet glass", "violet", 441).
 %can_be(rock, "gray").
 kind(X, scroll) :- scroll(X, _, _, _), \+ member(X, ["mail", "blank paper"]). % mail and blank paper have fixed appearence, should not be considered
 % Coin(name,aboundance,metal,worth,weight)
