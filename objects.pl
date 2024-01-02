@@ -1,78 +1,78 @@
 
-% Projectile(name, prob, weight, cost, sdam, ldam, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
-projectile("arrow", 55, 1, 2, 6, 6, 0, iron, p_bow, 3.5, 3.5).
-projectile("elven arrow", 20, 1, 2, 7, 6, 0, wood, p_bow, 4.0, 3.5).
-projectile("orcish arrow", 20, 1, 2, 5, 6, 0, iron, p_bow, 3.0, 3.5).
-projectile("silver arrow", 12, 1, 5, 6, 6, 0, silver, p_bow, 3.5, 3.5).
-projectile("ya", 15, 1, 4, 7, 7, 1, metal, p_bow, 4.0, 4.0).
-projectile("crossbow bolt", 55, 1, 2, 4, 6, 0, iron, p_crossbow, 3.5, 4.5).
-% Weapon(name, mg, bi, aboundance, weight, cost, sdam, ldam, hitbonus, type, sub, material, damage_to_small_monsters, damage_to_large_monsters)
-weapon("dart", 1, 0, 60, 1, 2, 3, 2, 0, p, p_dart, iron, 2.0, 1.5).
-weapon("shuriken", 1, 0, 35, 1, 5, 8, 6, 2, p, p_shuriken, iron, 4.5, 3.5).
-weapon("boomerang", 1, 0, 15, 5, 20, 9, 9, 0, 0, p_boomerang, wood, 5.0, 5.0).
-weapon("spear", 1, 0, 50, 30, 3, 6, 8, 0, p, p_spear, iron, 3.5, 4.5).
-weapon("elven spear", 1, 0, 10, 30, 3, 7, 8, 0, p, p_spear, wood, 4.0, 4.5).
-weapon("orcish spear", 1, 0, 13, 30, 3, 5, 8, 0, p, p_spear, iron, 3.0, 4.5).
-weapon("dwarvish spear", 1, 0, 12, 35, 3, 8, 8, 0, p, p_spear, iron, 4.5, 4.5).
-weapon("silver spear", 1, 0, 2, 36, 40, 6, 8, 0, p, p_spear, silver, 3.5, 4.5).
-weapon("javelin", 1, 0, 10, 20, 3, 6, 6, 0, p, p_spear, iron, 3.5, 3.5).
-weapon("trident", 0, 0, 8, 25, 5, 6, 4, 0, p, p_trident, iron, 4.5, 7.5).
-weapon("dagger", 1, 0, 30, 10, 4, 4, 3, 2, p, p_dagger, iron, 2.5, 2.0).
-weapon("elven dagger", 1, 0, 10, 10, 4, 5, 3, 2, p, p_dagger, wood, 3.0, 2.0).
-weapon("orcish dagger", 1, 0, 12, 10, 4, 3, 3, 2, p, p_dagger, iron, 2.0, 2.0).
-weapon("silver dagger", 1, 0, 3, 12, 40, 4, 3, 2, p, p_dagger, silver, 2.5, 2.0).
-weapon("athame", 1, 0, 0, 10, 4, 4, 3, 2, s, p_dagger, iron, 2.5, 2.0).
-weapon("scalpel", 1, 0, 0, 5, 6, 3, 3, 2, s, p_knife, metal, 2.0, 2.0).
-weapon("knife", 1, 0, 20, 5, 4, 3, 2, 0, p | s, p_knife, iron, 2.0, 1.5).
-weapon("stiletto", 1, 0, 5, 5, 4, 3, 2, 0, p | s, p_knife, iron, 2.0, 1.5).
-weapon("worm tooth", 1, 0, 0, 20, 2, 2, 2, 0, 0, p_knife, 0, 1.5, 1.5).
-weapon("crysknife", 1, 0, 0, 20, 100, 10, 10, 3, p, p_knife, mineral, 5.5, 5.5).
-weapon("axe", 0, 0, 40, 60, 8, 6, 4, 0, s, p_axe, iron, 3.5, 2.5).
-weapon("battle-axe", 0, 1, 10, 120, 40, 8, 6, 0, s, p_axe, iron, 7, 8.5).
-weapon("short sword", 0, 0, 8, 30, 10, 6, 8, 0, p, p_short_sword, iron, 3.5, 4.5).
-weapon("elven short sword", 0, 0, 2, 30, 10, 8, 8, 0, p, p_short_sword, wood, 4.5, 4.5).
-weapon("orcish short sword", 0, 0, 3, 30, 10, 5, 8, 0, p, p_short_sword, iron, 3.0, 4.5).
-weapon("dwarvish short sword", 0, 0, 2, 30, 10, 7, 8, 0, p, p_short_sword, iron, 4.0, 4.5).
-weapon("scimitar", 0, 0, 15, 40, 15, 8, 8, 0, s, p_scimitar, iron, 4.5, 4.5).
-weapon("silver saber", 0, 0, 6, 40, 75, 8, 8, 0, s, p_saber, silver, 4.5, 4.5).
-weapon("broadsword", 0, 0, 8, 70, 10, 4, 6, 0, s, p_broad_sword, iron, 5.0, 4.5).
-weapon("elven broadsword", 0, 0, 4, 70, 10, 6, 6, 0, s, p_broad_sword, wood, 6.0, 4.5).
-weapon("long sword", 0, 0, 50, 40, 15, 8, 12, 0, s, p_long_sword, iron, 4.5, 6.5).
-weapon("two-handed sword", 0, 1, 22, 150, 50, 12, 6, 0, s, p_two_handed_sword, iron, 6.5, 10.5).
-weapon("katana", 0, 0, 4, 40, 80, 10, 12, 1, s, p_long_sword, iron, 5.5, 6.5).
-weapon("tsurugi", 0, 1, 0, 60, 500, 16, 8, 2, s, p_two_handed_sword, metal, 8.5, 11.5).
-weapon("runesword", 0, 0, 0, 40, 300, 4, 6, 0, s, p_broad_sword, iron, 5.0, 4.5).
-weapon("partisan", 0, 1, 5, 80, 10, 6, 6, 0, p, p_polearms, iron, 3.5, 4.5).
-weapon("ranseur", 0, 1, 5, 50, 6, 4, 4, 0, p, p_polearms, iron, 5.0, 5.0).
-weapon("spetum", 0, 1, 5, 50, 5, 6, 6, 0, p, p_polearms, iron, 4.5, 7.0).
-weapon("glaive", 0, 1, 8, 75, 6, 6, 10, 0, s, p_polearms, iron, 3.5, 5.5).
-weapon("lance", 0, 0, 4, 180, 10, 6, 8, 0, p, p_lance, iron, 3.5, 4.5).
-weapon("halberd", 0, 1, 8, 150, 10, 10, 6, 0, p | s, p_polearms, iron, 5.5, 7.0).
-weapon("bardiche", 0, 1, 4, 120, 7, 4, 4, 0, s, p_polearms, iron, 5.0, 7.5).
-weapon("voulge", 0, 1, 4, 125, 5, 4, 4, 0, s, p_polearms, iron, 5.0, 5.0).
-weapon("dwarvish mattock", 0, 1, 13, 120, 50, 12, 8, -1, b, p_pick_axe, iron, 6.5, 11.5).
-weapon("fauchard", 0, 1, 6, 60, 5, 6, 8, 0, p | s, p_polearms, iron, 3.5, 4.5).
-weapon("guisarme", 0, 1, 6, 80, 5, 4, 8, 0, s, p_polearms, iron, 5.0, 4.5).
-weapon("bill-guisarme", 0, 1, 4, 120, 7, 4, 10, 0, p | s, p_polearms, iron, 5.0, 5.5).
-weapon("lucern hammer", 0, 1, 5, 150, 7, 4, 6, 0, b | p, p_polearms, iron, 5.0, 3.5).
-weapon("bec de corbin", 0, 1, 4, 100, 8, 8, 6, 0, b | p, p_polearms, iron, 4.5, 3.5).
-weapon("mace", 0, 0, 40, 30, 5, 6, 6, 0, b, p_mace, iron, 4.5, 3.5).
-weapon("morning star", 0, 0, 12, 120, 10, 4, 6, 0, b, p_morning_star, iron, 5.0, 4.5).
-weapon("war hammer", 0, 0, 15, 50, 5, 4, 4, 0, b, p_hammer, iron, 3.5, 2.5).
-weapon("club", 0, 0, 12, 30, 3, 6, 3, 0, b, p_club, wood, 3.5, 2.0).
-weapon("rubber hose", 0, 0, 0, 20, 3, 4, 3, 0, b, p_whip, plastic, 2.5, 2.0).
-weapon("quarterstaff", 0, 1, 11, 40, 5, 6, 6, 0, b, p_quarterstaff, wood, 3.5, 3.5).
-weapon("aklys", 0, 0, 8, 15, 4, 6, 3, 0, b, p_club, iron, 3.5, 2.0).
-weapon("flail", 0, 0, 40, 15, 4, 6, 4, 0, b, p_flail, iron, 4.5, 5.0).
-weapon("bullwhip", 0, 0, 2, 20, 4, 2, 1, 0, 0, p_whip, leather, 1.5, 1.0).
-% Bow(name, prob, weight, cost, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
+% Projectile(name, aboundance, weight, cost, hitbonus, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
+projectile("arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5).
+projectile("elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5).
+projectile("orcish arrow", 20, 1, 2, 0, iron, p_bow, 3.0, 3.5).
+projectile("silver arrow", 12, 1, 5, 0, silver, p_bow, 3.5, 3.5).
+projectile("ya", 15, 1, 4, 1, metal, p_bow, 4.0, 4.0).
+projectile("crossbow bolt", 55, 1, 2, 0, iron, p_crossbow, 3.5, 4.5).
+% Weapon(name, mg, bi, aboundance, weight, cost, hitbonus, type, sub, material, damage_to_small_monsters, damage_to_large_monsters)
+weapon("dart", 1, 0, 60, 1, 2, 0, p, p_dart, iron, 2.0, 1.5).
+weapon("shuriken", 1, 0, 35, 1, 5, 2, p, p_shuriken, iron, 4.5, 3.5).
+weapon("boomerang", 1, 0, 15, 5, 20, 0, 0, p_boomerang, wood, 5.0, 5.0).
+weapon("spear", 1, 0, 50, 30, 3, 0, p, p_spear, iron, 3.5, 4.5).
+weapon("elven spear", 1, 0, 10, 30, 3, 0, p, p_spear, wood, 4.0, 4.5).
+weapon("orcish spear", 1, 0, 13, 30, 3, 0, p, p_spear, iron, 3.0, 4.5).
+weapon("dwarvish spear", 1, 0, 12, 35, 3, 0, p, p_spear, iron, 4.5, 4.5).
+weapon("silver spear", 1, 0, 2, 36, 40, 0, p, p_spear, silver, 3.5, 4.5).
+weapon("javelin", 1, 0, 10, 20, 3, 0, p, p_spear, iron, 3.5, 3.5).
+weapon("trident", 0, 0, 8, 25, 5, 0, p, p_trident, iron, 4.5, 7.5).
+weapon("dagger", 1, 0, 30, 10, 4, 2, p, p_dagger, iron, 2.5, 2.0).
+weapon("elven dagger", 1, 0, 10, 10, 4, 2, p, p_dagger, wood, 3.0, 2.0).
+weapon("orcish dagger", 1, 0, 12, 10, 4, 2, p, p_dagger, iron, 2.0, 2.0).
+weapon("silver dagger", 1, 0, 3, 12, 40, 2, p, p_dagger, silver, 2.5, 2.0).
+weapon("athame", 1, 0, 0, 10, 4, 2, s, p_dagger, iron, 2.5, 2.0).
+weapon("scalpel", 1, 0, 0, 5, 6, 2, s, p_knife, metal, 2.0, 2.0).
+weapon("knife", 1, 0, 20, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5).
+weapon("stiletto", 1, 0, 5, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5).
+weapon("worm tooth", 1, 0, 0, 20, 2, 0, 0, p_knife, 0, 1.5, 1.5).
+weapon("crysknife", 1, 0, 0, 20, 100, 3, p, p_knife, mineral, 5.5, 5.5).
+weapon("axe", 0, 0, 40, 60, 8, 0, s, p_axe, iron, 3.5, 2.5).
+weapon("battle-axe", 0, 1, 10, 120, 40, 0, s, p_axe, iron, 7, 8.5).
+weapon("short sword", 0, 0, 8, 30, 10, 0, p, p_short_sword, iron, 3.5, 4.5).
+weapon("elven short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, wood, 4.5, 4.5).
+weapon("orcish short sword", 0, 0, 3, 30, 10, 0, p, p_short_sword, iron, 3.0, 4.5).
+weapon("dwarvish short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, iron, 4.0, 4.5).
+weapon("scimitar", 0, 0, 15, 40, 15, 0, s, p_scimitar, iron, 4.5, 4.5).
+weapon("silver saber", 0, 0, 6, 40, 75, 0, s, p_saber, silver, 4.5, 4.5).
+weapon("broadsword", 0, 0, 8, 70, 10, 0, s, p_broad_sword, iron, 5.0, 4.5).
+weapon("elven broadsword", 0, 0, 4, 70, 10, 0, s, p_broad_sword, wood, 6.0, 4.5).
+weapon("long sword", 0, 0, 50, 40, 15, 0, s, p_long_sword, iron, 4.5, 6.5).
+weapon("two-handed sword", 0, 1, 22, 150, 50, 0, s, p_two_handed_sword, iron, 6.5, 10.5).
+weapon("katana", 0, 0, 4, 40, 80, 1, s, p_long_sword, iron, 5.5, 6.5).
+weapon("tsurugi", 0, 1, 0, 60, 500, 2, s, p_two_handed_sword, metal, 8.5, 11.5).
+weapon("runesword", 0, 0, 0, 40, 300, 0, s, p_broad_sword, iron, 5.0, 4.5).
+weapon("partisan", 0, 1, 5, 80, 10, 0, p, p_polearms, iron, 3.5, 4.5).
+weapon("ranseur", 0, 1, 5, 50, 6, 0, p, p_polearms, iron, 5.0, 5.0).
+weapon("spetum", 0, 1, 5, 50, 5, 0, p, p_polearms, iron, 4.5, 7.0).
+weapon("glaive", 0, 1, 8, 75, 6, 0, s, p_polearms, iron, 3.5, 5.5).
+weapon("lance", 0, 0, 4, 180, 10, 0, p, p_lance, iron, 3.5, 4.5).
+weapon("halberd", 0, 1, 8, 150, 10, 0, p | s, p_polearms, iron, 5.5, 7.0).
+weapon("bardiche", 0, 1, 4, 120, 7, 0, s, p_polearms, iron, 5.0, 7.5).
+weapon("voulge", 0, 1, 4, 125, 5, 0, s, p_polearms, iron, 5.0, 5.0).
+weapon("dwarvish mattock", 0, 1, 13, 120, 50, -1, b, p_pick_axe, iron, 6.5, 11.5).
+weapon("fauchard", 0, 1, 6, 60, 5, 0, p | s, p_polearms, iron, 3.5, 4.5).
+weapon("guisarme", 0, 1, 6, 80, 5, 0, s, p_polearms, iron, 5.0, 4.5).
+weapon("bill-guisarme", 0, 1, 4, 120, 7, 0, p | s, p_polearms, iron, 5.0, 5.5).
+weapon("lucern hammer", 0, 1, 5, 150, 7, 0, b | p, p_polearms, iron, 5.0, 3.5).
+weapon("bec de corbin", 0, 1, 4, 100, 8, 0, b | p, p_polearms, iron, 4.5, 3.5).
+weapon("mace", 0, 0, 40, 30, 5, 0, b, p_mace, iron, 4.5, 3.5).
+weapon("morning star", 0, 0, 12, 120, 10, 0, b, p_morning_star, iron, 5.0, 4.5).
+weapon("war hammer", 0, 0, 15, 50, 5, 0, b, p_hammer, iron, 3.5, 2.5).
+weapon("club", 0, 0, 12, 30, 3, 0, b, p_club, wood, 3.5, 2.0).
+weapon("rubber hose", 0, 0, 0, 20, 3, 0, b, p_whip, plastic, 2.5, 2.0).
+weapon("quarterstaff", 0, 1, 11, 40, 5, 0, b, p_quarterstaff, wood, 3.5, 3.5).
+weapon("aklys", 0, 0, 8, 15, 4, 0, b, p_club, iron, 3.5, 2.0).
+weapon("flail", 0, 0, 40, 15, 4, 0, b, p_flail, iron, 4.5, 5.0).
+weapon("bullwhip", 0, 0, 2, 20, 4, 0, 0, p_whip, leather, 1.5, 1.0).
+% Bow(name, aboundance, weight, cost, hitbon, metal, sub, damage_to_small_monsters, damage_to_large_monsters)
 bow("bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
 bow("crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
-% Helm(name, mgc, power, prob, delay, weight, cost, ac, can, metal)
+% Helm(name, mgc, power, aboundance, delay, weight, cost, ac, can, metal)
 helm("elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
 helm("orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
 helm("dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
@@ -121,7 +121,7 @@ armor("leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather).
 armor("leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather).
 armor("hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth).
 armor("t-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth).
-% Cloak(name, mgc, power, prob, delay, weight, cost, ac, can, metal)
+% Cloak(name, mgc, power, aboundance, delay, weight, cost, ac, can, metal)
 cloak("mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
 cloak("elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
 cloak("orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth).
@@ -416,7 +416,7 @@ wand("death", 5, 500, 1, ray).
 wand("lightning", 40, 175, 1, ray).
 % Rocks are GEM_CLASS
 
-% Gem(name,desc,aboundance,weight,gval,nutr,mohs,glass)
+% Gem(name,aboundance,weight,gval,nutr,mohs,glass)
 gem("dilithium crystal", 2, 1, 4500, 15, 5, gemstone).
 gem("diamond", 3, 1, 4000, 15, 10, gemstone).
 gem("ruby", 4, 1, 3500, 15, 9, gemstone).
@@ -463,6 +463,171 @@ weight("boulder", 6000).
 weight("statue", 10000).
 weight("heavy iron ball", 480).
 weight("iron chain", 120).
+% Can_be(name, appearence, appearence id).
+can_be(ring, "wooden", 150).
+can_be(ring, "granite", 151).
+can_be(ring, "opal", 152).
+can_be(ring, "clay", 153).
+can_be(ring, "coral", 154).
+can_be(ring, "black onyx", 155).
+can_be(ring, "moonstone", 156).
+can_be(ring, "tiger eye", 157).
+can_be(ring, "jade", 158).
+can_be(ring, "bronze", 159).
+can_be(ring, "agate", 160).
+can_be(ring, "topaz", 161).
+can_be(ring, "sapphire", 162).
+can_be(ring, "ruby", 163).
+can_be(ring, "diamond", 164).
+can_be(ring, "pearl", 165).
+can_be(ring, "iron", 166).
+can_be(ring, "brass", 167).
+can_be(ring, "copper", 168).
+can_be(ring, "twisted", 169).
+can_be(ring, "steel", 170).
+can_be(ring, "silver", 171).
+can_be(ring, "gold", 172).
+can_be(ring, "ivory", 173).
+can_be(ring, "emerald", 174).
+can_be(ring, "wire", 175).
+can_be(ring, "engagement", 176).
+can_be(ring, "shiny", 177).
+can_be(potion, "ruby", 272).
+can_be(potion, "pink", 273).
+can_be(potion, "orange", 274).
+can_be(potion, "yellow", 275).
+can_be(potion, "emerald", 276).
+can_be(potion, "dark green", 277).
+can_be(potion, "cyan", 278).
+can_be(potion, "sky blue", 279).
+can_be(potion, "brilliant blue", 280).
+can_be(potion, "magenta", 281).
+can_be(potion, "purple-red", 282).
+can_be(potion, "puce", 283).
+can_be(potion, "milky", 284).
+can_be(potion, "swirly", 285).
+can_be(potion, "bubbly", 286).
+can_be(potion, "smoky", 287).
+can_be(potion, "cloudy", 288).
+can_be(potion, "effervescent", 289).
+can_be(potion, "black", 290).
+can_be(potion, "golden", 291).
+can_be(potion, "brown", 292).
+can_be(potion, "fizzy", 293).
+can_be(potion, "dark", 294).
+can_be(potion, "white", 295).
+can_be(potion, "murky", 296).
+can_be(scroll, "ZELGO MER", 298).
+can_be(scroll, "JUYED AWK YACC", 299).
+can_be(scroll, "NR 9", 300).
+can_be(scroll, "XIXAXA XOXAXA XUXAXA", 301).
+can_be(scroll, "PRATYAVAYAH", 302).
+can_be(scroll, "DAIYEN FOOELS", 303).
+can_be(scroll, "LEP GEX VEN ZEA", 304).
+can_be(scroll, "PRIRUTSENIE", 305).
+can_be(scroll, "ELBIB YLOH", 306).
+can_be(scroll, "VERR YED HORRE", 307).
+can_be(scroll, "VENZAR BORGAVVE", 308).
+can_be(scroll, "THARR", 309).
+can_be(scroll, "YUM YUM", 310).
+can_be(scroll, "KERNOD WEL", 311).
+can_be(scroll, "ELAM EBOW", 312).
+can_be(scroll, "DUAM XNAHT", 313).
+can_be(scroll, "ANDOVA BEGARIN", 314).
+can_be(scroll, "KIRJE", 315).
+can_be(scroll, "VE FORBRYDERNE", 316).
+can_be(scroll, "HACKEM MUCHE", 317).
+can_be(scroll, "VELOX NEB", 318).
+can_be(scroll, "FOOBIE BLETCH", 319).
+can_be(scroll, "TEMOV", 320).
+can_be(scroll, "GARVEN DEH", 321).
+can_be(scroll, "READ ME", 322).
+can_be(scroll, "ETAOIN SHRDLU", 323).
+can_be(scroll, "LOREM IPSUM", 324).
+can_be(scroll, "FNORD", 325).
+can_be(scroll, "KO BATE", 326).
+can_be(scroll, "ABRA KA DABRA", 327).
+can_be(scroll, "ASHPD SODALG", 328).
+can_be(scroll, "ZLORFIK", 329).
+can_be(scroll, "GNIK SISI VLE", 330).
+can_be(scroll, "HAPAX LEGOMENON", 331).
+can_be(scroll, "EIRIS SAZUN IDISI", 332).
+can_be(scroll, "PHOL ENDE WODAN", 333).
+can_be(scroll, "GHOTI", 334).
+can_be(scroll, "MAPIRO MAHAMA DIROMAT", 335).
+can_be(scroll, "VAS CORP BET MANI", 336).
+can_be(scroll, "XOR OTA", 337).
+can_be(scroll, "STRC PRST SKRZ KRK", 338).
+can_be(spell, "parchment", 340).
+can_be(spell, "vellum", 341).
+can_be(spell, "ragged", 342).
+can_be(spell, "dog eared", 343).
+can_be(spell, "mottled", 344).
+can_be(spell, "stained", 345).
+can_be(spell, "cloth", 346).
+can_be(spell, "leathery", 347).
+can_be(spell, "white", 348).
+can_be(spell, "pink", 349).
+can_be(spell, "red", 350).
+can_be(spell, "orange", 351).
+can_be(spell, "yellow", 352).
+can_be(spell, "velvet", 353).
+can_be(spell, "light green", 354).
+can_be(spell, "dark green", 355).
+can_be(spell, "turquoise", 356).
+can_be(spell, "cyan", 357).
+can_be(spell, "light blue", 358).
+can_be(spell, "dark blue", 359).
+can_be(spell, "indigo", 360).
+can_be(spell, "magenta", 361).
+can_be(spell, "purple", 362).
+can_be(spell, "violet", 363).
+can_be(spell, "tan", 364).
+can_be(spell, "plaid", 365).
+can_be(spell, "light brown", 366).
+can_be(spell, "dark brown", 367).
+can_be(spell, "gray", 368).
+can_be(spell, "wrinkled", 369).
+can_be(spell, "dusty", 370).
+can_be(spell, "bronze", 371).
+can_be(spell, "copper", 372).
+can_be(spell, "silver", 373).
+can_be(spell, "gold", 374).
+can_be(spell, "glittering", 375).
+can_be(spell, "shining", 376).
+can_be(spell, "dull", 377).
+can_be(spell, "thin", 378).
+can_be(spell, "thick", 379).
+can_be(wand, "glass", 383).
+can_be(wand, "balsa", 384).
+can_be(wand, "crystal", 385).
+can_be(wand, "maple", 386).
+can_be(wand, "pine", 387).
+can_be(wand, "oak", 388).
+can_be(wand, "ebony", 389).
+can_be(wand, "marble", 390).
+can_be(wand, "tin", 391).
+can_be(wand, "brass", 392).
+can_be(wand, "copper", 393).
+can_be(wand, "silver", 394).
+can_be(wand, "platinum", 395).
+can_be(wand, "iridium", 396).
+can_be(wand, "zinc", 397).
+can_be(wand, "aluminum", 398).
+can_be(wand, "uranium", 399).
+can_be(wand, "iron", 400).
+can_be(wand, "steel", 401).
+can_be(wand, "hexagonal", 402).
+can_be(wand, "short", 403).
+can_be(wand, "runed", 404).
+can_be(wand, "long", 405).
+can_be(wand, "curved", 406).
+can_be(wand, "forked", 408).
+can_be(wand, "spiked", 409).
+can_be(wand, "jeweled", 410).
+can_be("blank paper", "unlabeled", 399). % scroll
+can_be("blank paper", "plain", 380). % spellbook
+% can_be("mail", "stamped").
 can_be("elven arrow", "runed arrow").
 can_be("orcish arrow", "crude arrow").
 can_be("ya", "bamboo arrow").
@@ -539,34 +704,6 @@ can_be(boots, "mud boots").
 can_be(boots, "buckled boots").
 can_be(boots, "riding boots").
 can_be(boots, "snow boots").
-can_be(ring, "wooden").
-can_be(ring, "granite").
-can_be(ring, "opal").
-can_be(ring, "clay").
-can_be(ring, "coral").
-can_be(ring, "black onyx").
-can_be(ring, "moonstone").
-can_be(ring, "tiger eye").
-can_be(ring, "jade").
-can_be(ring, "bronze").
-can_be(ring, "agate").
-can_be(ring, "topaz").
-can_be(ring, "sapphire").
-can_be(ring, "ruby").
-can_be(ring, "diamond").
-can_be(ring, "pearl").
-can_be(ring, "iron").
-can_be(ring, "brass").
-can_be(ring, "copper").
-can_be(ring, "twisted").
-can_be(ring, "steel").
-can_be(ring, "silver").
-can_be(ring, "gold").
-can_be(ring, "ivory").
-can_be(ring, "emerald").
-can_be(ring, "wire").
-can_be(ring, "engagement").
-can_be(ring, "shining").
 can_be(amulet, "circular").
 can_be(amulet, "spherical").
 can_be(amulet, "oval").
@@ -604,142 +741,6 @@ can_be("grappling hook", "iron hook").
 can_be("candelabrum of invocation", "candelabrum").
 can_be("bell of opening", "silver bell").
 can_be("water", "clear").
-can_be(potion, "ruby").
-can_be(potion, "pink").
-can_be(potion, "orange").
-can_be(potion, "yellow").
-can_be(potion, "emerald").
-can_be(potion, "dark green").
-can_be(potion, "cyan").
-can_be(potion, "sky blue").
-can_be(potion, "brilliant blue").
-can_be(potion, "magenta").
-can_be(potion, "purple-red").
-can_be(potion, "puce").
-can_be(potion, "milky").
-can_be(potion, "swirly").
-can_be(potion, "bubbly").
-can_be(potion, "smoky").
-can_be(potion, "cloudy").
-can_be(potion, "effervescent").
-can_be(potion, "black").
-can_be(potion, "golden").
-can_be(potion, "brown").
-can_be(potion, "fizzy").
-can_be(potion, "dark").
-can_be(potion, "white").
-can_be(potion, "murky").
-can_be(scroll, "zelgo mer").
-can_be(scroll, "juyed awk yacc").
-can_be(scroll, "nr 9").
-can_be(scroll, "xixaxa xoxaxa xuxaxa").
-can_be(scroll, "pratyavayah").
-can_be(scroll, "daiyen fooels").
-can_be(scroll, "lep gex ven zea").
-can_be(scroll, "prirutsenie").
-can_be(scroll, "elbib yloh").
-can_be(scroll, "verr yed horre").
-can_be(scroll, "venzar borgavve").
-can_be(scroll, "tharr").
-can_be(scroll, "yum yum").
-can_be(scroll, "kernod wel").
-can_be(scroll, "elam ebow").
-can_be(scroll, "duam xnaht").
-can_be(scroll, "andova begarin").
-can_be(scroll, "kirje").
-can_be(scroll, "ve forbryderne").
-can_be(scroll, "hackem muche").
-can_be(scroll, "velox neb").
-can_be(scroll, "foobie bletch").
-can_be(scroll, "temov").
-can_be(scroll, "garven deh").
-can_be(scroll, "read me").
-can_be(scroll, "etaoin shrdlu").
-can_be(scroll, "lorem ipsum").
-can_be(scroll, "fnord").
-can_be(scroll, "ko bate").
-can_be(scroll, "abra ka dabra").
-can_be(scroll, "ashpd sodalg").
-can_be(scroll, "zlorfik").
-can_be(scroll, "gnik sisi vle").
-can_be(scroll, "hapax legomenon").
-can_be(scroll, "eiris sazun idisi").
-can_be(scroll, "phol ende wodan").
-can_be(scroll, "ghoti").
-can_be(scroll, "mapiro mahama diromat").
-can_be(scroll, "vas corp bet mani").
-can_be(scroll, "xor ota").
-can_be(scroll, "strc prst skrz krk").
-can_be("mail", "stamped").
-can_be("blank paper", "unlabeled"). % scroll
-can_be("blank paper", "plain"). % spellbook
-can_be(spell, "parchment").
-can_be(spell, "vellum").
-can_be(spell, "ragged").
-can_be(spell, "dog eared").
-can_be(spell, "mottled").
-can_be(spell, "stained").
-can_be(spell, "cloth").
-can_be(spell, "leathery").
-can_be(spell, "white").
-can_be(spell, "pink").
-can_be(spell, "red").
-can_be(spell, "orange").
-can_be(spell, "yellow").
-can_be(spell, "velvet").
-can_be(spell, "light green").
-can_be(spell, "dark green").
-can_be(spell, "turquoise").
-can_be(spell, "cyan").
-can_be(spell, "light blue").
-can_be(spell, "dark blue").
-can_be(spell, "indigo").
-can_be(spell, "magenta").
-can_be(spell, "purple").
-can_be(spell, "violet").
-can_be(spell, "tan").
-can_be(spell, "plaid").
-can_be(spell, "light brown").
-can_be(spell, "dark brown").
-can_be(spell, "gray").
-can_be(spell, "wrinkled").
-can_be(spell, "dusty").
-can_be(spell, "bronze").
-can_be(spell, "copper").
-can_be(spell, "silver").
-can_be(spell, "gold").
-can_be(spell, "glittering").
-can_be(spell, "shining").
-can_be(spell, "dull").
-can_be(spell, "thin").
-can_be(spell, "thick").
-can_be(wand, "glass").
-can_be(wand, "balsa").
-can_be(wand, "crystal").
-can_be(wand, "maple").
-can_be(wand, "pine").
-can_be(wand, "oak").
-can_be(wand, "ebony").
-can_be(wand, "marble").
-can_be(wand, "tin").
-can_be(wand, "brass").
-can_be(wand, "copper").
-can_be(wand, "silver").
-can_be(wand, "platinum").
-can_be(wand, "iridium").
-can_be(wand, "zinc").
-can_be(wand, "aluminum").
-can_be(wand, "uranium").
-can_be(wand, "iron").
-can_be(wand, "steel").
-can_be(wand, "hexagonal").
-can_be(wand, "short").
-can_be(wand, "runed").
-can_be(wand, "long").
-can_be(wand, "curved").
-can_be(wand, "forked").
-can_be(wand, "spiked").
-can_be(wand, "jeweled").
 can_be("dilithium crystal", "white").
 can_be("diamond", "white").
 can_be("ruby", "red").
