@@ -336,7 +336,6 @@ scroll("earth", 1, 18, 200).
 scroll("punishment", 1, 15, 300).
 scroll("charging", 1, 15, 300).
 scroll("stinking cloud", 1, 15, 300).
-scroll("mail", 0, 0, 0).
 scroll("blank paper", 0, 28, 60).
  /* spellbook description normally refers to book covers (primarily color).
        parchment and vellum would never be used for such, but rather than
@@ -389,6 +388,8 @@ spell("cancellation", p_matter_spell, 15, 8, 7, 1, immediate).
 spell("protection", p_cleric_spell, 18, 3, 1, 1, nodir).
 spell("jumping", p_escape_spell, 20, 3, 1, 1, immediate).
 spell("stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate).
+spell("blank paper", p_none, 18, 0, 0, 0, 0).
+
 % Wand(name,aboundance,cost,magical,dir)
 wand("light", 95, 100, 1, nodir).
 wand("secret door detection", 50, 150, 1, nodir).
@@ -464,10 +465,11 @@ weight("statue", 10000).
 weight("heavy iron ball", 480).
 weight("iron chain", 120).
 % Kind(name, kind).
+kind(X, amulet) :- amulet(X, _, _).
 kind(X, ring) :- ring(X, _, _, _, _, _, _).
 kind(X, potion) :- potion(X, _, _, _, _), X \= "water".
-kind(X, scroll) :- scroll(X, _, _, _), X \= "blank paper", X \= "mail".
-kind(X, spell) :- spell(X, _, _, _, _, _, _).
+kind(X, scroll) :- scroll(X, _, _, _), X \= "blank paper".
+kind(X, spell) :- spell(X, _, _, _, _, _, _), X \= "blank paper".
 kind(X, wand) :- wand(X, _, _, _, _).
 kind(X, helm) :- member(X, ["helmet", "helm of brilliance", "helm of opposite alignment", "helm of telepathy"]).
 kind(X, gloves) :- gloves(X, _, _, _, _, _, _, _, _, _).
@@ -636,7 +638,6 @@ can_be(wand, "forked", 408).
 can_be(wand, "spiked", 409).
 can_be(wand, "jeweled", 410).
 can_be("blank paper", "unlabeled", 339). % scroll
-% can_be("mail", "stamped").
 can_be("blank paper", "plain", 380). % spellbook
 can_be("elven arrow", "runed arrow", 2).
 can_be("orcish arrow", "crude arrow", 3).
@@ -787,6 +788,8 @@ can_be("worthless piece of yellow glass", "yellow", 438).
 can_be("worthless piece of black glass", "black", 439).
 can_be("worthless piece of green glass", "green", 440).
 can_be("worthless piece of violet glass", "violet", 441).
+can_be(X, App, Id) :- kind(X, K), can_be(K, App, Id).
+
 %can_be(rock, "gray").
 % Coin(name,aboundance,metal,worth,weight)
 coin("gold piece", 1000, gold, 1, 0.01000001).
@@ -795,11 +798,3 @@ a special, one of a kind, spellbook
 % Misc(name,desc,weight)
 misc("novel", "paperback", 50).
 */
-
-
-
-
-
-
-
-
