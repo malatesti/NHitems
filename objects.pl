@@ -449,33 +449,33 @@ gem("worthless piece of yellow glass", 77, 1, 0, 6, 5, glass).
 gem("worthless piece of black glass", 76, 1, 0, 6, 5, glass).
 gem("worthless piece of green glass", 77, 1, 0, 6, 5, glass).
 gem("worthless piece of violet glass", 77, 1, 0, 6, 5, glass).
-% Rock(name,aboundance,weight,gval,sdam,ldam,magical,nutr,mohs)
+% rock(NAME, ABOUNDANCE, WEIGHT, GVAL, SDAM, LDAM, MAGICAL, NUTR, MOHS)
 rock("luckstone", 10, 10, 60, 3, 3, 1, 10, 7).
 rock("loadstone", 10, 500, 1, 3, 3, 1, 10, 6).
 rock("touchstone", 8, 10, 45, 3, 3, 1, 10, 6).
 rock("flint", 10, 10, 1, 6, 6, 0, 10, 7).
 rock("rock", 100, 10, 0, 3, 3, 0, 10, 7).
-weight(ring, 3).
-weight(scroll, 5).
-weight(spell, 50).
-weight(potion, 20).
-weight(amulet, 20).
-weight("boulder", 6000).
-weight("statue", 10000).
-weight("heavy iron ball", 480).
-weight("iron chain", 120).
-% Kind(name, kind).
+% object(CAT, NAME, ABOUNDANCE, COST, WEIGHT, MATERIAL)
+object(amulet, NAME, ABOUNDANCE, 150, 20, iron) :- amulet(NAME, _, ABOUNDANCE).
+object(ring, NAME, 1, COST, 3, MATERIAL) :- ring(NAME, _, COST, _, _, _, MATERIAL).
+object(potion, NAME, ABOUNDANCE, COST, 20, glass) :- potion(NAME, _, _, ABOUNDANCE, COST).
+object(spell, NAME, ABOUNDANCE, COST, 50, paper) :- spell(NAME, _, ABOUNDANCE, _, LEVEL, _, _), COST is LEVEL*100. % vellum and parchment appearences have leather as material, but they are ignored
+object(scroll, NAME, ABOUNDANCE, COST, 5, paper) :- scroll(NAME, _, ABOUNDANCE, COST).
+object(wand, NAME, ABOUNDANCE, COST, 7, 0) :- wand(NAME, ABOUNDANCE, COST, _, _). % material depends from appearence, but is not that relevant for objects such as wands
+object(ARMOR, NAME, ABOUNDANCE, COST, WEIGHT, MATERIAL) :- member(ARMOR, [helm, gloves, cloak, boots]), call(ARMOR, NAME, _, _, ABOUNDANCE, _, WEIGHT, COST, _, _, MATERIAL).
+% what kind of randomized appearences does NAME have?
+% kind(NAME, KIND)
 kind(X, amulet) :- amulet(X, _, _).
 kind(X, ring) :- ring(X, _, _, _, _, _, _).
-kind(X, potion) :- potion(X, _, _, _, _), X \= "water".
+kind(X, potion) :- potion(X, _, _, _, _), X \= "water". % water has fixed appearence
 kind(X, scroll) :- scroll(X, _, _, _), X \= "blank paper".
 kind(X, spell) :- spell(X, _, _, _, _, _, _), X \= "blank paper".
 kind(X, wand) :- wand(X, _, _, _, _).
 kind(X, helm) :- member(X, ["helmet", "helm of brilliance", "helm of opposite alignment", "helm of telepathy"]).
 kind(X, gloves) :- gloves(X, _, _, _, _, _, _, _, _, _).
 kind(X, cloak) :- member(X, ["cloak of protection", "cloak of invisibility", "cloak of magic resistance", "cloak of displacement"]).
-kind(X, boots) :- boots(X, 1, _, _, _, _, _, _, _, _).
-% Can_be(name, appearence, appearence id).
+kind(X, boots) :- boots(X, 1, _, _, _, _, _, _, _, _). % only magical ones have randomized appearence
+% can_be(NAME, APPEARENCE, APPEARENCE_ID)
 can_be(ring, "wooden", 150).
 can_be(ring, "granite", 151).
 can_be(ring, "opal", 152).
