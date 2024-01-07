@@ -5,6 +5,7 @@ import numpy as np
 class bs_matrix:
     def __init__(self, objs, aboundance):
         n = len(objs)
+        assert n == len(aboundance)
         self.objects = objs
         self.appearences = []
         self.aboundance = aboundance
@@ -40,6 +41,10 @@ class bs_matrix:
         return mat[self.appearences.index(appearence),
                    self.objects.index(obj)]
 
+    def get_possible_objects(self, mat, appearence, minimum_prob):
+        return [o for o in self.objects
+                if self.get_prob(mat, appearence, o) >= minimum_prob]
+
     def is_not(self, appearence, obj):
         assert obj in self.objects
         assert appearence in self.appearences
@@ -55,7 +60,7 @@ class bs_matrix:
                            self.objects.index(obj)] = 1
 
     def found(self, appearence):
-        if appearence not in self.appearences:
+        if appearence not in self.appearences:  # first time
             self.appearences.append(appearence)
             assert len(self.appearences) <= len(self.objects)
         row = self.probabilities[self.appearences.index(appearence)]
