@@ -2,7 +2,7 @@ from pyswip import Prolog
 import numpy as np
 
 
-class bs_matrix:
+class stochastic_matrix:
     def __init__(self, objs, aboundance):
         n = len(objs)
         assert n == len(aboundance)
@@ -84,6 +84,6 @@ def get_aboundance(prolog, cat, obj):
     return res[0]["ABOUNDANCE"]
 
 
-matrices = {k: bs_matrix(objs, [
+matrices = {k: stochastic_matrix(objs, [
     get_aboundance(prolog, k, obj) for obj in objs
 ]) for k, objs in objects_by_kind.items()}
