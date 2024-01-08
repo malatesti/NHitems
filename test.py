@@ -64,7 +64,7 @@ class stochastic_matrix:
             self.appearences.append(appearence)
             assert len(self.appearences) <= len(self.objects)
         row = self.probabilities[self.appearences.index(appearence)]
-        row *= self.aboundances
+        row *= self.aboundance
         row /= row.sum()
 
 
