@@ -25,13 +25,13 @@ class stochastic_matrix:
         b = self.probabilities * self.c * self.r.reshape(-1, 1)
         if self.mse(b) > self.mse(self.probabilities):
             self.c[:] = self.r[:] = 1  # reset
-        for _ in range(max_it):
+        for i in range(max_it):
             self.c = 1/(self.r @ self.probabilities)
             self.r = 1/(self.probabilities @ self.c)
             b[:] = self.probabilities * self.c * self.r.reshape(-1, 1)
             if self.mse(b) <= tolerance:
-                return b
-        return None
+                return (b, i+1)
+        return (None, max_it)
 
     def get_prob(self, mat, appearence, obj):
         assert obj in self.objects
