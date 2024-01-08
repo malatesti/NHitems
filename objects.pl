@@ -461,18 +461,12 @@ object(ring, NAME, 1, COST, 3, MATERIAL) :- ring(NAME, _, COST, _, _, _, MATERIA
 object(potion, NAME, ABOUNDANCE, COST, 20, glass) :- potion(NAME, _, _, ABOUNDANCE, COST).
 object(spell, NAME, ABOUNDANCE, COST, 50, paper) :- spell(NAME, _, ABOUNDANCE, _, LEVEL, _, _), COST is LEVEL*100. % vellum and parchment appearences have leather as material, but they are ignored
 object(scroll, NAME, ABOUNDANCE, COST, 5, paper) :- scroll(NAME, _, ABOUNDANCE, COST).
-object(wand, NAME, ABOUNDANCE, COST, 7, 0) :- wand(NAME, ABOUNDANCE, COST, _, _). % material depends from appearence, but is not that relevant for objects such as wands
+object(wand, NAME, ABOUNDANCE, COST, 7, appearence) :- wand(NAME, ABOUNDANCE, COST, _, _). % material depends from appearence, but is not that relevant for objects such as wands
 object(ARMOR, NAME, ABOUNDANCE, COST, WEIGHT, MATERIAL) :- member(ARMOR, [helm, gloves, cloak, boots]), call(ARMOR, NAME, _, _, ABOUNDANCE, _, WEIGHT, COST, _, _, MATERIAL).
-% what kind of randomized appearences does NAME have?
-% kind(NAME, KIND)
-kind(X, amulet) :- amulet(X, _, _).
-kind(X, ring) :- ring(X, _, _, _, _, _, _).
-kind(X, potion) :- potion(X, _, _, _, _), X \= "water". % water has fixed appearence
-kind(X, scroll) :- scroll(X, _, _, _), X \= "blank paper".
-kind(X, spell) :- spell(X, _, _, _, _, _, _), X \= "blank paper".
-kind(X, wand) :- wand(X, _, _, _, _).
+% what kind of Randomized APPearences does NAME have?
+% kind(NAME, RAPP_KIND)
+kind(NAME, RAPP_KIND) :- member(RAPP_KIND, [amulet, ring, potion, scroll, spell, wand, gloves]), object(RAPP_KIND, NAME, _, _, _, _), NAME \= "blank paper", NAME \= "water".
 kind(X, helm) :- member(X, ["helmet", "helm of brilliance", "helm of opposite alignment", "helm of telepathy"]).
-kind(X, gloves) :- gloves(X, _, _, _, _, _, _, _, _, _).
 kind(X, cloak) :- member(X, ["cloak of protection", "cloak of invisibility", "cloak of magic resistance", "cloak of displacement"]).
 kind(X, boots) :- boots(X, 1, _, _, _, _, _, _, _, _). % only magical ones have randomized appearence
 % can_be(NAME, APPEARENCE, APPEARENCE_ID)
