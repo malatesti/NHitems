@@ -41,9 +41,9 @@ class stochastic_matrix:
         return mat[self.appearences.index(appearence),
                    self.objects.index(obj)]
 
-    def get_possible_objects(self, mat, appearence, minimum_prob):
-        return [o for o in self.objects
-                if self.get_prob(mat, appearence, o) >= minimum_prob]
+    def get_possible_objects(self, mat, appearence):
+        return sorted(((self.get_prob(mat, appearence, obj), obj)
+                      for o in self.objects), reverse=True)
 
     def is_not(self, appearence, obj):
         assert obj in self.objects
