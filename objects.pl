@@ -1,11 +1,11 @@
-% projectile(NAME, ABOUNDANCE, WEIGHT, COST, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+% projectile(NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 projectile("arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5).
 projectile("elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5).
 projectile("orcish arrow", 20, 1, 2, 0, iron, p_bow, 3.0, 3.5).
 projectile("silver arrow", 12, 1, 5, 0, silver, p_bow, 3.5, 3.5).
 projectile("ya", 15, 1, 4, 1, metal, p_bow, 4.0, 4.0).
 projectile("crossbow bolt", 55, 1, 2, 0, iron, p_crossbow, 3.5, 4.5).
-% weapon(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, COST, HITBONUS, TYPE, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+% weapon(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, TYPE, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 weapon("dart", 1, 0, 60, 1, 2, 0, p, p_dart, iron, 2.0, 1.5).
 weapon("shuriken", 1, 0, 35, 1, 5, 2, p, p_shuriken, iron, 4.5, 3.5).
 weapon("boomerang", 1, 0, 15, 5, 20, 0, 0, p_boomerang, wood, 5.0, 5.0).
@@ -64,14 +64,14 @@ weapon("quarterstaff", 0, 1, 11, 40, 5, 0, b, p_quarterstaff, wood, 3.5, 3.5).
 weapon("aklys", 0, 0, 8, 15, 4, 0, b, p_club, iron, 3.5, 2.0).
 weapon("flail", 0, 0, 40, 15, 4, 0, b, p_flail, iron, 4.5, 5.0).
 weapon("bullwhip", 0, 0, 2, 20, 4, 0, 0, p_whip, leather, 1.5, 1.0).
-% bow(NAME, ABOUNDANCE, WEIGHT, COST, HITBON, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+% bow(NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBON, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 bow("bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
 bow("sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
 bow("crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
-% helm(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, MATERIAL)
+% helm(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 helm("elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
 helm("orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
 helm("dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
@@ -83,7 +83,7 @@ helm("helmet", 0, 0, 10, 1, 30, 10, 9, 0, iron).
 helm("helm of brilliance", 1, 0, 6, 1, 50, 50, 9, 0, iron).
 helm("helm of opposite alignment", 1, 0, 6, 1, 50, 50, 9, 0, iron).
 helm("helm of telepathy", 1, telepat, 2, 1, 50, 50, 9, 0, iron).
-% drgn_armr(NAME, MAGICAL, POWER, COST, AC)
+% drgn_armr(NAME, MAGICAL, POWER, BASE_PRICE, AC)
 drgn_armr("gray dragon scale mail", 1, antimagic, 1200, 1).
 drgn_armr("silver dragon scale mail", 1, reflecting, 1200, 1).
 drgn_armr("red dragon scale mail", 1, fire_res, 900, 1).
@@ -102,7 +102,7 @@ drgn_armr("black dragon scales", 0, disint_res, 700, 7).
 drgn_armr("blue dragon scales", 0, shock_res, 500, 7).
 drgn_armr("green dragon scales", 0, poison_res, 500, 7).
 drgn_armr("yellow dragon scales", 0, acid_res, 500, 7).
-% armor(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, SUB, MATERIAL)
+% armor(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
 armor("plate mail", 0, 1, 0, 44, 5, 450, 600, 3, 2, arm_suit, iron).
 armor("crystal plate mail", 0, 1, 0, 10, 5, 450, 820, 3, 2, arm_suit, glass).
 armor("bronze plate mail", 0, 1, 0, 25, 5, 450, 400, 4, 1, arm_suit, copper).
@@ -120,7 +120,7 @@ armor("leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather).
 armor("leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather).
 armor("hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth).
 armor("t-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth).
-% cloak(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, MATERIAL)
+% cloak(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 cloak("mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
 cloak("elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
 cloak("orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth).
@@ -133,7 +133,7 @@ cloak("cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth).
 cloak("cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth).
 cloak("cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth).
 cloak("cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth).
-% shield(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, MATERIAL)
+% shield(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 shield("small shield", 0, 0, 0, 6, 0, 30, 3, 9, 0, wood).
 shield("elven shield", 0, 0, 0, 2, 0, 40, 7, 8, 0, wood).
 shield("uruk-hai shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
@@ -141,12 +141,12 @@ shield("orcish shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
 shield("large shield", 0, 1, 0, 7, 0, 100, 10, 8, 0, iron).
 shield("dwarvish roundshield", 0, 0, 0, 4, 0, 100, 10, 8, 0, iron).
 shield("shield of reflection", 1, 0, reflecting, 3, 0, 50, 50, 8, 0, silver).
-% gloves(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, MATERIAL)
+% gloves(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 gloves("leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather).
 gloves("gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather).
 gloves("gauntlets of power", 1, 0, 8, 1, 30, 50, 9, 0, iron).
 gloves("gauntlets of dexterity", 1, 0, 8, 1, 10, 50, 9, 0, leather).
-% boots(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, COST, AC, CAN, MATERIAL)
+% boots(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 boots("low boots", 0, 0, 25, 2, 10, 8, 9, 0, leather).
 boots("iron shoes", 0, 0, 7, 2, 50, 16, 8, 0, iron).
 boots("high boots", 0, 0, 15, 2, 20, 12, 8, 0, leather).
@@ -157,7 +157,7 @@ boots("elven boots", 1, stealth, 12, 2, 15, 8, 9, 0, leather).
 boots("kicking boots", 1, 0, 12, 2, 50, 8, 9, 0, iron).
 boots("fumble boots", 1, fumbling, 12, 2, 20, 30, 9, 0, leather).
 boots("levitation boots", 1, levitation, 12, 2, 15, 30, 9, 0, leather).
-% ring(NAME, POWER, COST, MAGICAL, SPEC, MOHS, MATERIAL)
+% ring(NAME, POWER, BASE_PRICE, MAGICAL, SPEC, MOHS, MATERIAL)
 ring("adornment", adorned, 100, 1, 1, 2, wood).
 ring("gain strength", 0, 150, 1, 1, 7, mineral).
 ring("gain constitution", 0, 150, 1, 1, 7, mineral).
@@ -198,7 +198,7 @@ amulet("amulet of reflection", reflecting, 75).
 amulet("amulet of magical breathing", magical_breathing, 65).
 % Containers and weptools are TOOL_CLASS
 
-% container(NAME, MAGICAL, CHG, ABOUNDANCE, WEIGHT, COST, MATERIAL)
+% container(NAME, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
 container("large box", 0, 0, 40, 350, 8, wood).
 container("chest", 0, 0, 35, 600, 16, wood).
 container("ice box", 0, 0, 5, 900, 42, plastic).
@@ -206,11 +206,11 @@ container("sack", 0, 0, 35, 15, 2, cloth).
 container("oilskin sack", 0, 0, 5, 15, 100, cloth).
 container("bag of holding", 1, 0, 20, 15, 100, cloth).
 container("bag of tricks", 1, 1, 20, 15, 100, cloth).
-% weptool(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, COST, SDAM, LDAM, HITBON, SUB, MAT, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+% weptool(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, SDAM, LDAM, HITBON, SUB, MAT, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 weptool("pick-axe", 0, 0, 20, 100, 50, 6, 3, whack, p_pick_axe, iron, 3.5, 2.0).
 weptool("grappling hook", 0, 0, 5, 30, 50, 2, 6, whack, p_flail, iron, 1.5, 3.5).
 weptool("unicorn horn", 1, 1, 0, 20, 100, 12, 12, pierce, p_unicorn_horn, bone, 6.5, 6.5).
-% tool(NAME, MRG, MAGICAL, CHG, ABOUNDANCE, WEIGHT, COST, MATERIAL)
+% tool(NAME, MRG, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
 tool("skeleton key", 0, 0, 0, 80, 3, 10, iron).
 tool("lock pick", 0, 0, 0, 60, 4, 20, iron).
 tool("credit card", 0, 0, 0, 15, 1, 10, plastic).
@@ -287,7 +287,7 @@ food("food ration", 380, 5, 20, 0, veggy, 800).
 food("k-ration", 0, 1, 10, 0, veggy, 400).
 food("c-ration", 0, 1, 10, 0, veggy, 300).
 food("tin", 75, 0, 10, 1, metal, 0).
-% potion(NAME, MAGICAL, POWER, ABOUNDANCE, COST)
+% potion(NAME, MAGICAL, POWER, ABOUNDANCE, BASE_PRICE)
 potion("water", 0, 0, 92, 100).
 potion("gain ability", 1, 0, 42, 300).
 potion("restore ability", 1, 0, 40, 100).
@@ -314,7 +314,7 @@ potion("sickness", 0, 0, 42, 50).
 potion("fruit juice", 0, 0, 42, 50).
 potion("acid", 0, 0, 10, 250).
 potion("oil", 0, 0, 30, 250).
-% scroll(NAME, MAGICAL, ABOUNDANCE, COST)
+% scroll(NAME, MAGICAL, ABOUNDANCE, BASE_PRICE)
 scroll("enchant armor", 1, 63, 80).
 scroll("destroy armor", 1, 45, 100).
 scroll("confuse monster", 1, 53, 100).
@@ -390,7 +390,7 @@ spell("jumping", p_escape_spell, 20, 3, 1, 1, immediate).
 spell("stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate).
 spell("blank paper", p_none, 18, 0, 0, 0, 0).
 
-% wand(NAME, ABOUNDANCE, COST, MAGICAL, DIR)
+% wand(NAME, ABOUNDANCE, BASE_PRICE, MAGICAL, DIR)
 wand("light", 95, 100, 1, nodir).
 wand("secret door detection", 50, 150, 1, nodir).
 wand("enlightenment", 15, 150, 1, nodir).
@@ -455,20 +455,41 @@ rock("loadstone", 10, 500, 1, 3, 3, 1, 10, 6).
 rock("touchstone", 8, 10, 45, 3, 3, 1, 10, 6).
 rock("flint", 10, 10, 1, 6, 6, 0, 10, 7).
 rock("rock", 100, 10, 0, 3, 3, 0, 10, 7).
-% object(CAT, NAME, ABOUNDANCE, COST, WEIGHT, MATERIAL)
+% object(CAT, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL)
 object(amulet, NAME, ABOUNDANCE, 150, 20, iron) :- amulet(NAME, _, ABOUNDANCE).
-object(ring, NAME, 1, COST, 3, MATERIAL) :- ring(NAME, _, COST, _, _, _, MATERIAL).
-object(potion, NAME, ABOUNDANCE, COST, 20, glass) :- potion(NAME, _, _, ABOUNDANCE, COST).
-object(spell, NAME, ABOUNDANCE, COST, 50, paper) :- spell(NAME, _, ABOUNDANCE, _, LEVEL, _, _), COST is LEVEL*100. % vellum and parchment appearences have leather as material, but they are ignored
-object(scroll, NAME, ABOUNDANCE, COST, 5, paper) :- scroll(NAME, _, ABOUNDANCE, COST).
-object(wand, NAME, ABOUNDANCE, COST, 7, appearence) :- wand(NAME, ABOUNDANCE, COST, _, _). % material depends from appearence, but is not that relevant for objects such as wands
-object(ARMOR, NAME, ABOUNDANCE, COST, WEIGHT, MATERIAL) :- member(ARMOR, [helm, gloves, cloak, boots]), call(ARMOR, NAME, _, _, ABOUNDANCE, _, WEIGHT, COST, _, _, MATERIAL).
+object(ring, NAME, 1, BASE_PRICE, 3, MATERIAL) :- ring(NAME, _, BASE_PRICE, _, _, _, MATERIAL).
+object(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass) :- potion(NAME, _, _, ABOUNDANCE, BASE_PRICE).
+object(spell, NAME, ABOUNDANCE, BASE_PRICE, 50, paper) :- spell(NAME, _, ABOUNDANCE, _, LEVEL, _, _), BASE_PRICE is LEVEL*100. % vellum and parchment appearences have leather as material, but they are ignored
+object(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper) :- scroll(NAME, _, ABOUNDANCE, BASE_PRICE).
+object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, appearence) :- wand(NAME, ABOUNDANCE, BASE_PRICE, _, _). % material depends from appearence, but is not that relevant for objects such as wands
+object(ARMOR, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL) :- member(ARMOR, [helm, gloves, cloak, boots]), call(ARMOR, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, _, _, MATERIAL).
 % what kind of Randomized APPearences does NAME have?
 % kind(NAME, RAPP_KIND)
 kind(NAME, RAPP_KIND) :- member(RAPP_KIND, [amulet, ring, potion, scroll, spell, wand, gloves]), object(RAPP_KIND, NAME, _, _, _, _), NAME \= "blank paper", NAME \= "water".
 kind(X, helm) :- member(X, ["helmet", "helm of brilliance", "helm of opposite alignment", "helm of telepathy"]).
 kind(X, cloak) :- member(X, ["cloak of protection", "cloak of invisibility", "cloak of magic resistance", "cloak of displacement"]).
 kind(X, boots) :- boots(X, 1, _, _, _, _, _, _, _, _). % only magical ones have randomized appearence
+price_multiplier(CHARISMA, M) :-
+    append(_, [MINC-M, MAXCP1-_|_], [0-2/1, 6-3/2, 8-4/3, 11-1/1, 16-3/4, 18-2/3, 19-1/2, 99-1/2]),
+    MAXC is MAXCP1 - 1,
+    between(MINC, MAXC, CHARISMA).
+buy_price(APPEARENCE, COST, EXPENSIVE, CHARISMA, OBJ) :- 
+    price_multiplier(CHARISMA, M/D),
+    can_be(KIND, _, APPEARENCE),
+    kind(OBJ, KIND),
+    object(KIND, OBJ, _, BASE_PRICE, _, _),
+    between(0, 2, EXPENSIVE),
+    COST is div((div(BASE_PRICE * M * 4**EXPENSIVE *10,
+		     D * 3**EXPENSIVE)
+		 + 5), 10).
+sell_price(APPEARENCE, OFFER, DISCOUNT, OBJ) :-
+    can_be(KIND, _, APPEARENCE),
+    kind(OBJ, KIND),
+    object(KIND, OBJ, _, BASE_PRICE, _, _),
+    between(0, 1, DISCOUNT),
+    OFFER is div((div(BASE_PRICE * 3**DISCOUNT *10,
+		      2 * 4**DISCOUNT)
+		  + 5), 10).
 % can_be(NAME, APPEARENCE, APPEARENCE_ID)
 can_be(ring, "wooden", 150).
 can_be(ring, "granite", 151).
