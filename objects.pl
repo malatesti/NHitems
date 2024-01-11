@@ -1,162 +1,162 @@
-% projectile(NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-projectile("arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5, 1).
-projectile("elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5, 2).
-projectile("orcish arrow", 20, 1, 2, 0, iron, p_bow, 3.0, 3.5, 3).
-projectile("silver arrow", 12, 1, 5, 0, silver, p_bow, 3.5, 3.5, 4).
-projectile("ya", 15, 1, 4, 1, metal, p_bow, 4.0, 4.0, 5).
-projectile("crossbow bolt", 55, 1, 2, 0, iron, p_crossbow, 3.5, 4.5, 6).
-% weapon(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, TYPE, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-weapon("dart", 1, 0, 60, 1, 2, 0, p, p_dart, iron, 2.0, 1.5, 7).
-weapon("shuriken", 1, 0, 35, 1, 5, 2, p, p_shuriken, iron, 4.5, 3.5, 8).
-weapon("boomerang", 1, 0, 15, 5, 20, 0, 0, p_boomerang, wood, 5.0, 5.0, 9).
-weapon("spear", 1, 0, 50, 30, 3, 0, p, p_spear, iron, 3.5, 4.5, 10).
-weapon("elven spear", 1, 0, 10, 30, 3, 0, p, p_spear, wood, 4.0, 4.5, 11).
-weapon("orcish spear", 1, 0, 13, 30, 3, 0, p, p_spear, iron, 3.0, 4.5, 12).
-weapon("dwarvish spear", 1, 0, 12, 35, 3, 0, p, p_spear, iron, 4.5, 4.5, 13).
-weapon("silver spear", 1, 0, 2, 36, 40, 0, p, p_spear, silver, 3.5, 4.5, 14).
-weapon("javelin", 1, 0, 10, 20, 3, 0, p, p_spear, iron, 3.5, 3.5, 15).
-weapon("trident", 0, 0, 8, 25, 5, 0, p, p_trident, iron, 4.5, 7.5, 16).
-weapon("dagger", 1, 0, 30, 10, 4, 2, p, p_dagger, iron, 2.5, 2.0, 17).
-weapon("elven dagger", 1, 0, 10, 10, 4, 2, p, p_dagger, wood, 3.0, 2.0, 18).
-weapon("orcish dagger", 1, 0, 12, 10, 4, 2, p, p_dagger, iron, 2.0, 2.0, 19).
-weapon("silver dagger", 1, 0, 3, 12, 40, 2, p, p_dagger, silver, 2.5, 2.0, 20).
-weapon("athame", 1, 0, 0, 10, 4, 2, s, p_dagger, iron, 2.5, 2.0, 21).
-weapon("scalpel", 1, 0, 0, 5, 6, 2, s, p_knife, metal, 2.0, 2.0, 22).
-weapon("knife", 1, 0, 20, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5, 23).
-weapon("stiletto", 1, 0, 5, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5, 24).
-weapon("worm tooth", 1, 0, 0, 20, 2, 0, 0, p_knife, 0, 1.5, 1.5, 25).
-weapon("crysknife", 1, 0, 0, 20, 100, 3, p, p_knife, mineral, 5.5, 5.5, 26).
-weapon("axe", 0, 0, 40, 60, 8, 0, s, p_axe, iron, 3.5, 2.5, 27).
-weapon("battle-axe", 0, 1, 10, 120, 40, 0, s, p_axe, iron, 7, 8.5, 28).
-weapon("short sword", 0, 0, 8, 30, 10, 0, p, p_short_sword, iron, 3.5, 4.5, 29).
-weapon("elven short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, wood, 4.5, 4.5, 30).
-weapon("orcish short sword", 0, 0, 3, 30, 10, 0, p, p_short_sword, iron, 3.0, 4.5, 31).
-weapon("dwarvish short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, iron, 4.0, 4.5, 32).
-weapon("scimitar", 0, 0, 15, 40, 15, 0, s, p_scimitar, iron, 4.5, 4.5, 33).
-weapon("silver saber", 0, 0, 6, 40, 75, 0, s, p_saber, silver, 4.5, 4.5, 34).
-weapon("broadsword", 0, 0, 8, 70, 10, 0, s, p_broad_sword, iron, 5.0, 4.5, 35).
-weapon("elven broadsword", 0, 0, 4, 70, 10, 0, s, p_broad_sword, wood, 6.0, 4.5, 36).
-weapon("long sword", 0, 0, 50, 40, 15, 0, s, p_long_sword, iron, 4.5, 6.5, 37).
-weapon("two-handed sword", 0, 1, 22, 150, 50, 0, s, p_two_handed_sword, iron, 6.5, 10.5, 38).
-weapon("katana", 0, 0, 4, 40, 80, 1, s, p_long_sword, iron, 5.5, 6.5, 39).
-weapon("tsurugi", 0, 1, 0, 60, 500, 2, s, p_two_handed_sword, metal, 8.5, 11.5, 40).
-weapon("runesword", 0, 0, 0, 40, 300, 0, s, p_broad_sword, iron, 5.0, 4.5, 41).
-weapon("partisan", 0, 1, 5, 80, 10, 0, p, p_polearms, iron, 3.5, 4.5, 42).
-weapon("ranseur", 0, 1, 5, 50, 6, 0, p, p_polearms, iron, 5.0, 5.0, 43).
-weapon("spetum", 0, 1, 5, 50, 5, 0, p, p_polearms, iron, 4.5, 7.0, 44).
-weapon("glaive", 0, 1, 8, 75, 6, 0, s, p_polearms, iron, 3.5, 5.5, 45).
-weapon("lance", 0, 0, 4, 180, 10, 0, p, p_lance, iron, 3.5, 4.5, 46).
-weapon("halberd", 0, 1, 8, 150, 10, 0, p | s, p_polearms, iron, 5.5, 7.0, 47).
-weapon("bardiche", 0, 1, 4, 120, 7, 0, s, p_polearms, iron, 5.0, 7.5, 48).
-weapon("voulge", 0, 1, 4, 125, 5, 0, s, p_polearms, iron, 5.0, 5.0, 49).
-weapon("dwarvish mattock", 0, 1, 13, 120, 50, -1, b, p_pick_axe, iron, 6.5, 11.5, 50).
-weapon("fauchard", 0, 1, 6, 60, 5, 0, p | s, p_polearms, iron, 3.5, 4.5, 51).
-weapon("guisarme", 0, 1, 6, 80, 5, 0, s, p_polearms, iron, 5.0, 4.5, 52).
-weapon("bill-guisarme", 0, 1, 4, 120, 7, 0, p | s, p_polearms, iron, 5.0, 5.5, 53).
-weapon("lucern hammer", 0, 1, 5, 150, 7, 0, b | p, p_polearms, iron, 5.0, 3.5, 54).
-weapon("bec de corbin", 0, 1, 4, 100, 8, 0, b | p, p_polearms, iron, 4.5, 3.5, 55).
-weapon("mace", 0, 0, 40, 30, 5, 0, b, p_mace, iron, 4.5, 3.5, 56).
-weapon("morning star", 0, 0, 12, 120, 10, 0, b, p_morning_star, iron, 5.0, 4.5, 57).
-weapon("war hammer", 0, 0, 15, 50, 5, 0, b, p_hammer, iron, 3.5, 2.5, 58).
-weapon("club", 0, 0, 12, 30, 3, 0, b, p_club, wood, 3.5, 2.0, 59).
-weapon("rubber hose", 0, 0, 0, 20, 3, 0, b, p_whip, plastic, 2.5, 2.0, 60).
-weapon("quarterstaff", 0, 1, 11, 40, 5, 0, b, p_quarterstaff, wood, 3.5, 3.5, 61).
-weapon("aklys", 0, 0, 8, 15, 4, 0, b, p_club, iron, 3.5, 2.0, 62).
-weapon("flail", 0, 0, 40, 15, 4, 0, b, p_flail, iron, 4.5, 5.0, 63).
-weapon("bullwhip", 0, 0, 2, 20, 4, 0, 0, p_whip, leather, 1.5, 1.0, 64).
-% bow(NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBON, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-bow("bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5, 65).
-bow("elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5, 66).
-bow("orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5, 67).
-bow("yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5, 68).
-bow("sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5, 69).
-bow("crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5, 70).
-% helm(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-helm("elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather, 71).
-helm("orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron, 72).
-helm("dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron, 73).
-helm("fedora", 0, 0, 0, 0, 3, 1, 10, 0, cloth, 74).
-helm("cornuthaum", 1, clairvoyant, 3, 1, 4, 80, 10, 1, cloth, 75).
-helm("dunce cap", 1, 0, 3, 1, 4, 1, 10, 0, cloth, 76).
-helm("dented pot", 0, 0, 2, 0, 10, 8, 9, 0, iron, 77).
-helm("helmet", 0, 0, 10, 1, 30, 10, 9, 0, iron, rnd_helm).
-helm("helm of brilliance", 1, 0, 6, 1, 50, 50, 9, 0, iron, rnd_helm).
-helm("helm of opposite alignment", 1, 0, 6, 1, 50, 50, 9, 0, iron, rnd_helm).
-helm("helm of telepathy", 1, telepat, 2, 1, 50, 50, 9, 0, iron, rnd_helm).
-% drgn_armr(NAME, MAGICAL, POWER, BASE_PRICE, AC)
-drgn_armr("gray dragon scale mail", 1, antimagic, 1200, 1, 82).
-drgn_armr("silver dragon scale mail", 1, reflecting, 1200, 1, 83).
-drgn_armr("red dragon scale mail", 1, fire_res, 900, 1, 84).
-drgn_armr("white dragon scale mail", 1, cold_res, 900, 1, 85).
-drgn_armr("orange dragon scale mail", 1, sleep_res, 900, 1, 86).
-drgn_armr("black dragon scale mail", 1, disint_res, 1200, 1, 87).
-drgn_armr("blue dragon scale mail", 1, shock_res, 900, 1, 88).
-drgn_armr("green dragon scale mail", 1, poison_res, 900, 1, 89).
-drgn_armr("yellow dragon scale mail", 1, acid_res, 900, 1, 90).
-drgn_armr("gray dragon scales", 0, antimagic, 700, 7, 91).
-drgn_armr("silver dragon scales", 0, reflecting, 700, 7, 92).
-drgn_armr("red dragon scales", 0, fire_res, 500, 7, 93).
-drgn_armr("white dragon scales", 0, cold_res, 500, 7, 94).
-drgn_armr("orange dragon scales", 0, sleep_res, 500, 7, 95).
-drgn_armr("black dragon scales", 0, disint_res, 700, 7, 96).
-drgn_armr("blue dragon scales", 0, shock_res, 500, 7, 97).
-drgn_armr("green dragon scales", 0, poison_res, 500, 7, 98).
-drgn_armr("yellow dragon scales", 0, acid_res, 500, 7, 99).
-% armor(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
-armor("plate mail", 0, 1, 0, 44, 5, 450, 600, 3, 2, arm_suit, iron, 100).
-armor("crystal plate mail", 0, 1, 0, 10, 5, 450, 820, 3, 2, arm_suit, glass, 101).
-armor("bronze plate mail", 0, 1, 0, 25, 5, 450, 400, 4, 1, arm_suit, copper, 102).
-armor("splint mail", 0, 1, 0, 62, 5, 400, 80, 4, 1, arm_suit, iron, 103).
-armor("banded mail", 0, 1, 0, 72, 5, 350, 90, 4, 1, arm_suit, iron, 104).
-armor("dwarvish mithril-coat", 0, 0, 0, 10, 1, 150, 240, 4, 2, arm_suit, mithril, 105).
-armor("elven mithril-coat", 0, 0, 0, 15, 1, 150, 240, 5, 2, arm_suit, mithril, 106).
-armor("chain mail", 0, 0, 0, 72, 5, 300, 75, 5, 1, arm_suit, iron, 107).
-armor("orcish chain mail", 0, 0, 0, 20, 5, 300, 75, 6, 1, arm_suit, iron, 108).
-armor("scale mail", 0, 0, 0, 72, 5, 250, 45, 6, 1, arm_suit, iron, 109).
-armor("studded leather armor", 0, 0, 0, 72, 3, 200, 15, 7, 1, arm_suit, leather, 110).
-armor("ring mail", 0, 0, 0, 72, 5, 250, 100, 7, 1, arm_suit, iron, 111).
-armor("orcish ring mail", 0, 0, 0, 20, 5, 250, 80, 8, 1, arm_suit, iron, 112).
-armor("leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather, 113).
-armor("leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather, 114).
-armor("hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth, 115).
-armor("T-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth, 116).
-% cloak(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-cloak("mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth, 117).
-cloak("elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth, 118).
-cloak("orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth, 119).
-cloak("dwarvish cloak", 0, 0, 8, 0, 10, 50, 10, 1, cloth, 120).
-cloak("oilskin cloak", 0, 0, 8, 0, 10, 50, 9, 2, cloth, 121).
-cloak("robe", 1, 0, 3, 0, 15, 50, 8, 2, cloth, 122).
-cloak("alchemy smock", 1, poison_res, 9, 0, 10, 50, 9, 1, cloth, 123).
-cloak("leather cloak", 0, 0, 8, 0, 15, 40, 9, 1, leather, 124).
-cloak("cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth, rnd_cloak).
-cloak("cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth, rnd_cloak).
-cloak("cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth, rnd_cloak).
-cloak("cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth, rnd_cloak).
-% shield(NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-shield("small shield", 0, 0, 0, 6, 0, 30, 3, 9, 0, wood, 129).
-shield("elven shield", 0, 0, 0, 2, 0, 40, 7, 8, 0, wood, 130).
-shield("uruk-hai shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron, 131).
-shield("orcish shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron, 132).
-shield("large shield", 0, 1, 0, 7, 0, 100, 10, 8, 0, iron, 133).
-shield("dwarvish roundshield", 0, 0, 0, 4, 0, 100, 10, 8, 0, iron, 134).
-shield("shield of reflection", 1, 0, reflecting, 3, 0, 50, 50, 8, 0, silver, 135).
-% gloves(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-gloves("leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather, rnd_gloves).
-gloves("gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather, rnd_gloves).
-gloves("gauntlets of power", 1, 0, 8, 1, 30, 50, 9, 0, iron, rnd_gloves).
-gloves("gauntlets of dexterity", 1, 0, 8, 1, 10, 50, 9, 0, leather, rnd_gloves).
-% boots(NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-boots("low boots", 0, 0, 25, 2, 10, 8, 9, 0, leather, 140).
-boots("iron shoes", 0, 0, 7, 2, 50, 16, 8, 0, iron, 141).
-boots("high boots", 0, 0, 15, 2, 20, 12, 8, 0, leather, 142).
-boots("speed boots", 1, fast, 12, 2, 20, 50, 9, 0, leather, rnd_boots).
-boots("water walking boots", 1, wwalking, 12, 2, 15, 50, 9, 0, leather, rnd_boots).
-boots("jumping boots", 1, jumping, 12, 2, 20, 50, 9, 0, leather, rnd_boots).
-boots("elven boots", 1, stealth, 12, 2, 15, 8, 9, 0, leather, rnd_boots).
-boots("kicking boots", 1, 0, 12, 2, 50, 8, 9, 0, iron, rnd_boots).
-boots("fumble boots", 1, fumbling, 12, 2, 20, 30, 9, 0, leather, rnd_boots).
-boots("levitation boots", 1, levitation, 12, 2, 15, 30, 9, 0, leather, rnd_boots).
+% projectile(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+projectile(1, "arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5).
+projectile(2, "elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5).
+projectile(3, "orcish arrow", 20, 1, 2, 0, iron, p_bow, 3.0, 3.5).
+projectile(4, "silver arrow", 12, 1, 5, 0, silver, p_bow, 3.5, 3.5).
+projectile(5, "ya", 15, 1, 4, 1, metal, p_bow, 4.0, 4.0).
+projectile(6, "crossbow bolt", 55, 1, 2, 0, iron, p_crossbow, 3.5, 4.5).
+% weapon(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, TYPE, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+weapon(7, "dart", 1, 0, 60, 1, 2, 0, p, p_dart, iron, 2.0, 1.5).
+weapon(8, "shuriken", 1, 0, 35, 1, 5, 2, p, p_shuriken, iron, 4.5, 3.5).
+weapon(9, "boomerang", 1, 0, 15, 5, 20, 0, 0, p_boomerang, wood, 5.0, 5.0).
+weapon(10, "spear", 1, 0, 50, 30, 3, 0, p, p_spear, iron, 3.5, 4.5).
+weapon(11, "elven spear", 1, 0, 10, 30, 3, 0, p, p_spear, wood, 4.0, 4.5).
+weapon(12, "orcish spear", 1, 0, 13, 30, 3, 0, p, p_spear, iron, 3.0, 4.5).
+weapon(13, "dwarvish spear", 1, 0, 12, 35, 3, 0, p, p_spear, iron, 4.5, 4.5).
+weapon(14, "silver spear", 1, 0, 2, 36, 40, 0, p, p_spear, silver, 3.5, 4.5).
+weapon(15, "javelin", 1, 0, 10, 20, 3, 0, p, p_spear, iron, 3.5, 3.5).
+weapon(16, "trident", 0, 0, 8, 25, 5, 0, p, p_trident, iron, 4.5, 7.5).
+weapon(17, "dagger", 1, 0, 30, 10, 4, 2, p, p_dagger, iron, 2.5, 2.0).
+weapon(18, "elven dagger", 1, 0, 10, 10, 4, 2, p, p_dagger, wood, 3.0, 2.0).
+weapon(19, "orcish dagger", 1, 0, 12, 10, 4, 2, p, p_dagger, iron, 2.0, 2.0).
+weapon(20, "silver dagger", 1, 0, 3, 12, 40, 2, p, p_dagger, silver, 2.5, 2.0).
+weapon(21, "athame", 1, 0, 0, 10, 4, 2, s, p_dagger, iron, 2.5, 2.0).
+weapon(22, "scalpel", 1, 0, 0, 5, 6, 2, s, p_knife, metal, 2.0, 2.0).
+weapon(23, "knife", 1, 0, 20, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5).
+weapon(24, "stiletto", 1, 0, 5, 5, 4, 0, p | s, p_knife, iron, 2.0, 1.5).
+weapon(25, "worm tooth", 1, 0, 0, 20, 2, 0, 0, p_knife, 0, 1.5, 1.5).
+weapon(26, "crysknife", 1, 0, 0, 20, 100, 3, p, p_knife, mineral, 5.5, 5.5).
+weapon(27, "axe", 0, 0, 40, 60, 8, 0, s, p_axe, iron, 3.5, 2.5).
+weapon(28, "battle-axe", 0, 1, 10, 120, 40, 0, s, p_axe, iron, 7, 8.5).
+weapon(29, "short sword", 0, 0, 8, 30, 10, 0, p, p_short_sword, iron, 3.5, 4.5).
+weapon(30, "elven short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, wood, 4.5, 4.5).
+weapon(31, "orcish short sword", 0, 0, 3, 30, 10, 0, p, p_short_sword, iron, 3.0, 4.5).
+weapon(32, "dwarvish short sword", 0, 0, 2, 30, 10, 0, p, p_short_sword, iron, 4.0, 4.5).
+weapon(33, "scimitar", 0, 0, 15, 40, 15, 0, s, p_scimitar, iron, 4.5, 4.5).
+weapon(34, "silver saber", 0, 0, 6, 40, 75, 0, s, p_saber, silver, 4.5, 4.5).
+weapon(35, "broadsword", 0, 0, 8, 70, 10, 0, s, p_broad_sword, iron, 5.0, 4.5).
+weapon(36, "elven broadsword", 0, 0, 4, 70, 10, 0, s, p_broad_sword, wood, 6.0, 4.5).
+weapon(37, "long sword", 0, 0, 50, 40, 15, 0, s, p_long_sword, iron, 4.5, 6.5).
+weapon(38, "two-handed sword", 0, 1, 22, 150, 50, 0, s, p_two_handed_sword, iron, 6.5, 10.5).
+weapon(39, "katana", 0, 0, 4, 40, 80, 1, s, p_long_sword, iron, 5.5, 6.5).
+weapon(40, "tsurugi", 0, 1, 0, 60, 500, 2, s, p_two_handed_sword, metal, 8.5, 11.5).
+weapon(41, "runesword", 0, 0, 0, 40, 300, 0, s, p_broad_sword, iron, 5.0, 4.5).
+weapon(42, "partisan", 0, 1, 5, 80, 10, 0, p, p_polearms, iron, 3.5, 4.5).
+weapon(43, "ranseur", 0, 1, 5, 50, 6, 0, p, p_polearms, iron, 5.0, 5.0).
+weapon(44, "spetum", 0, 1, 5, 50, 5, 0, p, p_polearms, iron, 4.5, 7.0).
+weapon(45, "glaive", 0, 1, 8, 75, 6, 0, s, p_polearms, iron, 3.5, 5.5).
+weapon(46, "lance", 0, 0, 4, 180, 10, 0, p, p_lance, iron, 3.5, 4.5).
+weapon(47, "halberd", 0, 1, 8, 150, 10, 0, p | s, p_polearms, iron, 5.5, 7.0).
+weapon(48, "bardiche", 0, 1, 4, 120, 7, 0, s, p_polearms, iron, 5.0, 7.5).
+weapon(49, "voulge", 0, 1, 4, 125, 5, 0, s, p_polearms, iron, 5.0, 5.0).
+weapon(50, "dwarvish mattock", 0, 1, 13, 120, 50, -1, b, p_pick_axe, iron, 6.5, 11.5).
+weapon(51, "fauchard", 0, 1, 6, 60, 5, 0, p | s, p_polearms, iron, 3.5, 4.5).
+weapon(52, "guisarme", 0, 1, 6, 80, 5, 0, s, p_polearms, iron, 5.0, 4.5).
+weapon(53, "bill-guisarme", 0, 1, 4, 120, 7, 0, p | s, p_polearms, iron, 5.0, 5.5).
+weapon(54, "lucern hammer", 0, 1, 5, 150, 7, 0, b | p, p_polearms, iron, 5.0, 3.5).
+weapon(55, "bec de corbin", 0, 1, 4, 100, 8, 0, b | p, p_polearms, iron, 4.5, 3.5).
+weapon(56, "mace", 0, 0, 40, 30, 5, 0, b, p_mace, iron, 4.5, 3.5).
+weapon(57, "morning star", 0, 0, 12, 120, 10, 0, b, p_morning_star, iron, 5.0, 4.5).
+weapon(58, "war hammer", 0, 0, 15, 50, 5, 0, b, p_hammer, iron, 3.5, 2.5).
+weapon(59, "club", 0, 0, 12, 30, 3, 0, b, p_club, wood, 3.5, 2.0).
+weapon(60, "rubber hose", 0, 0, 0, 20, 3, 0, b, p_whip, plastic, 2.5, 2.0).
+weapon(61, "quarterstaff", 0, 1, 11, 40, 5, 0, b, p_quarterstaff, wood, 3.5, 3.5).
+weapon(62, "aklys", 0, 0, 8, 15, 4, 0, b, p_club, iron, 3.5, 2.0).
+weapon(63, "flail", 0, 0, 40, 15, 4, 0, b, p_flail, iron, 4.5, 5.0).
+weapon(64, "bullwhip", 0, 0, 2, 20, 4, 0, 0, p_whip, leather, 1.5, 1.0).
+% bow(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBON, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+bow(65, "bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
+bow(66, "elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
+bow(67, "orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
+bow(68, "yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
+bow(69, "sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
+bow(70, "crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
+% helm(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+helm(71, "elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
+helm(72, "orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
+helm(73, "dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
+helm(74, "fedora", 0, 0, 0, 0, 3, 1, 10, 0, cloth).
+helm(75, "cornuthaum", 1, clairvoyant, 3, 1, 4, 80, 10, 1, cloth).
+helm(76, "dunce cap", 1, 0, 3, 1, 4, 1, 10, 0, cloth).
+helm(77, "dented pot", 0, 0, 2, 0, 10, 8, 9, 0, iron).
+helm(rnd_helm, "helmet", 0, 0, 10, 1, 30, 10, 9, 0, iron).
+helm(rnd_helm, "helm of brilliance", 1, 0, 6, 1, 50, 50, 9, 0, iron).
+helm(rnd_helm, "helm of opposite alignment", 1, 0, 6, 1, 50, 50, 9, 0, iron).
+helm(rnd_helm, "helm of telepathy", 1, telepat, 2, 1, 50, 50, 9, 0, iron).
+% drgn_armr(APPEARENCE, NAME, MAGICAL, POWER, BASE_PRICE, AC)
+drgn_armr(82, "gray dragon scale mail", 1, antimagic, 1200, 1).
+drgn_armr(83, "silver dragon scale mail", 1, reflecting, 1200, 1).
+drgn_armr(84, "red dragon scale mail", 1, fire_res, 900, 1).
+drgn_armr(85, "white dragon scale mail", 1, cold_res, 900, 1).
+drgn_armr(86, "orange dragon scale mail", 1, sleep_res, 900, 1).
+drgn_armr(87, "black dragon scale mail", 1, disint_res, 1200, 1).
+drgn_armr(88, "blue dragon scale mail", 1, shock_res, 900, 1).
+drgn_armr(89, "green dragon scale mail", 1, poison_res, 900, 1).
+drgn_armr(90, "yellow dragon scale mail", 1, acid_res, 900, 1).
+drgn_armr(91, "gray dragon scales", 0, antimagic, 700, 7).
+drgn_armr(92, "silver dragon scales", 0, reflecting, 700, 7).
+drgn_armr(93, "red dragon scales", 0, fire_res, 500, 7).
+drgn_armr(94, "white dragon scales", 0, cold_res, 500, 7).
+drgn_armr(95, "orange dragon scales", 0, sleep_res, 500, 7).
+drgn_armr(96, "black dragon scales", 0, disint_res, 700, 7).
+drgn_armr(97, "blue dragon scales", 0, shock_res, 500, 7).
+drgn_armr(98, "green dragon scales", 0, poison_res, 500, 7).
+drgn_armr(99, "yellow dragon scales", 0, acid_res, 500, 7).
+% armor(APPEARENCE, NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
+armor(100, "plate mail", 0, 1, 0, 44, 5, 450, 600, 3, 2, arm_suit, iron).
+armor(101, "crystal plate mail", 0, 1, 0, 10, 5, 450, 820, 3, 2, arm_suit, glass).
+armor(102, "bronze plate mail", 0, 1, 0, 25, 5, 450, 400, 4, 1, arm_suit, copper).
+armor(103, "splint mail", 0, 1, 0, 62, 5, 400, 80, 4, 1, arm_suit, iron).
+armor(104, "banded mail", 0, 1, 0, 72, 5, 350, 90, 4, 1, arm_suit, iron).
+armor(105, "dwarvish mithril-coat", 0, 0, 0, 10, 1, 150, 240, 4, 2, arm_suit, mithril).
+armor(106, "elven mithril-coat", 0, 0, 0, 15, 1, 150, 240, 5, 2, arm_suit, mithril).
+armor(107, "chain mail", 0, 0, 0, 72, 5, 300, 75, 5, 1, arm_suit, iron).
+armor(108, "orcish chain mail", 0, 0, 0, 20, 5, 300, 75, 6, 1, arm_suit, iron).
+armor(109, "scale mail", 0, 0, 0, 72, 5, 250, 45, 6, 1, arm_suit, iron).
+armor(110, "studded leather armor", 0, 0, 0, 72, 3, 200, 15, 7, 1, arm_suit, leather).
+armor(111, "ring mail", 0, 0, 0, 72, 5, 250, 100, 7, 1, arm_suit, iron).
+armor(112, "orcish ring mail", 0, 0, 0, 20, 5, 250, 80, 8, 1, arm_suit, iron).
+armor(113, "leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather).
+armor(114, "leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather).
+armor(115, "Hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth).
+armor(116, "T-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth).
+% cloak(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+cloak(117, "mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
+cloak(118, "elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
+cloak(119, "orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth).
+cloak(120, "dwarvish cloak", 0, 0, 8, 0, 10, 50, 10, 1, cloth).
+cloak(121, "oilskin cloak", 0, 0, 8, 0, 10, 50, 9, 2, cloth).
+cloak(122, "robe", 1, 0, 3, 0, 15, 50, 8, 2, cloth).
+cloak(123, "alchemy smock", 1, poison_res, 9, 0, 10, 50, 9, 1, cloth).
+cloak(124, "leather cloak", 0, 0, 8, 0, 15, 40, 9, 1, leather).
+cloak(rnd_cloak, "cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth).
+cloak(rnd_cloak, "cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth).
+cloak(rnd_cloak, "cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth).
+cloak(rnd_cloak, "cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth).
+% shield(APPEARENCE, NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+shield(129, "small shield", 0, 0, 0, 6, 0, 30, 3, 9, 0, wood).
+shield(130, "elven shield", 0, 0, 0, 2, 0, 40, 7, 8, 0, wood).
+shield(131, "uruk-hai shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
+shield(132, "orcish shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
+shield(133, "large shield", 0, 1, 0, 7, 0, 100, 10, 8, 0, iron).
+shield(134, "dwarvish roundshield", 0, 0, 0, 4, 0, 100, 10, 8, 0, iron).
+shield(135, "shield of reflection", 1, 0, reflecting, 3, 0, 50, 50, 8, 0, silver).
+% gloves(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+gloves(rnd_gloves, "leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather).
+gloves(rnd_gloves, "gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather).
+gloves(rnd_gloves, "gauntlets of power", 1, 0, 8, 1, 30, 50, 9, 0, iron).
+gloves(rnd_gloves, "gauntlets of dexterity", 1, 0, 8, 1, 10, 50, 9, 0, leather).
+% boots(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+boots(140, "low boots", 0, 0, 25, 2, 10, 8, 9, 0, leather).
+boots(141, "iron shoes", 0, 0, 7, 2, 50, 16, 8, 0, iron).
+boots(142, "high boots", 0, 0, 15, 2, 20, 12, 8, 0, leather).
+boots(rnd_boots, "speed boots", 1, fast, 12, 2, 20, 50, 9, 0, leather).
+boots(rnd_boots, "water walking boots", 1, wwalking, 12, 2, 15, 50, 9, 0, leather).
+boots(rnd_boots, "jumping boots", 1, jumping, 12, 2, 20, 50, 9, 0, leather).
+boots(rnd_boots, "elven boots", 1, stealth, 12, 2, 15, 8, 9, 0, leather).
+boots(rnd_boots, "kicking boots", 1, 0, 12, 2, 50, 8, 9, 0, iron).
+boots(rnd_boots, "fumble boots", 1, fumbling, 12, 2, 20, 30, 9, 0, leather).
+boots(rnd_boots, "levitation boots", 1, levitation, 12, 2, 15, 30, 9, 0, leather).
 % ring(NAME, POWER, BASE_PRICE, MAGICAL, SPEC, MOHS)
 ring("adornment", adorned, 100, 1, 1, 2).
 ring("gain strength", 0, 150, 1, 1, 7).
@@ -198,197 +198,187 @@ amulet("amulet of reflection", reflecting, 75).
 amulet("amulet of magical breathing", magical_breathing, 65).
 % Containers and weptools are TOOL_CLASS
 
-% container(NAME, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
-container("large box", 0, 0, 40, 350, 8, wood, 189).
-container("chest", 0, 0, 35, 600, 16, wood, 190).
-container("ice box", 0, 0, 5, 900, 42, plastic, 191).
-container("sack", 0, 0, 35, 15, 2, cloth, 192).
-container("oilskin sack", 0, 0, 5, 15, 100, cloth, 193).
-container("bag of holding", 1, 0, 20, 15, 100, cloth, 194).
-container("bag of tricks", 1, 1, 20, 15, 100, cloth, 195).
-% weptool(NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, SDAM, LDAM, HITBON, SUB, MAT, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-weptool("pick-axe", 0, 0, 20, 100, 50, 6, 3, whack, p_pick_axe, iron, 3.5, 2.0, 234).
-weptool("grappling hook", 0, 0, 5, 30, 50, 2, 6, whack, p_flail, iron, 1.5, 3.5, 235).
-weptool("unicorn horn", 1, 1, 0, 20, 100, 12, 12, pierce, p_unicorn_horn, bone, 6.5, 6.5, 236).
-% tool(NAME, MRG, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
-tool("skeleton key", 0, 0, 0, 80, 3, 10, iron, 196).
-tool("lock pick", 0, 0, 0, 60, 4, 20, iron, 197).
-tool("credit card", 0, 0, 0, 15, 1, 10, plastic, 198).
-tool("tallow candle", 1, 0, 0, 20, 2, 10, wax, 199).
-tool("wax candle", 1, 0, 0, 5, 2, 20, wax, 200).
-tool("brass lantern", 0, 0, 0, 30, 30, 12, copper, 201).
-tool("oil lamp", 0, 0, 0, 45, 20, 10, copper, 202).
-tool("magic lamp", 0, 1, 0, 15, 20, 50, copper, 203).
-tool("expensive camera", 0, 0, 1, 15, 12, 200, plastic, 204).
-tool("mirror", 0, 0, 0, 45, 13, 10, glass, 205).
-tool("crystal ball", 0, 1, 1, 15, 150, 60, glass, 206).
-tool("lenses", 0, 0, 0, 5, 3, 80, glass, 207).
-tool("blindfold", 0, 0, 0, 50, 2, 20, cloth, 208).
-tool("towel", 0, 0, 0, 50, 2, 50, cloth, 209).
-tool("saddle", 0, 0, 0, 5, 200, 150, leather, 210).
-tool("leash", 0, 0, 0, 65, 12, 20, leather, 211).
-tool("stethoscope", 0, 0, 0, 25, 4, 75, iron, 212).
-tool("tinning kit", 0, 0, 1, 15, 100, 30, iron, 213).
-tool("tin opener", 0, 0, 0, 35, 4, 30, iron, 214).
-tool("can of grease", 0, 0, 1, 15, 15, 20, iron, 215).
-tool("figurine", 0, 1, 0, 25, 50, 80, mineral, 216).
-tool("magic marker", 0, 1, 1, 15, 2, 50, plastic, 217).
-tool("land mine", 0, 0, 0, 0, 300, 180, iron, 218).
-tool("beartrap", 0, 0, 0, 0, 200, 60, iron, 219).
-tool("tin whistle", 0, 0, 0, 100, 3, 10, metal, 220).
-tool("magic whistle", 0, 1, 0, 30, 3, 10, metal, 221).
-tool("wooden flute", 0, 0, 0, 4, 5, 12, wood, 222).
-tool("magic flute", 0, 1, 1, 2, 5, 36, wood, 223).
-tool("tooled horn", 0, 0, 0, 5, 18, 15, bone, 224).
-tool("frost horn", 0, 1, 1, 2, 18, 50, bone, 225).
-tool("fire horn", 0, 1, 1, 2, 18, 50, bone, 226).
-tool("horn of plenty", 0, 1, 1, 2, 18, 50, bone, 227).
-tool("wooden harp", 0, 0, 0, 4, 30, 50, wood, 228).
-tool("magic harp", 0, 1, 1, 2, 30, 50, wood, 229).
-tool("bell", 0, 0, 0, 2, 30, 50, copper, 230).
-tool("bugle", 0, 0, 0, 4, 10, 15, copper, 231).
-tool("leather drum", 0, 0, 0, 4, 25, 25, leather, 232).
-tool("drum of earthquake", 0, 1, 1, 2, 25, 25, leather, 233).
-% questitem(NAME, WEIGHT)
-questitem("candelabrum of invocation", 10, 237).
-questitem("bell of opening", 10, 238).
+% container(APPEARENCE, NAME, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
+container(189, "large box", 0, 0, 40, 350, 8, wood).
+container(190, "chest", 0, 0, 35, 600, 16, wood).
+container(191, "ice box", 0, 0, 5, 900, 42, plastic).
+container(192, "sack", 0, 0, 35, 15, 2, cloth).
+container(193, "oilskin sack", 0, 0, 5, 15, 100, cloth).
+container(194, "bag of holding", 1, 0, 20, 15, 100, cloth).
+container(195, "bag of tricks", 1, 1, 20, 15, 100, cloth).
+% weptool(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, SDAM, LDAM, HITBON, SUB, MAT, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+weptool(234, "pick-axe", 0, 0, 20, 100, 50, 6, 3, whack, p_pick_axe, iron, 3.5, 2.0).
+weptool(235, "grappling hook", 0, 0, 5, 30, 50, 2, 6, whack, p_flail, iron, 1.5, 3.5).
+weptool(236, "unicorn horn", 1, 1, 0, 20, 100, 12, 12, pierce, p_unicorn_horn, bone, 6.5, 6.5).
+% tool(APPEARENCE, NAME, MRG, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
+tool(196, "skeleton key", 0, 0, 0, 80, 3, 10, iron).
+tool(197, "lock pick", 0, 0, 0, 60, 4, 20, iron).
+tool(198, "credit card", 0, 0, 0, 15, 1, 10, plastic).
+tool(199, "tallow candle", 1, 0, 0, 20, 2, 10, wax).
+tool(200, "wax candle", 1, 0, 0, 5, 2, 20, wax).
+tool(201, "brass lantern", 0, 0, 0, 30, 30, 12, copper).
+tool(202, "oil lamp", 0, 0, 0, 45, 20, 10, copper).
+tool(203, "magic lamp", 0, 1, 0, 15, 20, 50, copper).
+tool(204, "expensive camera", 0, 0, 1, 15, 12, 200, plastic).
+tool(205, "mirror", 0, 0, 0, 45, 13, 10, glass).
+tool(206, "crystal ball", 0, 1, 1, 15, 150, 60, glass).
+tool(207, "lenses", 0, 0, 0, 5, 3, 80, glass).
+tool(208, "blindfold", 0, 0, 0, 50, 2, 20, cloth).
+tool(209, "towel", 0, 0, 0, 50, 2, 50, cloth).
+tool(210, "saddle", 0, 0, 0, 5, 200, 150, leather).
+tool(211, "leash", 0, 0, 0, 65, 12, 20, leather).
+tool(212, "stethoscope", 0, 0, 0, 25, 4, 75, iron).
+tool(213, "tinning kit", 0, 0, 1, 15, 100, 30, iron).
+tool(214, "tin opener", 0, 0, 0, 35, 4, 30, iron).
+tool(215, "can of grease", 0, 0, 1, 15, 15, 20, iron).
+tool(216, "figurine", 0, 1, 0, 25, 50, 80, mineral).
+tool(217, "magic marker", 0, 1, 1, 15, 2, 50, plastic).
+tool(218, "land mine", 0, 0, 0, 0, 300, 180, iron).
+tool(219, "beartrap", 0, 0, 0, 0, 200, 60, iron).
+tool(220, "tin whistle", 0, 0, 0, 100, 3, 10, metal).
+tool(221, "magic whistle", 0, 1, 0, 30, 3, 10, metal).
+tool(222, "wooden flute", 0, 0, 0, 4, 5, 12, wood).
+tool(223, "magic flute", 0, 1, 1, 2, 5, 36, wood).
+tool(224, "tooled horn", 0, 0, 0, 5, 18, 15, bone).
+tool(225, "frost horn", 0, 1, 1, 2, 18, 50, bone).
+tool(226, "fire horn", 0, 1, 1, 2, 18, 50, bone).
+tool(227, "horn of plenty", 0, 1, 1, 2, 18, 50, bone).
+tool(228, "wooden harp", 0, 0, 0, 4, 30, 50, wood).
+tool(229, "magic harp", 0, 1, 1, 2, 30, 50, wood).
+tool(230, "bell", 0, 0, 0, 2, 30, 50, copper).
+tool(231, "bugle", 0, 0, 0, 4, 10, 15, copper).
+tool(232, "leather drum", 0, 0, 0, 4, 25, 25, leather).
+tool(233, "drum of earthquake", 0, 1, 1, 2, 25, 25, leather).
+% questitem(APPEARENCE, NAME, WEIGHT)
+questitem(237, "candelabrum of invocation", 10).
+questitem(238, "bell of opening", 10).
 % questitem("book of the dead", "papyrus", weight=20, "book of the dead").
-% food(NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, TIN, NUTRITION)
-food("tripe ration", 140, 2, 10, 0, flesh, 200, 239).
-food("corpse", 0, 1, none, 0, flesh, 0, 240).
-food("egg", 85, 1, 1, 1, flesh, 80, 241).
-food("meatball", 0, 1, 1, 0, flesh, 5, 242).
-food("meat stick", 0, 1, 1, 0, flesh, 5, 243).
-food("huge chunk of meat", 0, 20, 400, 0, flesh, 2000, 244).
-food("meat ring", 0, 1, 5, 0, flesh, 5, 245).
-food("glob of gray ooze", 0, 2, 20, 0, flesh, 20, 246).
-food("glob of brown pudding", 0, 2, 20, 0, flesh, 20, 247).
-food("glob of green slime", 0, 2, 20, 0, flesh, 20, 248).
-food("glob of black pudding", 0, 2, 20, 0, flesh, 20, 249).
-food("kelp frond", 0, 1, 1, 0, veggy, 30, 250).
-food("eucalyptus leaf", 3, 1, 1, 0, veggy, 30, 251).
-food("apple", 15, 1, 2, 0, veggy, 50, 252).
-food("orange", 10, 1, 2, 0, veggy, 80, 253).
-food("pear", 10, 1, 2, 0, veggy, 50, 254).
-food("melon", 10, 1, 5, 0, veggy, 100, 255).
-food("banana", 10, 1, 2, 0, veggy, 80, 256).
-food("carrot", 15, 1, 2, 0, veggy, 50, 257).
-food("sprig of wolfsbane", 7, 1, 1, 0, veggy, 40, 258).
-food("clove of garlic", 7, 1, 1, 0, veggy, 40, 259).
-food("slime mold", 75, 1, 5, 0, veggy, 250, 260).
-food("lump of royal jelly", 0, 1, 2, 0, veggy, 200, 261).
-food("cream pie", 25, 1, 10, 0, veggy, 100, 262).
-food("candy bar", 13, 1, 2, 0, veggy, 100, 263).
-food("fortune cookie", 55, 1, 1, 0, veggy, 40, 264).
-food("pancake", 25, 2, 2, 0, veggy, 200, 265).
-food("lembas wafer", 20, 2, 5, 0, veggy, 800, 266).
-food("cram ration", 20, 3, 15, 0, veggy, 600, 267).
-food("food ration", 380, 5, 20, 0, veggy, 800, 268).
-food("K-ration", 0, 1, 10, 0, veggy, 400, 269).
-food("C-ration", 0, 1, 10, 0, veggy, 300, 270).
-food("tin", 75, 0, 10, 1, metal, 0, 271).
-% potion(NAME, MAGICAL, POWER, ABOUNDANCE, BASE_PRICE)
-potion("water", 0, 0, 92, 100, 297).
-potion("gain ability", 1, 0, 42, 300, rnd_potion).
-potion("restore ability", 1, 0, 40, 100, rnd_potion).
-potion("confusion", 1, confusion, 42, 100, rnd_potion).
-potion("blindness", 1, blinded, 40, 150, rnd_potion).
-potion("paralysis", 1, 0, 42, 300, rnd_potion).
-potion("speed", 1, fast, 42, 200, rnd_potion).
-potion("levitation", 1, levitation, 42, 200, rnd_potion).
-potion("hallucination", 1, halluc, 40, 100, rnd_potion).
-potion("invisibility", 1, invis, 40, 150, rnd_potion).
-potion("see invisible", 1, see_invis, 42, 50, rnd_potion).
-potion("healing", 1, 0, 57, 100, rnd_potion).
-potion("extra healing", 1, 0, 47, 100, rnd_potion).
-potion("gain level", 1, 0, 20, 300, rnd_potion).
-potion("enlightenment", 1, 0, 20, 200, rnd_potion).
-potion("monster detection", 1, 0, 40, 150, rnd_potion).
-potion("object detection", 1, 0, 42, 150, rnd_potion).
-potion("gain energy", 1, 0, 42, 150, rnd_potion).
-potion("sleeping", 1, 0, 42, 100, rnd_potion).
-potion("full healing", 1, 0, 10, 200, rnd_potion).
-potion("polymorph", 1, 0, 10, 200, rnd_potion).
-potion("booze", 0, 0, 42, 50, rnd_potion).
-potion("sickness", 0, 0, 42, 50, rnd_potion).
-potion("fruit juice", 0, 0, 42, 50, rnd_potion).
-potion("acid", 0, 0, 10, 250, rnd_potion).
-potion("oil", 0, 0, 30, 250, rnd_potion).
-% scroll(NAME, MAGICAL, ABOUNDANCE, BASE_PRICE)
-scroll("enchant armor", 1, 63, 80, rnd_scroll).
-scroll("destroy armor", 1, 45, 100, rnd_scroll).
-scroll("confuse monster", 1, 53, 100, rnd_scroll).
-scroll("scare monster", 1, 35, 100, rnd_scroll).
-scroll("remove curse", 1, 65, 80, rnd_scroll).
-scroll("enchant weapon", 1, 80, 60, rnd_scroll).
-scroll("create monster", 1, 45, 200, rnd_scroll).
-scroll("taming", 1, 15, 200, rnd_scroll).
-scroll("genocide", 1, 15, 300, rnd_scroll).
-scroll("light", 1, 90, 50, rnd_scroll).
-scroll("teleportation", 1, 55, 100, rnd_scroll).
-scroll("gold detection", 1, 33, 100, rnd_scroll).
-scroll("food detection", 1, 25, 100, rnd_scroll).
-scroll("identify", 1, 180, 20, rnd_scroll).
-scroll("magic mapping", 1, 45, 100, rnd_scroll).
-scroll("amnesia", 1, 35, 200, rnd_scroll).
-scroll("fire", 1, 30, 100, rnd_scroll).
-scroll("earth", 1, 18, 200, rnd_scroll).
-scroll("punishment", 1, 15, 300, rnd_scroll).
-scroll("charging", 1, 15, 300, rnd_scroll).
-scroll("stinking cloud", 1, 15, 300, rnd_scroll).
-scroll("blank paper", 0, 28, 60, 339).
- /* spellbook description normally refers to book covers (primarily color).
-       parchment and vellum would never be used for such, but rather than
-       eliminate those, finagle their definitions to refer to the pages
-       rather than the cover.  they are made from animal skin (typically of
-       a goat or sheep) and books using them for pages generally need heavy
-       covers with straps or clamps to tightly close the book in order to
-       keep the pages flat.  (however, a wooden cover might itself be covered
-       by a sheet of parchment, making this become less of an exception.  also,
-       changing the internal composition from paper to leather makes eating a
-       parchment or vellum spellbook break vegetarian conduct, as it should.) */
-% spell(NAME, SUB, ABOUNDANCE, DELAY, LEVEL, MAGICAL, DIR)
-spell("dig", p_matter_spell, 20, 6, 5, 1, ray, rnd_spell).
-spell("magic missile", p_attack_spell, 45, 2, 2, 1, ray, rnd_spell).
-spell("fireball", p_attack_spell, 20, 4, 4, 1, ray, rnd_spell).
-spell("cone of cold", p_attack_spell, 10, 7, 4, 1, ray, rnd_spell).
-spell("sleep", p_enchantment_spell, 50, 1, 1, 1, ray, rnd_spell).
-spell("finger of death", p_attack_spell, 5, 10, 7, 1, ray, rnd_spell).
-spell("light", p_divination_spell, 45, 1, 1, 1, nodir, rnd_spell).
-spell("detect monsters", p_divination_spell, 43, 1, 1, 1, nodir, rnd_spell).
-spell("healing", p_healing_spell, 40, 2, 1, 1, immediate, rnd_spell).
-spell("knock", p_matter_spell, 35, 1, 1, 1, immediate, rnd_spell).
-spell("force bolt", p_attack_spell, 35, 2, 1, 1, immediate, rnd_spell).
-spell("confuse monster", p_enchantment_spell, 30, 2, 2, 1, immediate, rnd_spell).
-spell("cure blindness", p_healing_spell, 25, 2, 2, 1, immediate, rnd_spell).
-spell("drain life", p_attack_spell, 10, 2, 2, 1, immediate, rnd_spell).
-spell("slow monster", p_enchantment_spell, 30, 2, 2, 1, immediate, rnd_spell).
-spell("wizard lock", p_matter_spell, 30, 3, 2, 1, immediate, rnd_spell).
-spell("create monster", p_cleric_spell, 35, 3, 2, 1, nodir, rnd_spell).
-spell("detect food", p_divination_spell, 30, 3, 2, 1, nodir, rnd_spell).
-spell("cause fear", p_enchantment_spell, 25, 3, 3, 1, nodir, rnd_spell).
-spell("clairvoyance", p_divination_spell, 15, 3, 3, 1, nodir, rnd_spell).
-spell("cure sickness", p_healing_spell, 32, 3, 3, 1, nodir, rnd_spell).
-spell("charm monster", p_enchantment_spell, 20, 3, 3, 1, immediate, rnd_spell).
-spell("haste self", p_escape_spell, 33, 4, 3, 1, nodir, rnd_spell).
-spell("detect unseen", p_divination_spell, 20, 4, 3, 1, nodir, rnd_spell).
-spell("levitation", p_escape_spell, 20, 4, 4, 1, nodir, rnd_spell).
-spell("extra healing", p_healing_spell, 27, 5, 3, 1, immediate, rnd_spell).
-spell("restore ability", p_healing_spell, 25, 5, 4, 1, nodir, rnd_spell).
-spell("invisibility", p_escape_spell, 25, 5, 4, 1, nodir, rnd_spell).
-spell("detect treasure", p_divination_spell, 20, 5, 4, 1, nodir, rnd_spell).
-spell("remove curse", p_cleric_spell, 25, 5, 3, 1, nodir, rnd_spell).
-spell("magic mapping", p_divination_spell, 18, 7, 5, 1, nodir, rnd_spell).
-spell("identify", p_divination_spell, 20, 6, 3, 1, nodir, rnd_spell).
-spell("turn undead", p_cleric_spell, 16, 8, 6, 1, immediate, rnd_spell).
-spell("polymorph", p_matter_spell, 10, 8, 6, 1, immediate, rnd_spell).
-spell("teleport away", p_escape_spell, 15, 6, 6, 1, immediate, rnd_spell).
-spell("create familiar", p_cleric_spell, 10, 7, 6, 1, nodir, rnd_spell).
-spell("cancellation", p_matter_spell, 15, 8, 7, 1, immediate, rnd_spell).
-spell("protection", p_cleric_spell, 18, 3, 1, 1, nodir, rnd_spell).
-spell("jumping", p_escape_spell, 20, 3, 1, 1, immediate, rnd_spell).
-spell("stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate, rnd_spell).
-spell("blank paper", p_none, 18, 0, 0, 0, 0, 380).
+% food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, TIN, NUTRITION)
+food(239, "tripe ration", 140, 2, 10, 0, flesh, 200).
+food(240, "corpse", 0, 1, none, 0, flesh, 0).
+food(241, "egg", 85, 1, 1, 1, flesh, 80).
+food(242, "meatball", 0, 1, 1, 0, flesh, 5).
+food(243, "meat stick", 0, 1, 1, 0, flesh, 5).
+food(244, "huge chunk of meat", 0, 20, 400, 0, flesh, 2000).
+food(245, "meat ring", 0, 1, 5, 0, flesh, 5).
+food(246, "glob of gray ooze", 0, 2, 20, 0, flesh, 20).
+food(247, "glob of brown pudding", 0, 2, 20, 0, flesh, 20).
+food(248, "glob of green slime", 0, 2, 20, 0, flesh, 20).
+food(249, "glob of black pudding", 0, 2, 20, 0, flesh, 20).
+food(250, "kelp frond", 0, 1, 1, 0, veggy, 30).
+food(251, "eucalyptus leaf", 3, 1, 1, 0, veggy, 30).
+food(252, "apple", 15, 1, 2, 0, veggy, 50).
+food(253, "orange", 10, 1, 2, 0, veggy, 80).
+food(254, "pear", 10, 1, 2, 0, veggy, 50).
+food(255, "melon", 10, 1, 5, 0, veggy, 100).
+food(256, "banana", 10, 1, 2, 0, veggy, 80).
+food(257, "carrot", 15, 1, 2, 0, veggy, 50).
+food(258, "sprig of wolfsbane", 7, 1, 1, 0, veggy, 40).
+food(259, "clove of garlic", 7, 1, 1, 0, veggy, 40).
+food(260, "slime mold", 75, 1, 5, 0, veggy, 250).
+food(261, "lump of royal jelly", 0, 1, 2, 0, veggy, 200).
+food(262, "cream pie", 25, 1, 10, 0, veggy, 100).
+food(263, "candy bar", 13, 1, 2, 0, veggy, 100).
+food(264, "fortune cookie", 55, 1, 1, 0, veggy, 40).
+food(265, "pancake", 25, 2, 2, 0, veggy, 200).
+food(266, "lembas wafer", 20, 2, 5, 0, veggy, 800).
+food(267, "cram ration", 20, 3, 15, 0, veggy, 600).
+food(268, "food ration", 380, 5, 20, 0, veggy, 800).
+food(269, "K-ration", 0, 1, 10, 0, veggy, 400).
+food(270, "C-ration", 0, 1, 10, 0, veggy, 300).
+food(271, "tin", 75, 0, 10, 1, metal, 0).
+% potion(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, BASE_PRICE)
+potion(297, "water", 0, 0, 92, 100).
+potion(rnd_potion, "gain ability", 1, 0, 42, 300).
+potion(rnd_potion, "restore ability", 1, 0, 40, 100).
+potion(rnd_potion, "confusion", 1, confusion, 42, 100).
+potion(rnd_potion, "blindness", 1, blinded, 40, 150).
+potion(rnd_potion, "paralysis", 1, 0, 42, 300).
+potion(rnd_potion, "speed", 1, fast, 42, 200).
+potion(rnd_potion, "levitation", 1, levitation, 42, 200).
+potion(rnd_potion, "hallucination", 1, halluc, 40, 100).
+potion(rnd_potion, "invisibility", 1, invis, 40, 150).
+potion(rnd_potion, "see invisible", 1, see_invis, 42, 50).
+potion(rnd_potion, "healing", 1, 0, 57, 100).
+potion(rnd_potion, "extra healing", 1, 0, 47, 100).
+potion(rnd_potion, "gain level", 1, 0, 20, 300).
+potion(rnd_potion, "enlightenment", 1, 0, 20, 200).
+potion(rnd_potion, "monster detection", 1, 0, 40, 150).
+potion(rnd_potion, "object detection", 1, 0, 42, 150).
+potion(rnd_potion, "gain energy", 1, 0, 42, 150).
+potion(rnd_potion, "sleeping", 1, 0, 42, 100).
+potion(rnd_potion, "full healing", 1, 0, 10, 200).
+potion(rnd_potion, "polymorph", 1, 0, 10, 200).
+potion(rnd_potion, "booze", 0, 0, 42, 50).
+potion(rnd_potion, "sickness", 0, 0, 42, 50).
+potion(rnd_potion, "fruit juice", 0, 0, 42, 50).
+potion(rnd_potion, "acid", 0, 0, 10, 250).
+potion(rnd_potion, "oil", 0, 0, 30, 250).
+% scroll(APPEARENCE, NAME, MAGICAL, ABOUNDANCE, BASE_PRICE)
+scroll(rnd_scroll, "enchant armor", 1, 63, 80).
+scroll(rnd_scroll, "destroy armor", 1, 45, 100).
+scroll(rnd_scroll, "confuse monster", 1, 53, 100).
+scroll(rnd_scroll, "scare monster", 1, 35, 100).
+scroll(rnd_scroll, "remove curse", 1, 65, 80).
+scroll(rnd_scroll, "enchant weapon", 1, 80, 60).
+scroll(rnd_scroll, "create monster", 1, 45, 200).
+scroll(rnd_scroll, "taming", 1, 15, 200).
+scroll(rnd_scroll, "genocide", 1, 15, 300).
+scroll(rnd_scroll, "light", 1, 90, 50).
+scroll(rnd_scroll, "teleportation", 1, 55, 100).
+scroll(rnd_scroll, "gold detection", 1, 33, 100).
+scroll(rnd_scroll, "food detection", 1, 25, 100).
+scroll(rnd_scroll, "identify", 1, 180, 20).
+scroll(rnd_scroll, "magic mapping", 1, 45, 100).
+scroll(rnd_scroll, "amnesia", 1, 35, 200).
+scroll(rnd_scroll, "fire", 1, 30, 100).
+scroll(rnd_scroll, "earth", 1, 18, 200).
+scroll(rnd_scroll, "punishment", 1, 15, 300).
+scroll(rnd_scroll, "charging", 1, 15, 300).
+scroll(rnd_scroll, "stinking cloud", 1, 15, 300).
+scroll(339, "blank paper", 0, 28, 60).
+% spell(APPEARENCE, NAME, SUB, ABOUNDANCE, DELAY, LEVEL, MAGICAL, DIR)
+spell(rnd_spell, "dig", p_matter_spell, 20, 6, 5, 1, ray).
+spell(rnd_spell, "magic missile", p_attack_spell, 45, 2, 2, 1, ray).
+spell(rnd_spell, "fireball", p_attack_spell, 20, 4, 4, 1, ray).
+spell(rnd_spell, "cone of cold", p_attack_spell, 10, 7, 4, 1, ray).
+spell(rnd_spell, "sleep", p_enchantment_spell, 50, 1, 1, 1, ray).
+spell(rnd_spell, "finger of death", p_attack_spell, 5, 10, 7, 1, ray).
+spell(rnd_spell, "light", p_divination_spell, 45, 1, 1, 1, nodir).
+spell(rnd_spell, "detect monsters", p_divination_spell, 43, 1, 1, 1, nodir).
+spell(rnd_spell, "healing", p_healing_spell, 40, 2, 1, 1, immediate).
+spell(rnd_spell, "knock", p_matter_spell, 35, 1, 1, 1, immediate).
+spell(rnd_spell, "force bolt", p_attack_spell, 35, 2, 1, 1, immediate).
+spell(rnd_spell, "confuse monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
+spell(rnd_spell, "cure blindness", p_healing_spell, 25, 2, 2, 1, immediate).
+spell(rnd_spell, "drain life", p_attack_spell, 10, 2, 2, 1, immediate).
+spell(rnd_spell, "slow monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
+spell(rnd_spell, "wizard lock", p_matter_spell, 30, 3, 2, 1, immediate).
+spell(rnd_spell, "create monster", p_cleric_spell, 35, 3, 2, 1, nodir).
+spell(rnd_spell, "detect food", p_divination_spell, 30, 3, 2, 1, nodir).
+spell(rnd_spell, "cause fear", p_enchantment_spell, 25, 3, 3, 1, nodir).
+spell(rnd_spell, "clairvoyance", p_divination_spell, 15, 3, 3, 1, nodir).
+spell(rnd_spell, "cure sickness", p_healing_spell, 32, 3, 3, 1, nodir).
+spell(rnd_spell, "charm monster", p_enchantment_spell, 20, 3, 3, 1, immediate).
+spell(rnd_spell, "haste self", p_escape_spell, 33, 4, 3, 1, nodir).
+spell(rnd_spell, "detect unseen", p_divination_spell, 20, 4, 3, 1, nodir).
+spell(rnd_spell, "levitation", p_escape_spell, 20, 4, 4, 1, nodir).
+spell(rnd_spell, "extra healing", p_healing_spell, 27, 5, 3, 1, immediate).
+spell(rnd_spell, "restore ability", p_healing_spell, 25, 5, 4, 1, nodir).
+spell(rnd_spell, "invisibility", p_escape_spell, 25, 5, 4, 1, nodir).
+spell(rnd_spell, "detect treasure", p_divination_spell, 20, 5, 4, 1, nodir).
+spell(rnd_spell, "remove curse", p_cleric_spell, 25, 5, 3, 1, nodir).
+spell(rnd_spell, "magic mapping", p_divination_spell, 18, 7, 5, 1, nodir).
+spell(rnd_spell, "identify", p_divination_spell, 20, 6, 3, 1, nodir).
+spell(rnd_spell, "turn undead", p_cleric_spell, 16, 8, 6, 1, immediate).
+spell(rnd_spell, "polymorph", p_matter_spell, 10, 8, 6, 1, immediate).
+spell(rnd_spell, "teleport away", p_escape_spell, 15, 6, 6, 1, immediate).
+spell(rnd_spell, "create familiar", p_cleric_spell, 10, 7, 6, 1, nodir).
+spell(rnd_spell, "cancellation", p_matter_spell, 15, 8, 7, 1, immediate).
+spell(rnd_spell, "protection", p_cleric_spell, 18, 3, 1, 1, nodir).
+spell(rnd_spell, "jumping", p_escape_spell, 20, 3, 1, 1, immediate).
+spell(rnd_spell, "stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate).
+spell(380, "blank paper", p_none, 18, 0, 0, 0, 0).
 
 % wand(NAME, ABOUNDANCE, BASE_PRICE, MAGICAL, DIR)
 wand("light", 95, 100, 1, nodir).
@@ -415,46 +405,46 @@ wand("cold", 40, 175, 1, ray).
 wand("sleep", 50, 175, 1, ray).
 wand("death", 5, 500, 1, ray).
 wand("lightning", 40, 175, 1, ray).
-% Rocks are GEM_CLASS
 
-% gem(NAME, ABOUNDANCE, WEIGHT, GVAL, NUTR, MOHS, GLASS)
-gem("dilithium crystal", 2, 1, 4500, 15, 5, gemstone, 411).
-gem("diamond", 3, 1, 4000, 15, 10, gemstone, 412).
-gem("ruby", 4, 1, 3500, 15, 9, gemstone, 413).
-gem("jacinth", 3, 1, 3250, 15, 9, gemstone, 414).
-gem("sapphire", 4, 1, 3000, 15, 9, gemstone, 415).
-gem("black opal", 3, 1, 2500, 15, 8, gemstone, 416).
-gem("emerald", 5, 1, 2500, 15, 8, gemstone, 417).
-gem("turquoise", 6, 1, 2000, 15, 6, gemstone, rnd_turquoise).
-gem("citrine", 4, 1, 1500, 15, 6, gemstone, 419).
-gem("aquamarine", 6, 1, 1500, 15, 8, gemstone, rnd_aquamarine).
-gem("amber", 8, 1, 1000, 15, 2, gemstone, 421).
-gem("topaz", 10, 1, 900, 15, 8, gemstone, 422).
-gem("jet", 6, 1, 850, 15, 7, gemstone, 423).
-gem("opal", 12, 1, 800, 15, 6, gemstone, 424).
-gem("chrysoberyl", 8, 1, 700, 15, 5, gemstone, 425).
-gem("garnet", 12, 1, 700, 15, 7, gemstone, 426).
-gem("amethyst", 14, 1, 600, 15, 7, gemstone, 427).
-gem("jasper", 15, 1, 500, 15, 7, gemstone, 428).
-gem("fluorite", 15, 1, 400, 15, 4, gemstone, rnd_fluorite).
-gem("obsidian", 9, 1, 200, 15, 6, gemstone, 430).
-gem("agate", 12, 1, 200, 15, 6, gemstone, 431).
-gem("jade", 10, 1, 300, 15, 6, gemstone, 432).
-gem("worthless piece of white glass", 77, 1, 0, 6, 5, glass, 433).
-gem("worthless piece of blue glass", 77, 1, 0, 6, 5, glass, 434).
-gem("worthless piece of red glass", 77, 1, 0, 6, 5, glass, 435).
-gem("worthless piece of yellowish brown glass", 77, 1, 0, 6, 5, glass, 436).
-gem("worthless piece of orange glass", 76, 1, 0, 6, 5, glass, 437).
-gem("worthless piece of yellow glass", 77, 1, 0, 6, 5, glass, 438).
-gem("worthless piece of black glass", 76, 1, 0, 6, 5, glass, 439).
-gem("worthless piece of green glass", 77, 1, 0, 6, 5, glass, 440).
-gem("worthless piece of violet glass", 77, 1, 0, 6, 5, glass, 441).
-% rock(NAME, ABOUNDANCE, WEIGHT, GVAL, SDAM, LDAM, MAGICAL, NUTR, MOHS)
-rock("luckstone", 10, 10, 60, 3, 3, 1, 10, 7, 442).
-rock("loadstone", 10, 500, 1, 3, 3, 1, 10, 6, 443).
-rock("touchstone", 8, 10, 45, 3, 3, 1, 10, 6, 444).
-rock("flint", 10, 10, 1, 6, 6, 0, 10, 7, 445).
-rock("rock", 100, 10, 0, 3, 3, 0, 10, 7, 446).
+% gem(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, GVAL, NUTR, MOHS, MATERIAL)
+gem(411, "dilithium crystal", 2, 1, 4500, 15, 5, gemstone).
+gem(412, "diamond", 3, 1, 4000, 15, 10, gemstone).
+gem(413, "ruby", 4, 1, 3500, 15, 9, gemstone).
+gem(414, "jacinth", 3, 1, 3250, 15, 9, gemstone).
+gem(415, "sapphire", 4, 1, 3000, 15, 9, gemstone).
+gem(416, "black opal", 3, 1, 2500, 15, 8, gemstone).
+gem(417, "emerald", 5, 1, 2500, 15, 8, gemstone).
+gem(rnd_turquoise, "turquoise", 6, 1, 2000, 15, 6, gemstone).
+gem(419, "citrine", 4, 1, 1500, 15, 6, gemstone).
+gem(rnd_aquamarine, "aquamarine", 6, 1, 1500, 15, 8, gemstone).
+gem(421, "amber", 8, 1, 1000, 15, 2, gemstone).
+gem(422, "topaz", 10, 1, 900, 15, 8, gemstone).
+gem(423, "jet", 6, 1, 850, 15, 7, gemstone).
+gem(424, "opal", 12, 1, 800, 15, 6, gemstone).
+gem(425, "chrysoberyl", 8, 1, 700, 15, 5, gemstone).
+gem(426, "garnet", 12, 1, 700, 15, 7, gemstone).
+gem(427, "amethyst", 14, 1, 600, 15, 7, gemstone).
+gem(428, "jasper", 15, 1, 500, 15, 7, gemstone).
+gem(rnd_fluorite, "fluorite", 15, 1, 400, 15, 4, gemstone).
+gem(430, "obsidian", 9, 1, 200, 15, 6, gemstone).
+gem(431, "agate", 12, 1, 200, 15, 6, gemstone).
+gem(432, "jade", 10, 1, 300, 15, 6, gemstone).
+gem(433, "worthless piece of white glass", 77, 1, 0, 6, 5, glass).
+gem(434, "worthless piece of blue glass", 77, 1, 0, 6, 5, glass).
+gem(435, "worthless piece of red glass", 77, 1, 0, 6, 5, glass).
+gem(436, "worthless piece of yellowish brown glass", 77, 1, 0, 6, 5, glass).
+gem(437, "worthless piece of orange glass", 76, 1, 0, 6, 5, glass).
+gem(438, "worthless piece of yellow glass", 77, 1, 0, 6, 5, glass).
+gem(439, "worthless piece of black glass", 76, 1, 0, 6, 5, glass).
+gem(440, "worthless piece of green glass", 77, 1, 0, 6, 5, glass).
+gem(441, "worthless piece of violet glass", 77, 1, 0, 6, 5, glass).
+% Rocks are GEM_CLASS
+% rock(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, GVAL, SDAM, LDAM, MAGICAL, NUTR, MOHS)
+rock(442, "luckstone", 10, 10, 60, 3, 3, 1, 10, 7).
+rock(443, "loadstone", 10, 500, 1, 3, 3, 1, 10, 6).
+rock(444, "touchstone", 8, 10, 45, 3, 3, 1, 10, 6).
+rock(445, "flint", 10, 10, 1, 6, 6, 0, 10, 7).
+rock(446, "rock", 100, 10, 0, 3, 3, 0, 10, 7).
 % object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID)
 object(amulet, NAME, ABOUNDANCE, 150, 20, iron, APPEARENCE_ID) :-
     amulet(NAME, _, ABOUNDANCE),
@@ -464,15 +454,15 @@ object(ring, NAME, 1, BASE_PRICE, 3, MATERIAL, APPEARENCE_ID) :-
     can_be(rnd_ring, APPEARENCE_ID),
     material(APPEARENCE_ID, MATERIAL).
 object(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass, APPEARENCE_ID) :-
-    potion(NAME, _, _, ABOUNDANCE, BASE_PRICE, APPEARENCE),
+    potion(APPEARENCE, NAME, _, _, ABOUNDANCE, BASE_PRICE),
     can_be(APPEARENCE, APPEARENCE_ID).
 object(spell, NAME, ABOUNDANCE, BASE_PRICE, 50, MATERIAL, APPEARENCE_ID) :-
-    spell(NAME, _, ABOUNDANCE, _, LEVEL, _, _, APPEARENCE),
-    BASE_PRICE is LEVEL*100,
+    spell(APPEARENCE, NAME, _, ABOUNDANCE, _, LEVEL, _, _),
     can_be(APPEARENCE, APPEARENCE_ID),
-    material(APPEARENCE_ID, MATERIAL).
+    material(APPEARENCE_ID, MATERIAL),
+    BASE_PRICE is LEVEL*100.
 object(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper, APPEARENCE_ID) :-
-    scroll(NAME, _, ABOUNDANCE, BASE_PRICE, APPEARENCE),
+    scroll(APPEARENCE, NAME, _, ABOUNDANCE, BASE_PRICE),
     can_be(APPEARENCE, APPEARENCE_ID).
 object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, MATERIAL, APPEARENCE_ID) :-
     wand(NAME, ABOUNDANCE, BASE_PRICE, _, _),
@@ -480,11 +470,20 @@ object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, MATERIAL, APPEARENCE_ID) :-
     material(APPEARENCE_ID, MATERIAL).
 object(ARMOR, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
     member(ARMOR, [helm, gloves, cloak, boots]),
-    call(ARMOR, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, _, _, MATERIAL, APPEARENCE),
+    call(ARMOR, APPEARENCE, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, _, _, MATERIAL),
     can_be(APPEARENCE, APPEARENCE_ID).
 
 price_multiplier(CHARISMA, M) :-
-    append(_, [MINC-M, MAXCP1-_|_], [0-2/1, 6-3/2, 8-4/3, 11-1/1, 16-3/4, 18-2/3, 19-1/2, 99-1/2]),
+    append(_, [MINC  -M,
+	       MAXCP1-_|_],
+	   [0 -2/1,
+	    6 -3/2,
+	    8 -4/3,
+	    11-1/1,
+	    16-3/4,
+	    18-2/3,
+	    19-1/2,
+	    99-1/2]), %last -1/2 will never be considered
     MAXC is MAXCP1 - 1,
     between(MINC, MAXC, CHARISMA).
 buy_price(APPEARENCE_ID, COST, EXPENSIVE, CHARISMA, OBJ) :- 
@@ -501,17 +500,17 @@ sell_price(APPEARENCE_ID, OFFER, DISCOUNT, OBJ) :-
 		      2 * 4**DISCOUNT)
 		  + 5), 10).
 % can_be(APPEARENCE, APPEARENCE_ID)
-can_be(X, X) :- integer(X).
-can_be(rnd_potion, X) :- between(272, 296, X).
-can_be(rnd_scroll, X) :- between(298, 338, X).
-can_be(rnd_spell, X) :- between(340, 379, X).
-can_be(rnd_wand, X) :- between(383, 409, X).
-can_be(rnd_ring, X) :- between(150, 177, X).
-can_be(rnd_helm, X) :- between(78, 81, X).
-can_be(rnd_cloak, X) :- between(125, 128, X).
-can_be(rnd_gloves, X) :- between(136, 139, X).
-can_be(rnd_boots, X) :- between(143, 149, X).
-can_be(rnd_amulet, X) :- between(178, 186, X).
+can_be(ID, ID) :- integer(ID).
+can_be(rnd_potion, ID) :- between(272, 296, ID).
+can_be(rnd_scroll, ID) :- between(298, 338, ID).
+can_be(rnd_spell, ID) :- between(340, 379, ID).
+can_be(rnd_wand, ID) :- between(383, 409, ID).
+can_be(rnd_ring, ID) :- between(150, 177, ID).
+can_be(rnd_helm, ID) :- between(78, 81, ID).
+can_be(rnd_cloak, ID) :- between(125, 128, ID).
+can_be(rnd_gloves, ID) :- between(136, 139, ID).
+can_be(rnd_boots, ID) :- between(143, 149, ID).
+can_be(rnd_amulet, ID) :- between(178, 186, ID).
 can_be(rnd_turquoise, 415).
 can_be(rnd_turquoise, 418).
 can_be(rnd_aquamarine, 415).
@@ -520,6 +519,8 @@ can_be(rnd_fluorite, 412).
 can_be(rnd_fluorite, 415).
 can_be(rnd_fluorite, 417).
 can_be(rnd_fluorite, 429).
+% description(APPEARENCE_ID, DESC)
+% not every ID has a description
 description(2, "runed arrow").
 description(3, "crude arrow").
 description(5, "bamboo arrow").
@@ -837,9 +838,6 @@ description(445, "gray").
 description(451, "splash of venom").
 description(452, "splash of venom").
 % material(APPEARENCE_ID, MATERIAL)
-material(340, leather).
-material(341, leather).
-material(ID, paper) :- between(342, 379, ID).
 material(150, wood).
 material(151, mineral).
 material(152, mineral).
@@ -868,7 +866,9 @@ material(174, gemstone).
 material(175, iron).
 material(176, iron).
 material(177, iron).
-material(380, paper).
+material(340, leather). % parchment spellbook
+material(341, leather). % vellum spellbook
+material(ID, paper) :- between(342, 380, ID). % paper spellbooks
 material(383, glass).
 material(384, wood).
 material(385, glass).
