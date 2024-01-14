@@ -64,13 +64,13 @@ weapon(61, "quarterstaff", 0, 1, 11, 40, 5, 0, 1, 0, 0, p_quarterstaff, wood, 3.
 weapon(62, "aklys", 0, 0, 8, 15, 4, 0, 1, 0, 0, p_club, iron, 3.5, 2.0).
 weapon(63, "flail", 0, 0, 40, 15, 4, 0, 1, 0, 0, p_flail, iron, 4.5, 5.0).
 weapon(64, "bullwhip", 0, 0, 2, 20, 4, 0, 0, 0, 0, p_whip, leather, 1.5, 1.0).
-% bow(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBON, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-bow(65, "bow", 24, 30, 60, 0, wood, p_bow, 1.5, 1.5).
-bow(66, "elven bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
-bow(67, "orcish bow", 12, 30, 60, 0, wood, p_bow, 1.5, 1.5).
-bow(68, "yumi", 0, 30, 60, 0, wood, p_bow, 1.5, 1.5).
-bow(69, "sling", 40, 3, 20, 0, leather, p_sling, 1.5, 1.5).
-bow(70, "crossbow", 45, 50, 40, 0, wood, p_crossbow, 1.5, 1.5).
+% launcher(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL, SUB)
+launcher(65, "bow", 24, 30, 60, wood, p_bow).
+launcher(66, "elven bow", 12, 30, 60, wood, p_bow).
+launcher(67, "orcish bow", 12, 30, 60, wood, p_bow).
+launcher(68, "yumi", 0, 30, 60, wood, p_bow).
+launcher(69, "sling", 40, 3, 20, leather, p_sling).
+launcher(70, "crossbow", 45, 50, 40, wood, p_crossbow).
 % helm(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 helm(71, "elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
 helm(72, "orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
@@ -102,24 +102,24 @@ drgn_armr(96, "black dragon scales", 0, disint_res, 700, 7).
 drgn_armr(97, "blue dragon scales", 0, shock_res, 500, 7).
 drgn_armr(98, "green dragon scales", 0, poison_res, 500, 7).
 drgn_armr(99, "yellow dragon scales", 0, acid_res, 500, 7).
-% armor(APPEARENCE, NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
-armor(100, "plate mail", 0, 1, 0, 44, 5, 450, 600, 3, 2, arm_suit, iron).
-armor(101, "crystal plate mail", 0, 1, 0, 10, 5, 450, 820, 3, 2, arm_suit, glass).
-armor(102, "bronze plate mail", 0, 1, 0, 25, 5, 450, 400, 4, 1, arm_suit, copper).
-armor(103, "splint mail", 0, 1, 0, 62, 5, 400, 80, 4, 1, arm_suit, iron).
-armor(104, "banded mail", 0, 1, 0, 72, 5, 350, 90, 4, 1, arm_suit, iron).
-armor(105, "dwarvish mithril-coat", 0, 0, 0, 10, 1, 150, 240, 4, 2, arm_suit, mithril).
-armor(106, "elven mithril-coat", 0, 0, 0, 15, 1, 150, 240, 5, 2, arm_suit, mithril).
-armor(107, "chain mail", 0, 0, 0, 72, 5, 300, 75, 5, 1, arm_suit, iron).
-armor(108, "orcish chain mail", 0, 0, 0, 20, 5, 300, 75, 6, 1, arm_suit, iron).
-armor(109, "scale mail", 0, 0, 0, 72, 5, 250, 45, 6, 1, arm_suit, iron).
-armor(110, "studded leather armor", 0, 0, 0, 72, 3, 200, 15, 7, 1, arm_suit, leather).
-armor(111, "ring mail", 0, 0, 0, 72, 5, 250, 100, 7, 1, arm_suit, iron).
-armor(112, "orcish ring mail", 0, 0, 0, 20, 5, 250, 80, 8, 1, arm_suit, iron).
-armor(113, "leather armor", 0, 0, 0, 82, 3, 150, 5, 8, 1, arm_suit, leather).
-armor(114, "leather jacket", 0, 0, 0, 12, 0, 30, 10, 9, 0, arm_suit, leather).
-armor(115, "Hawaiian shirt", 0, 0, 0, 8, 0, 5, 3, 10, 0, arm_shirt, cloth).
-armor(116, "T-shirt", 0, 0, 0, 2, 0, 5, 2, 10, 0, arm_shirt, cloth).
+% body_armr(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
+body_armr(100, "plate mail", 44, 450, 600, 3, 2, arm_suit, iron).
+body_armr(101, "crystal plate mail", 10, 450, 820, 3, 2, arm_suit, glass).
+body_armr(102, "bronze plate mail", 25, 450, 400, 4, 1, arm_suit, copper).
+body_armr(103, "splint mail", 62, 400, 80, 4, 1, arm_suit, iron).
+body_armr(104, "banded mail", 72, 350, 90, 4, 1, arm_suit, iron).
+body_armr(105, "dwarvish mithril-coat", 10, 150, 240, 4, 2, arm_suit, mithril).
+body_armr(106, "elven mithril-coat", 15, 150, 240, 5, 2, arm_suit, mithril).
+body_armr(107, "chain mail", 72, 300, 75, 5, 1, arm_suit, iron).
+body_armr(108, "orcish chain mail", 20, 300, 75, 6, 1, arm_suit, iron).
+body_armr(109, "scale mail", 72, 250, 45, 6, 1, arm_suit, iron).
+body_armr(110, "studded leather armor", 72, 200, 15, 7, 1, arm_suit, leather).
+body_armr(111, "ring mail", 72, 250, 100, 7, 1, arm_suit, iron).
+body_armr(112, "orcish ring mail", 20, 250, 80, 8, 1, arm_suit, iron).
+body_armr(113, "leather armor", 82, 150, 5, 8, 1, arm_suit, leather).
+body_armr(114, "leather jacket", 12, 30, 10, 9, 0, arm_suit, leather).
+body_armr(115, "Hawaiian shirt", 8, 5, 3, 10, 0, arm_shirt, cloth).
+body_armr(116, "T-shirt", 2, 5, 2, 10, 0, arm_shirt, cloth).
 % cloak(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 cloak(117, "mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
 cloak(118, "elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
@@ -133,14 +133,14 @@ cloak(rnd_cloak, "cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth
 cloak(rnd_cloak, "cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth).
 cloak(rnd_cloak, "cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth).
 cloak(rnd_cloak, "cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth).
-% shield(APPEARENCE, NAME, MAGICAL, BLK, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-shield(129, "small shield", 0, 0, 0, 6, 0, 30, 3, 9, 0, wood).
-shield(130, "elven shield", 0, 0, 0, 2, 0, 40, 7, 8, 0, wood).
-shield(131, "uruk-hai shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
-shield(132, "orcish shield", 0, 0, 0, 2, 0, 50, 7, 9, 0, iron).
-shield(133, "large shield", 0, 1, 0, 7, 0, 100, 10, 8, 0, iron).
-shield(134, "dwarvish roundshield", 0, 0, 0, 4, 0, 100, 10, 8, 0, iron).
-shield(135, "shield of reflection", 1, 0, reflecting, 3, 0, 50, 50, 8, 0, silver).
+% shield(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
+shield(129, "small shield", 0, 0, 6, 0, 30, 3, 9, 0, wood).
+shield(130, "elven shield", 0, 0, 2, 0, 40, 7, 8, 0, wood).
+shield(131, "uruk-hai shield", 0, 0, 2, 0, 50, 7, 9, 0, iron).
+shield(132, "orcish shield", 0, 0, 2, 0, 50, 7, 9, 0, iron).
+shield(133, "large shield", 0, 0, 7, 0, 100, 10, 8, 0, iron).
+shield(134, "dwarvish roundshield", 0, 0, 4, 0, 100, 10, 8, 0, iron).
+shield(135, "shield of reflection", 1, reflecting, 3, 0, 50, 50, 8, 0, silver).
 % gloves(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
 gloves(rnd_gloves, "leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather).
 gloves(rnd_gloves, "gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather).
@@ -206,10 +206,10 @@ container(192, "sack", 0, 0, 35, 15, 2, cloth).
 container(193, "oilskin sack", 0, 0, 5, 15, 100, cloth).
 container(194, "bag of holding", 1, 0, 20, 15, 100, cloth).
 container(195, "bag of tricks", 1, 1, 20, 15, 100, cloth).
-% weptool(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, SDAM, LDAM, HITBON, SUB, MAT, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-weptool(234, "pick-axe", 0, 0, 20, 100, 50, 6, 3, whack, p_pick_axe, iron, 3.5, 2.0).
-weptool(235, "grappling hook", 0, 0, 5, 30, 50, 2, 6, whack, p_flail, iron, 1.5, 3.5).
-weptool(236, "unicorn horn", 1, 1, 0, 20, 100, 12, 12, pierce, p_unicorn_horn, bone, 6.5, 6.5).
+% weptool(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+weptool(234, "pick-axe", 0, 0, 20, 100, 50, 0, p_pick_axe, iron, 3.5, 2.0).
+weptool(235, "grappling hook", 0, 0, 5, 30, 50, 0, p_flail, iron, 1.5, 3.5).
+weptool(236, "unicorn horn", 1, 1, 0, 20, 100, 1, p_unicorn_horn, bone, 6.5, 6.5).
 % tool(APPEARENCE, NAME, MRG, MAGICAL, CHG, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL)
 tool(196, "skeleton key", 0, 0, 0, 80, 3, 10, iron).
 tool(197, "lock pick", 0, 0, 0, 60, 4, 20, iron).
@@ -252,7 +252,6 @@ tool(233, "drum of earthquake", 0, 1, 1, 2, 25, 25, leather).
 % questitem(APPEARENCE, NAME, WEIGHT)
 questitem(237, "candelabrum of invocation", 10).
 questitem(238, "bell of opening", 10).
-% questitem("book of the dead", "papyrus", weight=20, "book of the dead").
 % food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, TIN, NUTRITION)
 food(239, "tripe ration", 140, 2, 10, 0, flesh, 200).
 food(240, "corpse", 0, 1, none, 0, flesh, 0).
@@ -438,20 +437,24 @@ gem(438, "worthless piece of yellow glass", 77, 1, 0, 6, 5, glass).
 gem(439, "worthless piece of black glass", 76, 1, 0, 6, 5, glass).
 gem(440, "worthless piece of green glass", 77, 1, 0, 6, 5, glass).
 gem(441, "worthless piece of violet glass", 77, 1, 0, 6, 5, glass).
-% Rocks are GEM_CLASS
-% rock(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, GVAL, SDAM, LDAM, MAGICAL, NUTR, MOHS)
-rock(442, "luckstone", 10, 10, 60, 3, 3, 1, 10, 7).
-rock(443, "loadstone", 10, 500, 1, 3, 3, 1, 10, 6).
-rock(444, "touchstone", 8, 10, 45, 3, 3, 1, 10, 6).
-rock(445, "flint", 10, 10, 1, 6, 6, 0, 10, 7).
-rock(446, "rock", 100, 10, 0, 3, 3, 0, 10, 7).
+% rock(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, MAGICAL, NUTR, MOHS)
+rock(442, "luckstone", 10, 10, 60, 1, 10, 7).
+rock(443, "loadstone", 10, 500, 1, 1, 10, 6).
+rock(444, "touchstone", 8, 10, 45, 1, 10, 6).
+rock(445, "flint", 10, 10, 1, 0, 10, 7).
+rock(446, "rock", 100, 10, 0, 0, 10, 7).
+% coin(NAME, ABOUNDANCE, MATERIAL, WORTH, WEIGHT)
+coin("gold piece", 1000, gold, 1, 0.01).
+% object/7 is a unified view of all objects
 % object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID)
 object(amulet, NAME, ABOUNDANCE, 150, 20, iron, APPEARENCE_ID) :-
     amulet(NAME, _, ABOUNDANCE),
+    % all amulet have random appearence
     can_be(rnd_amulet, APPEARENCE_ID).
 object(ring, NAME, 1, BASE_PRICE, 3, MATERIAL, APPEARENCE_ID) :-
     ring(NAME, _, BASE_PRICE, _, _, _),
     can_be(rnd_ring, APPEARENCE_ID),
+    % material depends on appearence
     material(APPEARENCE_ID, MATERIAL).
 object(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass, APPEARENCE_ID) :-
     potion(APPEARENCE, NAME, _, _, ABOUNDANCE, BASE_PRICE),
@@ -466,51 +469,91 @@ object(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper, APPEARENCE_ID) :-
     can_be(APPEARENCE, APPEARENCE_ID).
 object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, MATERIAL, APPEARENCE_ID) :-
     wand(NAME, ABOUNDANCE, BASE_PRICE, _, _),
+    % all wands have random appearence
     can_be(rnd_wand, APPEARENCE_ID),
     material(APPEARENCE_ID, MATERIAL).
-object(ARMOR, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
-    member(ARMOR, [helm, gloves, cloak, boots]),
-    call(ARMOR, APPEARENCE, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, _, _, MATERIAL),
+object(gem, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    gem(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, _, _, MATERIAL),
     can_be(APPEARENCE, APPEARENCE_ID).
+object(launcher, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    launcher(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL, _).
+object(container, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    container(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
+object(tool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    tool(APPEARENCE_ID, NAME, _, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
+object(food, NAME, ABOUNDANCE, 0/*TODO*/, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    food(APPEARENCE_ID, NAME, ABOUNDANCE, _, WEIGHT, _, MATERIAL, _).
+object(rock, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, mineral, APPEARENCE_ID) :- 
+    rock(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, _, _, _).
+object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
+    armor(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, _, _).
+object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
+    damaging_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, _, _, _, _).
+% armor/9 is a unified view of all defensive objects that provide armor class
+% armor(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, ARMOR_CLASS, MAGIC_CANCELLATION)
+armor(ARMOR, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, AC, CAN) :-
+    member(ARMOR, [helm, gloves, cloak, boots]),
+    call(ARMOR, APPEARENCE, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL),
+    can_be(APPEARENCE, APPEARENCE_ID).
+armor(body_armr, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, AC, CAN) :-
+    body_armr(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, AC, CAN, _, MATERIAL).
+armor(shield, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, AC, CAN) :- 
+    shield(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, _, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL).
+armor(drgn_armr, NAME, 0, BASE_PRICE, 40, dragon_hide, APPEARENCE_ID, AC, 0) :- 
+    drgn_armr(APPEARENCE_ID, NAME, _, _, BASE_PRICE, AC).
+% damaging_object/11 is a unified view of all objects that can be used to deal damage by throwing, firing and melee
+% damaging_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE)
+damaging_object(projectile, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
+    projectile(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SKILL, DMG_SMALL, DMG_LARGE).
+damaging_object(weapon, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
+    weapon(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, _, _, _, SKILL, MATERIAL, DMG_SMALL, DMG_LARGE).
+damaging_object(weptool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
+    weptool(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, SKILL, MATERIAL, DMG_SMALL, DMG_LARGE).
+% charisma affects the price of the items you buy in a shop
+% price_multiplier(CHARISMA_RANGE, MULTIPLIER/DIVISOR)
+price_multiplier(0-5, 2/1).
+price_multiplier(6-7, 3/2).
+price_multiplier(8-10, 4/3).
+price_multiplier(11-15, 1/1).
+price_multiplier(16-17, 3/4).
+price_multiplier(18-18, 2/3).
+price_multiplier(19-25, 1/2).
 
-price_multiplier(CHARISMA, M) :-
-    append(_, [MINC  -M,
-	       MAXCP1-_|_],
-	   [0 -2/1,
-	    6 -3/2,
-	    8 -4/3,
-	    11-1/1,
-	    16-3/4,
-	    18-2/3,
-	    19-1/2,
-	    99-1/2]), %last -1/2 will never be considered
-    MAXC is MAXCP1 - 1,
-    between(MINC, MAXC, CHARISMA).
-buy_price(APPEARENCE_ID, COST, EXPENSIVE, CHARISMA, OBJ) :- 
-    price_multiplier(CHARISMA, M/D),
+% buy_price(APPEARENCE_ID, CHARISMA, OBJ, COST, EXPENSIVE)
+buy_price(APPEARENCE_ID, CHARISMA, OBJ, COST, EXPENSIVE) :- 
+    price_multiplier(MIN-MAX, M/D),
+    between(MIN, MAX, CHARISMA),
     object(_, OBJ, _, BASE_PRICE, _, _, APPEARENCE_ID),
     between(0, 2, EXPENSIVE),
-    COST is div((div(BASE_PRICE * M * 4**EXPENSIVE * 10,
-		     D * 3**EXPENSIVE)
-		 + 5), 10).
-sell_price(APPEARENCE_ID, OFFER, DISCOUNT, OBJ) :-
+    COST is (
+	(BASE_PRICE * M * 4**EXPENSIVE * 10)
+	div
+	(D * 3**EXPENSIVE)
+	+ 5) div 10.
+% sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT)
+sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT) :-
     object(_, OBJ, _, BASE_PRICE, _, _, APPEARENCE_ID),
     between(0, 1, DISCOUNT),
-    OFFER is div((div(BASE_PRICE * 3**DISCOUNT * 10,
-		      2 * 4**DISCOUNT)
-		  + 5), 10).
+    OFFER is (
+	(BASE_PRICE * 3**DISCOUNT * 10)
+	div
+	(2 * 4**DISCOUNT)
+	+ 5) div 10.
+% rnd_range(RND_APPEARENCE, APPEARECE_RANGE)
+rnd_range(rnd_potion, 272-296).
+rnd_range(rnd_scroll, 298-338).
+rnd_range(rnd_spell, 340-379).
+rnd_range(rnd_wand, 383-409).
+rnd_range(rnd_ring, 150-177).
+rnd_range(rnd_helm, 78-81).
+rnd_range(rnd_cloak, 125-128).
+rnd_range(rnd_gloves, 136-139).
+rnd_range(rnd_boots, 143-149).
+rnd_range(rnd_amulet, 178-186).
 % can_be(APPEARENCE, APPEARENCE_ID)
 can_be(ID, ID) :- integer(ID).
-can_be(rnd_potion, ID) :- between(272, 296, ID).
-can_be(rnd_scroll, ID) :- between(298, 338, ID).
-can_be(rnd_spell, ID) :- between(340, 379, ID).
-can_be(rnd_wand, ID) :- between(383, 409, ID).
-can_be(rnd_ring, ID) :- between(150, 177, ID).
-can_be(rnd_helm, ID) :- between(78, 81, ID).
-can_be(rnd_cloak, ID) :- between(125, 128, ID).
-can_be(rnd_gloves, ID) :- between(136, 139, ID).
-can_be(rnd_boots, ID) :- between(143, 149, ID).
-can_be(rnd_amulet, ID) :- between(178, 186, ID).
+can_be(RND, ID) :- rnd_range(RND, MIN-MAX), between(MIN, MAX, ID).
+% gems random appearences
 can_be(rnd_turquoise, 415).
 can_be(rnd_turquoise, 418).
 can_be(rnd_aquamarine, 415).
@@ -520,7 +563,7 @@ can_be(rnd_fluorite, 415).
 can_be(rnd_fluorite, 417).
 can_be(rnd_fluorite, 429).
 % description(APPEARENCE_ID, DESC)
-% not every ID has a description
+% only unknown object need a description
 description(2, "runed arrow").
 description(3, "crude arrow").
 description(5, "bamboo arrow").
@@ -563,10 +606,12 @@ description(72, "iron skull cap").
 description(73, "hard hat").
 description(75, "conical hat").
 description(76, "conical hat").
+% rnd_helm start
 description(78, "plumed helmet").
 description(79, "etched helmet").
 description(80, "crested helmet").
 description(81, "visored helmet").
+% rnd_helm end
 description(108, "crude chain mail").
 description(112, "crude ring mail").
 description(118, "faded pall").
@@ -574,22 +619,27 @@ description(119, "coarse mantelet").
 description(120, "hooded cloak").
 description(121, "slippery cloak").
 description(123, "apron").
+% rnd_cloak start
 description(125, "tattered cape").
 description(126, "opera cloak").
 description(127, "ornamental cope").
 description(128, "piece of cloth").
+% rnd_cloak end
 description(130, "blue and green shield").
 description(131, "white-handed shield").
 description(132, "red-eyed shield").
 description(134, "large round shield").
 description(135, "polished silver shield").
+% rnd_gloves start
 description(136, "old gloves").
 description(137, "padded gloves").
 description(138, "riding gloves").
 description(139, "fencing gloves").
+% rnd_gloves end
 description(140, "walking shoes").
 description(141, "hard shoes").
 description(142, "jackboots").
+% rnd_boots start
 description(143, "combat boots").
 description(144, "jungle boots").
 description(145, "hiking boots").
@@ -597,6 +647,8 @@ description(146, "mud boots").
 description(147, "buckled boots").
 description(148, "riding boots").
 description(149, "snow boots").
+% rnd_boots end
+% rnd_ring start
 description(150, "wooden").
 description(151, "granite").
 description(152, "opal").
@@ -625,6 +677,8 @@ description(174, "emerald").
 description(175, "wire").
 description(176, "engagement").
 description(177, "shiny").
+% rnd_ring end
+% rnd_amulet start
 description(178, "circular").
 description(179, "spherical").
 description(180, "oval").
@@ -634,6 +688,7 @@ description(183, "square").
 description(184, "concave").
 description(185, "hexagonal").
 description(186, "octagonal").
+% rnd_amulet end
 description(187, "Amulet of Yendor").
 description(188, "Amulet of Yendor").
 description(192, "bag").
@@ -662,6 +717,7 @@ description(233, "drum").
 description(235, "iron hook").
 description(237, "candelabrum").
 description(238, "silver bell").
+% rnd_potion start
 description(272, "ruby").
 description(273, "pink").
 description(274, "orange").
@@ -687,7 +743,9 @@ description(293, "fizzy").
 description(294, "dark").
 description(295, "white").
 description(296, "murky").
+% rnd_potion end
 description(297, "clear").
+% rnd_scroll start
 description(298, "ZELGO MER").
 description(299, "JUYED AWK YACC").
 description(300, "NR 9").
@@ -729,7 +787,9 @@ description(335, "MAPIRO MAHAMA DIROMAT").
 description(336, "VAS CORP BET MANI").
 description(337, "XOR OTA").
 description(338, "STRC PRST SKRZ KRK").
+% rnd_scroll end
 description(339, "unlabeled").
+% rnd_spell start
 description(340, "parchment").
 description(341, "vellum").
 description(342, "ragged").
@@ -770,9 +830,11 @@ description(376, "shining").
 description(377, "dull").
 description(378, "thin").
 description(379, "thick").
+% rnd_spell end
 description(380, "plain").
 description(381, "paperback").
 description(382, "papyrus").
+% rnd_wand start
 description(383, "glass").
 description(384, "balsa").
 description(385, "crystal").
@@ -800,6 +862,7 @@ description(406, "curved").
 description(407, "forked").
 description(408, "spiked").
 description(409, "jeweled").
+% rnd_wand end
 description(411, "white").
 description(412, "white").
 description(413, "red").
@@ -896,10 +959,4 @@ material(406, iron).
 material(407, wood).
 material(408, iron).
 material(409, iron).
-% coin(NAME, ABOUNDANCE, MATERIAL, WORTH, WEIGHT)
-coin("gold piece", 1000, gold, 1, 0.01).
-/* 
-a special, one of a kind, spellbook
-% misc(NAME, DESC, WEIGHT)
-misc("novel", "paperback", 50).
-*/
+% parse_item(TEXT, CATEGORY, NAME, APPEAERENCE_ID, QUANTITY, BUC, ENCHANTMENT, EFFECTS, CALLED, NAMED, ...)
