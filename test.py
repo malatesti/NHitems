@@ -1,3 +1,4 @@
+# testing for database(objects.pl) interaction
 from pyswip import Prolog
 import numpy as np
 
@@ -69,21 +70,21 @@ class stochastic_matrix:
 
 
 prolog = Prolog()
-objects_by_kind = {}
+rnd_objects_by_category = {}
 prolog.consult("objects.pl")
-for res in prolog.query("kind(O, K)"):
-    obj, kind = res["O"], res["K"]
-    if kind not in objects_by_kind:
-        objects_by_kind[kind] = []
-    objects_by_kind[kind].append(obj.decode())
+for res in prolog.query("rnd_range(_, ID-_), object(CAT, O, _, _, _, _, ID)"):
+    obj, category = res["O"], res["CAT"]
+    if category not in rnd_objects_by_category:
+        rnd_objects_by_category[category] = []
+    rnd_objects_by_category[category].append(obj.decode())
 
 
 def get_aboundance(prolog, cat, obj):
-    res = list(prolog.query(f'object({cat}, "{obj}", ABOUNDANCE, _, _, _)'))
+    res = list(prolog.query(f'once(object({cat}, "{obj}", ABOUNDANCE, _, _, _, _))'))
     assert len(res) == 1, (obj, res)
     return res[0]["ABOUNDANCE"]
 
 
 matrices = {k: stochastic_matrix(objs, [
     get_aboundance(prolog, k, obj) for obj in objs
-]) for k, objs in objects_by_kind.items()}
+]) for k, objs in rnd_objects_by_category.items()}
