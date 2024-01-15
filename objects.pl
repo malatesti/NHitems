@@ -5,65 +5,65 @@ projectile(3, "orcish arrow", 20, 1, 2, 0, iron, p_bow, 3.0, 3.5).
 projectile(4, "silver arrow", 12, 1, 5, 0, silver, p_bow, 3.5, 3.5).
 projectile(5, "ya", 15, 1, 4, 1, metal, p_bow, 4.0, 4.0).
 projectile(6, "crossbow bolt", 55, 1, 2, 0, iron, p_crossbow, 3.5, 4.5).
-% weapon(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, BASH, PIERCE, SLASH, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
-weapon(7, "dart", 1, 0, 60, 1, 2, 0, 0, 1, 0, p_dart, iron, 2.0, 1.5).
-weapon(8, "shuriken", 1, 0, 35, 1, 5, 2, 0, 1, 0, p_shuriken, iron, 4.5, 3.5).
-weapon(9, "boomerang", 1, 0, 15, 5, 20, 0, 0, 0, 0, p_boomerang, wood, 5.0, 5.0).
-weapon(10, "spear", 1, 0, 50, 30, 3, 0, 0, 1, 0, p_spear, iron, 3.5, 4.5).
-weapon(11, "elven spear", 1, 0, 10, 30, 3, 0, 0, 1, 0, p_spear, wood, 4.0, 4.5).
-weapon(12, "orcish spear", 1, 0, 13, 30, 3, 0, 0, 1, 0, p_spear, iron, 3.0, 4.5).
-weapon(13, "dwarvish spear", 1, 0, 12, 35, 3, 0, 0, 1, 0, p_spear, iron, 4.5, 4.5).
-weapon(14, "silver spear", 1, 0, 2, 36, 40, 0, 0, 1, 0, p_spear, silver, 3.5, 4.5).
-weapon(15, "javelin", 1, 0, 10, 20, 3, 0, 0, 1, 0, p_spear, iron, 3.5, 3.5).
-weapon(16, "trident", 0, 0, 8, 25, 5, 0, 0, 1, 0, p_trident, iron, 4.5, 7.5).
-weapon(17, "dagger", 1, 0, 30, 10, 4, 2, 0, 1, 0, p_dagger, iron, 2.5, 2.0).
-weapon(18, "elven dagger", 1, 0, 10, 10, 4, 2, 0, 1, 0, p_dagger, wood, 3.0, 2.0).
-weapon(19, "orcish dagger", 1, 0, 12, 10, 4, 2, 0, 1, 0, p_dagger, iron, 2.0, 2.0).
-weapon(20, "silver dagger", 1, 0, 3, 12, 40, 2, 0, 1, 0, p_dagger, silver, 2.5, 2.0).
-weapon(21, "athame", 1, 0, 0, 10, 4, 2, 0, 0, 1, p_dagger, iron, 2.5, 2.0).
-weapon(22, "scalpel", 1, 0, 0, 5, 6, 2, 0, 0, 1, p_knife, metal, 2.0, 2.0).
-weapon(23, "knife", 1, 0, 20, 5, 4, 0, 0, 1, 1, p_knife, iron, 2.0, 1.5).
-weapon(24, "stiletto", 1, 0, 5, 5, 4, 0, 0, 1, 1, p_knife, iron, 2.0, 1.5).
-weapon(25, "worm tooth", 1, 0, 0, 20, 2, 0, 0, 0, 0, p_knife, 0, 1.5, 1.5).
-weapon(26, "crysknife", 1, 0, 0, 20, 100, 3, 0, 1, 0, p_knife, mineral, 5.5, 5.5).
-weapon(27, "axe", 0, 0, 40, 60, 8, 0, 0, 0, 1, p_axe, iron, 3.5, 2.5).
-weapon(28, "battle-axe", 0, 1, 10, 120, 40, 0, 0, 0, 1, p_axe, iron, 7, 8.5).
-weapon(29, "short sword", 0, 0, 8, 30, 10, 0, 0, 1, 0, p_short_sword, iron, 3.5, 4.5).
-weapon(30, "elven short sword", 0, 0, 2, 30, 10, 0, 0, 1, 0, p_short_sword, wood, 4.5, 4.5).
-weapon(31, "orcish short sword", 0, 0, 3, 30, 10, 0, 0, 1, 0, p_short_sword, iron, 3.0, 4.5).
-weapon(32, "dwarvish short sword", 0, 0, 2, 30, 10, 0, 0, 1, 0, p_short_sword, iron, 4.0, 4.5).
-weapon(33, "scimitar", 0, 0, 15, 40, 15, 0, 0, 0, 1, p_scimitar, iron, 4.5, 4.5).
-weapon(34, "silver saber", 0, 0, 6, 40, 75, 0, 0, 0, 1, p_saber, silver, 4.5, 4.5).
-weapon(35, "broadsword", 0, 0, 8, 70, 10, 0, 0, 0, 1, p_broad_sword, iron, 5.0, 4.5).
-weapon(36, "elven broadsword", 0, 0, 4, 70, 10, 0, 0, 0, 1, p_broad_sword, wood, 6.0, 4.5).
-weapon(37, "long sword", 0, 0, 50, 40, 15, 0, 0, 0, 1, p_long_sword, iron, 4.5, 6.5).
-weapon(38, "two-handed sword", 0, 1, 22, 150, 50, 0, 0, 0, 1, p_two_handed_sword, iron, 6.5, 10.5).
-weapon(39, "katana", 0, 0, 4, 40, 80, 1, 0, 0, 1, p_long_sword, iron, 5.5, 6.5).
-weapon(40, "tsurugi", 0, 1, 0, 60, 500, 2, 0, 0, 1, p_two_handed_sword, metal, 8.5, 11.5).
-weapon(41, "runesword", 0, 0, 0, 40, 300, 0, 0, 0, 1, p_broad_sword, iron, 5.0, 4.5).
-weapon(42, "partisan", 0, 1, 5, 80, 10, 0, 0, 1, 0, p_polearms, iron, 3.5, 4.5).
-weapon(43, "ranseur", 0, 1, 5, 50, 6, 0, 0, 1, 0, p_polearms, iron, 5.0, 5.0).
-weapon(44, "spetum", 0, 1, 5, 50, 5, 0, 0, 1, 0, p_polearms, iron, 4.5, 7.0).
-weapon(45, "glaive", 0, 1, 8, 75, 6, 0, 0, 0, 1, p_polearms, iron, 3.5, 5.5).
-weapon(46, "lance", 0, 0, 4, 180, 10, 0, 0, 1, 0, p_lance, iron, 3.5, 4.5).
-weapon(47, "halberd", 0, 1, 8, 150, 10, 0, 0, 1, 1, p_polearms, iron, 5.5, 7.0).
-weapon(48, "bardiche", 0, 1, 4, 120, 7, 0, 0, 0, 1, p_polearms, iron, 5.0, 7.5).
-weapon(49, "voulge", 0, 1, 4, 125, 5, 0, 0, 0, 1, p_polearms, iron, 5.0, 5.0).
-weapon(50, "dwarvish mattock", 0, 1, 13, 120, 50, -1, 1, 0, 0, p_pick_axe, iron, 6.5, 11.5).
-weapon(51, "fauchard", 0, 1, 6, 60, 5, 0, 0, 1, 1, p_polearms, iron, 3.5, 4.5).
-weapon(52, "guisarme", 0, 1, 6, 80, 5, 0, 0, 0, 1, p_polearms, iron, 5.0, 4.5).
-weapon(53, "bill-guisarme", 0, 1, 4, 120, 7, 0, 0, 1, 1, p_polearms, iron, 5.0, 5.5).
-weapon(54, "lucern hammer", 0, 1, 5, 150, 7, 0, 1, 1, 0, p_polearms, iron, 5.0, 3.5).
-weapon(55, "bec de corbin", 0, 1, 4, 100, 8, 0, 1, 1, 0, p_polearms, iron, 4.5, 3.5).
-weapon(56, "mace", 0, 0, 40, 30, 5, 0, 1, 0, 0, p_mace, iron, 4.5, 3.5).
-weapon(57, "morning star", 0, 0, 12, 120, 10, 0, 1, 0, 0, p_morning_star, iron, 5.0, 4.5).
-weapon(58, "war hammer", 0, 0, 15, 50, 5, 0, 1, 0, 0, p_hammer, iron, 3.5, 2.5).
-weapon(59, "club", 0, 0, 12, 30, 3, 0, 1, 0, 0, p_club, wood, 3.5, 2.0).
-weapon(60, "rubber hose", 0, 0, 0, 20, 3, 0, 1, 0, 0, p_whip, plastic, 2.5, 2.0).
-weapon(61, "quarterstaff", 0, 1, 11, 40, 5, 0, 1, 0, 0, p_quarterstaff, wood, 3.5, 3.5).
-weapon(62, "aklys", 0, 0, 8, 15, 4, 0, 1, 0, 0, p_club, iron, 3.5, 2.0).
-weapon(63, "flail", 0, 0, 40, 15, 4, 0, 1, 0, 0, p_flail, iron, 4.5, 5.0).
-weapon(64, "bullwhip", 0, 0, 2, 20, 4, 0, 0, 0, 0, p_whip, leather, 1.5, 1.0).
+% weapon(APPEARENCE, NAME, MAGICAL, BI, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, SUB, MATERIAL, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
+weapon(7, "dart", 1, 0, 60, 1, 2, 0, p_dart, iron, 2.0, 1.5).
+weapon(8, "shuriken", 1, 0, 35, 1, 5, 2, p_shuriken, iron, 4.5, 3.5).
+weapon(9, "boomerang", 1, 0, 15, 5, 20, 0, p_boomerang, wood, 5.0, 5.0).
+weapon(10, "spear", 1, 0, 50, 30, 3, 0, p_spear, iron, 3.5, 4.5).
+weapon(11, "elven spear", 1, 0, 10, 30, 3, 0, p_spear, wood, 4.0, 4.5).
+weapon(12, "orcish spear", 1, 0, 13, 30, 3, 0, p_spear, iron, 3.0, 4.5).
+weapon(13, "dwarvish spear", 1, 0, 12, 35, 3, 0, p_spear, iron, 4.5, 4.5).
+weapon(14, "silver spear", 1, 0, 2, 36, 40, 0, p_spear, silver, 3.5, 4.5).
+weapon(15, "javelin", 1, 0, 10, 20, 3, 0, p_spear, iron, 3.5, 3.5).
+weapon(16, "trident", 0, 0, 8, 25, 5, 0, p_trident, iron, 4.5, 7.5).
+weapon(17, "dagger", 1, 0, 30, 10, 4, 2, p_dagger, iron, 2.5, 2.0).
+weapon(18, "elven dagger", 1, 0, 10, 10, 4, 2, p_dagger, wood, 3.0, 2.0).
+weapon(19, "orcish dagger", 1, 0, 12, 10, 4, 2, p_dagger, iron, 2.0, 2.0).
+weapon(20, "silver dagger", 1, 0, 3, 12, 40, 2, p_dagger, silver, 2.5, 2.0).
+weapon(21, "athame", 1, 0, 0, 10, 4, 2, p_dagger, iron, 2.5, 2.0).
+weapon(22, "scalpel", 1, 0, 0, 5, 6, 2, p_knife, metal, 2.0, 2.0).
+weapon(23, "knife", 1, 0, 20, 5, 4, 0, p_knife, iron, 2.0, 1.5).
+weapon(24, "stiletto", 1, 0, 5, 5, 4, 0, p_knife, iron, 2.0, 1.5).
+weapon(25, "worm tooth", 1, 0, 0, 20, 2, 0, p_knife, 0, 1.5, 1.5).
+weapon(26, "crysknife", 1, 0, 0, 20, 100, 3, p_knife, mineral, 5.5, 5.5).
+weapon(27, "axe", 0, 0, 40, 60, 8, 0, p_axe, iron, 3.5, 2.5).
+weapon(28, "battle-axe", 0, 1, 10, 120, 40, 0, p_axe, iron, 7, 8.5).
+weapon(29, "short sword", 0, 0, 8, 30, 10, 0, p_short_sword, iron, 3.5, 4.5).
+weapon(30, "elven short sword", 0, 0, 2, 30, 10, 0, p_short_sword, wood, 4.5, 4.5).
+weapon(31, "orcish short sword", 0, 0, 3, 30, 10, 0, p_short_sword, iron, 3.0, 4.5).
+weapon(32, "dwarvish short sword", 0, 0, 2, 30, 10, 0, p_short_sword, iron, 4.0, 4.5).
+weapon(33, "scimitar", 0, 0, 15, 40, 15, 0, p_scimitar, iron, 4.5, 4.5).
+weapon(34, "silver saber", 0, 0, 6, 40, 75, 0, p_saber, silver, 4.5, 4.5).
+weapon(35, "broadsword", 0, 0, 8, 70, 10, 0, p_broad_sword, iron, 5.0, 4.5).
+weapon(36, "elven broadsword", 0, 0, 4, 70, 10, 0, p_broad_sword, wood, 6.0, 4.5).
+weapon(37, "long sword", 0, 0, 50, 40, 15, 0, p_long_sword, iron, 4.5, 6.5).
+weapon(38, "two-handed sword", 0, 1, 22, 150, 50, 0, p_two_handed_sword, iron, 6.5, 10.5).
+weapon(39, "katana", 0, 0, 4, 40, 80, 1, p_long_sword, iron, 5.5, 6.5).
+weapon(40, "tsurugi", 0, 1, 0, 60, 500, 2, p_two_handed_sword, metal, 8.5, 11.5).
+weapon(41, "runesword", 0, 0, 0, 40, 300, 0, p_broad_sword, iron, 5.0, 4.5).
+weapon(42, "partisan", 0, 1, 5, 80, 10, 0, p_polearms, iron, 3.5, 4.5).
+weapon(43, "ranseur", 0, 1, 5, 50, 6, 0, p_polearms, iron, 5.0, 5.0).
+weapon(44, "spetum", 0, 1, 5, 50, 5, 0, p_polearms, iron, 4.5, 7.0).
+weapon(45, "glaive", 0, 1, 8, 75, 6, 0, p_polearms, iron, 3.5, 5.5).
+weapon(46, "lance", 0, 0, 4, 180, 10, 0, p_lance, iron, 3.5, 4.5).
+weapon(47, "halberd", 0, 1, 8, 150, 10, 0, p_polearms, iron, 5.5, 7.0).
+weapon(48, "bardiche", 0, 1, 4, 120, 7, 0, p_polearms, iron, 5.0, 7.5).
+weapon(49, "voulge", 0, 1, 4, 125, 5, 0, p_polearms, iron, 5.0, 5.0).
+weapon(50, "dwarvish mattock", 0, 1, 13, 120, 50, -1, p_pick_axe, iron, 6.5, 11.5).
+weapon(51, "fauchard", 0, 1, 6, 60, 5, 0, p_polearms, iron, 3.5, 4.5).
+weapon(52, "guisarme", 0, 1, 6, 80, 5, 0, p_polearms, iron, 5.0, 4.5).
+weapon(53, "bill-guisarme", 0, 1, 4, 120, 7, 0, p_polearms, iron, 5.0, 5.5).
+weapon(54, "lucern hammer", 0, 1, 5, 150, 7, 0, p_polearms, iron, 5.0, 3.5).
+weapon(55, "bec de corbin", 0, 1, 4, 100, 8, 0, p_polearms, iron, 4.5, 3.5).
+weapon(56, "mace", 0, 0, 40, 30, 5, 0, p_mace, iron, 4.5, 3.5).
+weapon(57, "morning star", 0, 0, 12, 120, 10, 0, p_morning_star, iron, 5.0, 4.5).
+weapon(58, "war hammer", 0, 0, 15, 50, 5, 0, p_hammer, iron, 3.5, 2.5).
+weapon(59, "club", 0, 0, 12, 30, 3, 0, p_club, wood, 3.5, 2.0).
+weapon(60, "rubber hose", 0, 0, 0, 20, 3, 0, p_whip, plastic, 2.5, 2.0).
+weapon(61, "quarterstaff", 0, 1, 11, 40, 5, 0, p_quarterstaff, wood, 3.5, 3.5).
+weapon(62, "aklys", 0, 0, 8, 15, 4, 0, p_club, iron, 3.5, 2.0).
+weapon(63, "flail", 0, 0, 40, 15, 4, 0, p_flail, iron, 4.5, 5.0).
+weapon(64, "bullwhip", 0, 0, 2, 20, 4, 0, p_whip, leather, 1.5, 1.0).
 % launcher(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL, SUB)
 launcher(65, "bow", 24, 30, 60, wood, p_bow).
 launcher(66, "elven bow", 12, 30, 60, wood, p_bow).
@@ -506,7 +506,7 @@ armor(drgn_armr, NAME, 0, BASE_PRICE, 40, dragon_hide, APPEARENCE_ID, AC, 0) :-
 damaging_object(projectile, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
     projectile(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SKILL, DMG_SMALL, DMG_LARGE).
 damaging_object(weapon, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
-    weapon(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, _, _, _, SKILL, MATERIAL, DMG_SMALL, DMG_LARGE).
+    weapon(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, SKILL, MATERIAL, DMG_SMALL, DMG_LARGE).
 damaging_object(weptool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, SKILL, HITBONUS, DMG_SMALL, DMG_LARGE) :- 
     weptool(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, SKILL, MATERIAL, DMG_SMALL, DMG_LARGE).
 % charisma affects the price of the items you buy in a shop
