@@ -1,3 +1,14 @@
+/*
+This is a database of nethack objects and their appearences(fixed or randomized).
+Every appearence has an ID. The appearence description can be retrieved by:
+?- description(ID, DESC).
+Or with the following python program, given an in-game glyph GLY:
+|from nle import nethack
+|if nethack.glyph_is_object(GLY):
+|   ID = nethack.glyph_to_obj(GLY)
+|   DESC = nethack.objdescr.from_idx(ID).oc_descr
+Some objects don't have a fixed appearence, that's why their appearence is prefixed with rnd_. The can_be/2 predicate maps such random appearences to all the possibilities.
+*/
 % projectile(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 projectile(1, "arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5).
 projectile(2, "elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5).
@@ -72,91 +83,91 @@ launcher(68, "yumi", 0, 30, 60, wood, p_bow).
 launcher(69, "sling", 40, 3, 20, leather, p_sling).
 launcher(70, "crossbow", 45, 50, 40, wood, p_crossbow).
 % helm(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-helm(71, "elven leather helm", 0, 0, 6, 1, 3, 8, 9, 0, leather).
-helm(72, "orcish helm", 0, 0, 6, 1, 30, 10, 9, 0, iron).
-helm(73, "dwarvish iron helm", 0, 0, 6, 1, 40, 20, 8, 0, iron).
-helm(74, "fedora", 0, 0, 0, 0, 3, 1, 10, 0, cloth).
-helm(75, "cornuthaum", 1, clairvoyant, 3, 1, 4, 80, 10, 1, cloth).
-helm(76, "dunce cap", 1, 0, 3, 1, 4, 1, 10, 0, cloth).
-helm(77, "dented pot", 0, 0, 2, 0, 10, 8, 9, 0, iron).
-helm(rnd_helm, "helmet", 0, 0, 10, 1, 30, 10, 9, 0, iron).
-helm(rnd_helm, "helm of brilliance", 1, 0, 6, 1, 50, 50, 9, 0, iron).
-helm(rnd_helm, "helm of opposite alignment", 1, 0, 6, 1, 50, 50, 9, 0, iron).
-helm(rnd_helm, "helm of telepathy", 1, telepat, 2, 1, 50, 50, 9, 0, iron).
+helm(71, "elven leather helm", 0, 0, 6, 1, 3, 8, 1, 0, leather).
+helm(72, "orcish helm", 0, 0, 6, 1, 30, 10, 1, 0, iron).
+helm(73, "dwarvish iron helm", 0, 0, 6, 1, 40, 20, 2, 0, iron).
+helm(74, "fedora", 0, 0, 0, 0, 3, 1, 0, 0, cloth).
+helm(75, "cornuthaum", 1, clairvoyant, 3, 1, 4, 80, 0, 1, cloth).
+helm(76, "dunce cap", 1, 0, 3, 1, 4, 1, 0, 0, cloth).
+helm(77, "dented pot", 0, 0, 2, 0, 10, 8, 1, 0, iron).
+helm(rnd_helm, "helmet", 0, 0, 10, 1, 30, 10, 1, 0, iron).
+helm(rnd_helm, "helm of brilliance", 1, 0, 6, 1, 50, 50, 1, 0, iron).
+helm(rnd_helm, "helm of opposite alignment", 1, 0, 6, 1, 50, 50, 1, 0, iron).
+helm(rnd_helm, "helm of telepathy", 1, telepat, 2, 1, 50, 50, 1, 0, iron).
 % drgn_armr(APPEARENCE, NAME, MAGICAL, POWER, BASE_PRICE, AC)
-drgn_armr(82, "gray dragon scale mail", 1, antimagic, 1200, 1).
-drgn_armr(83, "silver dragon scale mail", 1, reflecting, 1200, 1).
-drgn_armr(84, "red dragon scale mail", 1, fire_res, 900, 1).
-drgn_armr(85, "white dragon scale mail", 1, cold_res, 900, 1).
-drgn_armr(86, "orange dragon scale mail", 1, sleep_res, 900, 1).
-drgn_armr(87, "black dragon scale mail", 1, disint_res, 1200, 1).
-drgn_armr(88, "blue dragon scale mail", 1, shock_res, 900, 1).
-drgn_armr(89, "green dragon scale mail", 1, poison_res, 900, 1).
-drgn_armr(90, "yellow dragon scale mail", 1, acid_res, 900, 1).
-drgn_armr(91, "gray dragon scales", 0, antimagic, 700, 7).
-drgn_armr(92, "silver dragon scales", 0, reflecting, 700, 7).
-drgn_armr(93, "red dragon scales", 0, fire_res, 500, 7).
-drgn_armr(94, "white dragon scales", 0, cold_res, 500, 7).
-drgn_armr(95, "orange dragon scales", 0, sleep_res, 500, 7).
-drgn_armr(96, "black dragon scales", 0, disint_res, 700, 7).
-drgn_armr(97, "blue dragon scales", 0, shock_res, 500, 7).
-drgn_armr(98, "green dragon scales", 0, poison_res, 500, 7).
-drgn_armr(99, "yellow dragon scales", 0, acid_res, 500, 7).
+drgn_armr(82, "gray dragon scale mail", 1, antimagic, 1200, 9).
+drgn_armr(83, "silver dragon scale mail", 1, reflecting, 1200, 9).
+drgn_armr(84, "red dragon scale mail", 1, fire_res, 900, 9).
+drgn_armr(85, "white dragon scale mail", 1, cold_res, 900, 9).
+drgn_armr(86, "orange dragon scale mail", 1, sleep_res, 900, 9).
+drgn_armr(87, "black dragon scale mail", 1, disint_res, 1200, 9).
+drgn_armr(88, "blue dragon scale mail", 1, shock_res, 900, 9).
+drgn_armr(89, "green dragon scale mail", 1, poison_res, 900, 9).
+drgn_armr(90, "yellow dragon scale mail", 1, acid_res, 900, 9).
+drgn_armr(91, "gray dragon scales", 0, antimagic, 700, 3).
+drgn_armr(92, "silver dragon scales", 0, reflecting, 700, 3).
+drgn_armr(93, "red dragon scales", 0, fire_res, 500, 3).
+drgn_armr(94, "white dragon scales", 0, cold_res, 500, 3).
+drgn_armr(95, "orange dragon scales", 0, sleep_res, 500, 3).
+drgn_armr(96, "black dragon scales", 0, disint_res, 700, 3).
+drgn_armr(97, "blue dragon scales", 0, shock_res, 500, 3).
+drgn_armr(98, "green dragon scales", 0, poison_res, 500, 3).
+drgn_armr(99, "yellow dragon scales", 0, acid_res, 500, 3).
 % body_armr(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, SUB, MATERIAL)
-body_armr(100, "plate mail", 44, 450, 600, 3, 2, arm_suit, iron).
-body_armr(101, "crystal plate mail", 10, 450, 820, 3, 2, arm_suit, glass).
-body_armr(102, "bronze plate mail", 25, 450, 400, 4, 1, arm_suit, copper).
-body_armr(103, "splint mail", 62, 400, 80, 4, 1, arm_suit, iron).
-body_armr(104, "banded mail", 72, 350, 90, 4, 1, arm_suit, iron).
-body_armr(105, "dwarvish mithril-coat", 10, 150, 240, 4, 2, arm_suit, mithril).
+body_armr(100, "plate mail", 44, 450, 600, 7, 2, arm_suit, iron).
+body_armr(101, "crystal plate mail", 10, 450, 820, 7, 2, arm_suit, glass).
+body_armr(102, "bronze plate mail", 25, 450, 400, 6, 1, arm_suit, copper).
+body_armr(103, "splint mail", 62, 400, 80, 6, 1, arm_suit, iron).
+body_armr(104, "banded mail", 72, 350, 90, 6, 1, arm_suit, iron).
+body_armr(105, "dwarvish mithril-coat", 10, 150, 240, 6, 2, arm_suit, mithril).
 body_armr(106, "elven mithril-coat", 15, 150, 240, 5, 2, arm_suit, mithril).
 body_armr(107, "chain mail", 72, 300, 75, 5, 1, arm_suit, iron).
-body_armr(108, "orcish chain mail", 20, 300, 75, 6, 1, arm_suit, iron).
-body_armr(109, "scale mail", 72, 250, 45, 6, 1, arm_suit, iron).
-body_armr(110, "studded leather armor", 72, 200, 15, 7, 1, arm_suit, leather).
-body_armr(111, "ring mail", 72, 250, 100, 7, 1, arm_suit, iron).
-body_armr(112, "orcish ring mail", 20, 250, 80, 8, 1, arm_suit, iron).
-body_armr(113, "leather armor", 82, 150, 5, 8, 1, arm_suit, leather).
-body_armr(114, "leather jacket", 12, 30, 10, 9, 0, arm_suit, leather).
-body_armr(115, "Hawaiian shirt", 8, 5, 3, 10, 0, arm_shirt, cloth).
-body_armr(116, "T-shirt", 2, 5, 2, 10, 0, arm_shirt, cloth).
+body_armr(108, "orcish chain mail", 20, 300, 75, 4, 1, arm_suit, iron).
+body_armr(109, "scale mail", 72, 250, 45, 4, 1, arm_suit, iron).
+body_armr(110, "studded leather armor", 72, 200, 15, 3, 1, arm_suit, leather).
+body_armr(111, "ring mail", 72, 250, 100, 3, 1, arm_suit, iron).
+body_armr(112, "orcish ring mail", 20, 250, 80, 2, 1, arm_suit, iron).
+body_armr(113, "leather armor", 82, 150, 5, 2, 1, arm_suit, leather).
+body_armr(114, "leather jacket", 12, 30, 10, 1, 0, arm_suit, leather).
+body_armr(115, "Hawaiian shirt", 8, 5, 3, 0, 0, arm_shirt, cloth).
+body_armr(116, "T-shirt", 2, 5, 2, 0, 0, arm_shirt, cloth).
 % cloak(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-cloak(117, "mummy wrapping", 0, 0, 0, 0, 3, 2, 10, 1, cloth).
-cloak(118, "elven cloak", 1, stealth, 8, 0, 10, 60, 9, 1, cloth).
-cloak(119, "orcish cloak", 0, 0, 8, 0, 10, 40, 10, 1, cloth).
-cloak(120, "dwarvish cloak", 0, 0, 8, 0, 10, 50, 10, 1, cloth).
-cloak(121, "oilskin cloak", 0, 0, 8, 0, 10, 50, 9, 2, cloth).
-cloak(122, "robe", 1, 0, 3, 0, 15, 50, 8, 2, cloth).
-cloak(123, "alchemy smock", 1, poison_res, 9, 0, 10, 50, 9, 1, cloth).
-cloak(124, "leather cloak", 0, 0, 8, 0, 15, 40, 9, 1, leather).
-cloak(rnd_cloak, "cloak of protection", 1, protection, 9, 0, 10, 50, 7, 3, cloth).
-cloak(rnd_cloak, "cloak of invisibility", 1, invis, 10, 0, 10, 60, 9, 1, cloth).
-cloak(rnd_cloak, "cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 9, 1, cloth).
-cloak(rnd_cloak, "cloak of displacement", 1, displaced, 10, 0, 10, 50, 9, 1, cloth).
+cloak(117, "mummy wrapping", 0, 0, 0, 0, 3, 2, 0, 1, cloth).
+cloak(118, "elven cloak", 1, stealth, 8, 0, 10, 60, 1, 1, cloth).
+cloak(119, "orcish cloak", 0, 0, 8, 0, 10, 40, 0, 1, cloth).
+cloak(120, "dwarvish cloak", 0, 0, 8, 0, 10, 50, 0, 1, cloth).
+cloak(121, "oilskin cloak", 0, 0, 8, 0, 10, 50, 1, 2, cloth).
+cloak(122, "robe", 1, 0, 3, 0, 15, 50, 2, 2, cloth).
+cloak(123, "alchemy smock", 1, poison_res, 9, 0, 10, 50, 1, 1, cloth).
+cloak(124, "leather cloak", 0, 0, 8, 0, 15, 40, 1, 1, leather).
+cloak(rnd_cloak, "cloak of protection", 1, protection, 9, 0, 10, 50, 3, 3, cloth).
+cloak(rnd_cloak, "cloak of invisibility", 1, invis, 10, 0, 10, 60, 1, 1, cloth).
+cloak(rnd_cloak, "cloak of magic resistance", 1, antimagic, 2, 0, 10, 60, 1, 1, cloth).
+cloak(rnd_cloak, "cloak of displacement", 1, displaced, 10, 0, 10, 50, 1, 1, cloth).
 % shield(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-shield(129, "small shield", 0, 0, 6, 0, 30, 3, 9, 0, wood).
-shield(130, "elven shield", 0, 0, 2, 0, 40, 7, 8, 0, wood).
-shield(131, "uruk-hai shield", 0, 0, 2, 0, 50, 7, 9, 0, iron).
-shield(132, "orcish shield", 0, 0, 2, 0, 50, 7, 9, 0, iron).
-shield(133, "large shield", 0, 0, 7, 0, 100, 10, 8, 0, iron).
-shield(134, "dwarvish roundshield", 0, 0, 4, 0, 100, 10, 8, 0, iron).
-shield(135, "shield of reflection", 1, reflecting, 3, 0, 50, 50, 8, 0, silver).
+shield(129, "small shield", 0, 0, 6, 0, 30, 3, 1, 0, wood).
+shield(130, "elven shield", 0, 0, 2, 0, 40, 7, 2, 0, wood).
+shield(131, "uruk-hai shield", 0, 0, 2, 0, 50, 7, 1, 0, iron).
+shield(132, "orcish shield", 0, 0, 2, 0, 50, 7, 1, 0, iron).
+shield(133, "large shield", 0, 0, 7, 0, 100, 10, 2, 0, iron).
+shield(134, "dwarvish roundshield", 0, 0, 4, 0, 100, 10, 2, 0, iron).
+shield(135, "shield of reflection", 1, reflecting, 3, 0, 50, 50, 2, 0, silver).
 % gloves(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-gloves(rnd_gloves, "leather gloves", 0, 0, 16, 1, 10, 8, 9, 0, leather).
-gloves(rnd_gloves, "gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 9, 0, leather).
-gloves(rnd_gloves, "gauntlets of power", 1, 0, 8, 1, 30, 50, 9, 0, iron).
-gloves(rnd_gloves, "gauntlets of dexterity", 1, 0, 8, 1, 10, 50, 9, 0, leather).
+gloves(rnd_gloves, "leather gloves", 0, 0, 16, 1, 10, 8, 1, 0, leather).
+gloves(rnd_gloves, "gauntlets of fumbling", 1, fumbling, 8, 1, 10, 50, 1, 0, leather).
+gloves(rnd_gloves, "gauntlets of power", 1, 0, 8, 1, 30, 50, 1, 0, iron).
+gloves(rnd_gloves, "gauntlets of dexterity", 1, 0, 8, 1, 10, 50, 1, 0, leather).
 % boots(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, DELAY, WEIGHT, BASE_PRICE, AC, CAN, MATERIAL)
-boots(140, "low boots", 0, 0, 25, 2, 10, 8, 9, 0, leather).
-boots(141, "iron shoes", 0, 0, 7, 2, 50, 16, 8, 0, iron).
-boots(142, "high boots", 0, 0, 15, 2, 20, 12, 8, 0, leather).
-boots(rnd_boots, "speed boots", 1, fast, 12, 2, 20, 50, 9, 0, leather).
-boots(rnd_boots, "water walking boots", 1, wwalking, 12, 2, 15, 50, 9, 0, leather).
-boots(rnd_boots, "jumping boots", 1, jumping, 12, 2, 20, 50, 9, 0, leather).
-boots(rnd_boots, "elven boots", 1, stealth, 12, 2, 15, 8, 9, 0, leather).
-boots(rnd_boots, "kicking boots", 1, 0, 12, 2, 50, 8, 9, 0, iron).
-boots(rnd_boots, "fumble boots", 1, fumbling, 12, 2, 20, 30, 9, 0, leather).
-boots(rnd_boots, "levitation boots", 1, levitation, 12, 2, 15, 30, 9, 0, leather).
+boots(140, "low boots", 0, 0, 25, 2, 10, 8, 1, 0, leather).
+boots(141, "iron shoes", 0, 0, 7, 2, 50, 16, 2, 0, iron).
+boots(142, "high boots", 0, 0, 15, 2, 20, 12, 2, 0, leather).
+boots(rnd_boots, "speed boots", 1, fast, 12, 2, 20, 50, 1, 0, leather).
+boots(rnd_boots, "water walking boots", 1, wwalking, 12, 2, 15, 50, 1, 0, leather).
+boots(rnd_boots, "jumping boots", 1, jumping, 12, 2, 20, 50, 1, 0, leather).
+boots(rnd_boots, "elven boots", 1, stealth, 12, 2, 15, 8, 1, 0, leather).
+boots(rnd_boots, "kicking boots", 1, 0, 12, 2, 50, 8, 1, 0, iron).
+boots(rnd_boots, "fumble boots", 1, fumbling, 12, 2, 20, 30, 1, 0, leather).
+boots(rnd_boots, "levitation boots", 1, levitation, 12, 2, 15, 30, 1, 0, leather).
 % ring(NAME, POWER, BASE_PRICE, MAGICAL, SPEC, MOHS)
 ring("adornment", adorned, 100, 1, 1, 2).
 ring("gain strength", 0, 150, 1, 1, 7).
