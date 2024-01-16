@@ -464,7 +464,7 @@ object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) 
     -> material(APPEARENCE_ID, MATERIAL)
     ;  MATERIAL = MATERIAL_RAW).    
 
-% raw_object/7 is a unified view of all objects, without setting the actual APPEARENCE_ID, or MATERIAL
+% raw_object/7 is a unified view of all objects, without setting the actual APPEARENCE_ID, or MATERIAL if they can be determined by can_be/2 and material/2(this is left to object/7)
 % raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE)
 raw_object(amulet, NAME, ABOUNDANCE, 150, 20, iron, rnd_amulet) :-
     amulet(NAME, _, ABOUNDANCE).
