@@ -72,7 +72,7 @@ class stochastic_matrix:
 prolog = Prolog()
 rnd_objects_by_category = {}
 prolog.consult("objects.pl")
-for res in prolog.query("rnd_range(_, ID-_), object(CAT, O, _, _, _, _, ID)"):
+for res in prolog.query("raw_object(CAT, O, _, _, _, _, APPEARENCE), rnd_range(APPEARENCE, _)"):
     obj, category = res["O"], res["CAT"]
     if category not in rnd_objects_by_category:
         rnd_objects_by_category[category] = []
@@ -80,7 +80,7 @@ for res in prolog.query("rnd_range(_, ID-_), object(CAT, O, _, _, _, _, ID)"):
 
 
 def get_aboundance(prolog, cat, obj):
-    res = list(prolog.query(f'once(object({cat}, "{obj}", ABOUNDANCE, _, _, _, _))'))
+    res = list(prolog.query(f'raw_object({cat}, "{obj}", ABOUNDANCE, _, _, _, _)'))
     assert len(res) == 1, (obj, res)
     return res[0]["ABOUNDANCE"]
 
