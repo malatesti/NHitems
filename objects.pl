@@ -347,48 +347,48 @@ scroll(rnd_scroll, "punishment", 1, 15, 300).
 scroll(rnd_scroll, "charging", 1, 15, 300).
 scroll(rnd_scroll, "stinking cloud", 1, 15, 300).
 scroll(339, "blank paper", 0, 28, 60).
-% spell(APPEARENCE, NAME, SUB, ABOUNDANCE, DELAY, LEVEL, MAGICAL, DIR)
-spell(rnd_spell, "dig", p_matter_spell, 20, 6, 5, 1, ray).
-spell(rnd_spell, "magic missile", p_attack_spell, 45, 2, 2, 1, ray).
-spell(rnd_spell, "fireball", p_attack_spell, 20, 4, 4, 1, ray).
-spell(rnd_spell, "cone of cold", p_attack_spell, 10, 7, 4, 1, ray).
-spell(rnd_spell, "sleep", p_enchantment_spell, 50, 1, 1, 1, ray).
-spell(rnd_spell, "finger of death", p_attack_spell, 5, 10, 7, 1, ray).
-spell(rnd_spell, "light", p_divination_spell, 45, 1, 1, 1, nodir).
-spell(rnd_spell, "detect monsters", p_divination_spell, 43, 1, 1, 1, nodir).
-spell(rnd_spell, "healing", p_healing_spell, 40, 2, 1, 1, immediate).
-spell(rnd_spell, "knock", p_matter_spell, 35, 1, 1, 1, immediate).
-spell(rnd_spell, "force bolt", p_attack_spell, 35, 2, 1, 1, immediate).
-spell(rnd_spell, "confuse monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
-spell(rnd_spell, "cure blindness", p_healing_spell, 25, 2, 2, 1, immediate).
-spell(rnd_spell, "drain life", p_attack_spell, 10, 2, 2, 1, immediate).
-spell(rnd_spell, "slow monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
-spell(rnd_spell, "wizard lock", p_matter_spell, 30, 3, 2, 1, immediate).
-spell(rnd_spell, "create monster", p_cleric_spell, 35, 3, 2, 1, nodir).
-spell(rnd_spell, "detect food", p_divination_spell, 30, 3, 2, 1, nodir).
-spell(rnd_spell, "cause fear", p_enchantment_spell, 25, 3, 3, 1, nodir).
-spell(rnd_spell, "clairvoyance", p_divination_spell, 15, 3, 3, 1, nodir).
-spell(rnd_spell, "cure sickness", p_healing_spell, 32, 3, 3, 1, nodir).
-spell(rnd_spell, "charm monster", p_enchantment_spell, 20, 3, 3, 1, immediate).
-spell(rnd_spell, "haste self", p_escape_spell, 33, 4, 3, 1, nodir).
-spell(rnd_spell, "detect unseen", p_divination_spell, 20, 4, 3, 1, nodir).
-spell(rnd_spell, "levitation", p_escape_spell, 20, 4, 4, 1, nodir).
-spell(rnd_spell, "extra healing", p_healing_spell, 27, 5, 3, 1, immediate).
-spell(rnd_spell, "restore ability", p_healing_spell, 25, 5, 4, 1, nodir).
-spell(rnd_spell, "invisibility", p_escape_spell, 25, 5, 4, 1, nodir).
-spell(rnd_spell, "detect treasure", p_divination_spell, 20, 5, 4, 1, nodir).
-spell(rnd_spell, "remove curse", p_cleric_spell, 25, 5, 3, 1, nodir).
-spell(rnd_spell, "magic mapping", p_divination_spell, 18, 7, 5, 1, nodir).
-spell(rnd_spell, "identify", p_divination_spell, 20, 6, 3, 1, nodir).
-spell(rnd_spell, "turn undead", p_cleric_spell, 16, 8, 6, 1, immediate).
-spell(rnd_spell, "polymorph", p_matter_spell, 10, 8, 6, 1, immediate).
-spell(rnd_spell, "teleport away", p_escape_spell, 15, 6, 6, 1, immediate).
-spell(rnd_spell, "create familiar", p_cleric_spell, 10, 7, 6, 1, nodir).
-spell(rnd_spell, "cancellation", p_matter_spell, 15, 8, 7, 1, immediate).
-spell(rnd_spell, "protection", p_cleric_spell, 18, 3, 1, 1, nodir).
-spell(rnd_spell, "jumping", p_escape_spell, 20, 3, 1, 1, immediate).
-spell(rnd_spell, "stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate).
-spell(380, "blank paper", p_none, 18, 0, 0, 0, 0).
+% spellbook(APPEARENCE, NAME, SUB, ABOUNDANCE, DELAY, LEVEL, MAGICAL, DIR)
+spellbook(rnd_spellbook, "dig", p_matter_spell, 20, 6, 5, 1, ray).
+spellbook(rnd_spellbook, "magic missile", p_attack_spell, 45, 2, 2, 1, ray).
+spellbook(rnd_spellbook, "fireball", p_attack_spell, 20, 4, 4, 1, ray).
+spellbook(rnd_spellbook, "cone of cold", p_attack_spell, 10, 7, 4, 1, ray).
+spellbook(rnd_spellbook, "sleep", p_enchantment_spell, 50, 1, 1, 1, ray).
+spellbook(rnd_spellbook, "finger of death", p_attack_spell, 5, 10, 7, 1, ray).
+spellbook(rnd_spellbook, "light", p_divination_spell, 45, 1, 1, 1, nodir).
+spellbook(rnd_spellbook, "detect monsters", p_divination_spell, 43, 1, 1, 1, nodir).
+spellbook(rnd_spellbook, "healing", p_healing_spell, 40, 2, 1, 1, immediate).
+spellbook(rnd_spellbook, "knock", p_matter_spell, 35, 1, 1, 1, immediate).
+spellbook(rnd_spellbook, "force bolt", p_attack_spell, 35, 2, 1, 1, immediate).
+spellbook(rnd_spellbook, "confuse monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
+spellbook(rnd_spellbook, "cure blindness", p_healing_spell, 25, 2, 2, 1, immediate).
+spellbook(rnd_spellbook, "drain life", p_attack_spell, 10, 2, 2, 1, immediate).
+spellbook(rnd_spellbook, "slow monster", p_enchantment_spell, 30, 2, 2, 1, immediate).
+spellbook(rnd_spellbook, "wizard lock", p_matter_spell, 30, 3, 2, 1, immediate).
+spellbook(rnd_spellbook, "create monster", p_cleric_spell, 35, 3, 2, 1, nodir).
+spellbook(rnd_spellbook, "detect food", p_divination_spell, 30, 3, 2, 1, nodir).
+spellbook(rnd_spellbook, "cause fear", p_enchantment_spell, 25, 3, 3, 1, nodir).
+spellbook(rnd_spellbook, "clairvoyance", p_divination_spell, 15, 3, 3, 1, nodir).
+spellbook(rnd_spellbook, "cure sickness", p_healing_spell, 32, 3, 3, 1, nodir).
+spellbook(rnd_spellbook, "charm monster", p_enchantment_spell, 20, 3, 3, 1, immediate).
+spellbook(rnd_spellbook, "haste self", p_escape_spell, 33, 4, 3, 1, nodir).
+spellbook(rnd_spellbook, "detect unseen", p_divination_spell, 20, 4, 3, 1, nodir).
+spellbook(rnd_spellbook, "levitation", p_escape_spell, 20, 4, 4, 1, nodir).
+spellbook(rnd_spellbook, "extra healing", p_healing_spell, 27, 5, 3, 1, immediate).
+spellbook(rnd_spellbook, "restore ability", p_healing_spell, 25, 5, 4, 1, nodir).
+spellbook(rnd_spellbook, "invisibility", p_escape_spell, 25, 5, 4, 1, nodir).
+spellbook(rnd_spellbook, "detect treasure", p_divination_spell, 20, 5, 4, 1, nodir).
+spellbook(rnd_spellbook, "remove curse", p_cleric_spell, 25, 5, 3, 1, nodir).
+spellbook(rnd_spellbook, "magic mapping", p_divination_spell, 18, 7, 5, 1, nodir).
+spellbook(rnd_spellbook, "identify", p_divination_spell, 20, 6, 3, 1, nodir).
+spellbook(rnd_spellbook, "turn undead", p_cleric_spell, 16, 8, 6, 1, immediate).
+spellbook(rnd_spellbook, "polymorph", p_matter_spell, 10, 8, 6, 1, immediate).
+spellbook(rnd_spellbook, "teleport away", p_escape_spell, 15, 6, 6, 1, immediate).
+spellbook(rnd_spellbook, "create familiar", p_cleric_spell, 10, 7, 6, 1, nodir).
+spellbook(rnd_spellbook, "cancellation", p_matter_spell, 15, 8, 7, 1, immediate).
+spellbook(rnd_spellbook, "protection", p_cleric_spell, 18, 3, 1, 1, nodir).
+spellbook(rnd_spellbook, "jumping", p_escape_spell, 20, 3, 1, 1, immediate).
+spellbook(rnd_spellbook, "stone to flesh", p_healing_spell, 15, 1, 3, 1, immediate).
+spellbook(380, "blank paper", p_none, 18, 0, 0, 0, 0).
 
 % wand(NAME, ABOUNDANCE, BASE_PRICE, MAGICAL, DIR)
 wand("light", 95, 100, 1, nodir).
