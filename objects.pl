@@ -987,8 +987,8 @@ jp_name("leather gloves", "yugake").
 jp_name("food ration", "gunyoki").
 jp_name("booze", "sake").
 
-test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS) :-
-    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, _), DESCRIPTION).
+test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS, COST) :-
+    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, COST), DESCRIPTION).
 
 item_desc(N, BUC, GR, POIS, ER, PR, S, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CH, LIT, POS, COST) -->
     count(N),
@@ -1137,6 +1137,7 @@ lit(0) --> ` attached)` .
 lit(1) --> `, lit)` .
 
 position(0) --> [].
+% egg
 position(0) --> ` (laid by you)` .
 % when polymorphed, your "hand" might be something different
 position(on) --> ` (on `, (`left`| `right`), ` hand)` .
@@ -1148,11 +1149,13 @@ position(wielded) -->
     ` (`,
        (``| `thethered `),
        (`weapon`| `wielded`),
-       ` in`,
-       (``| ` left`| ` right`),
-       ` hand)` .
+       ` in `,
+       (``| `left `| `right `),
+       `hand)` .
 position(offhand) --> ` (alternate weapon; not wielded)` .
 position(attached) --> ` (`, (`chained`| `attached`), ` to you)` .
 position(attached) --> ` (attached to `, letters(_), `)` .
 % todo
 shop_cost(0) --> [].
+shop_cost(C) --> ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
+
