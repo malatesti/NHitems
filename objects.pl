@@ -263,7 +263,7 @@ tool(233, "drum of earthquake", 0, 1, 1, 2, 25, 25, leather).
 % questitem(APPEARENCE, NAME, WEIGHT)
 questitem(237, "candelabrum of invocation", 10).
 questitem(238, "bell of opening", 10).
-% food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, TIN, NUTRITION)
+% food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, MATERIAL, NUTRITION)
 food(239, "tripe ration", 140, 2, 10, 0, flesh, 200).
 food(240, "corpse", 0, 1, none, 0, flesh, 0).
 food(241, "egg", 85, 1, 1, 1, flesh, 80).
