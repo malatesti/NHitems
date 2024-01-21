@@ -973,4 +973,186 @@ material(406, iron).
 material(407, wood).
 material(408, iron).
 material(409, iron).
-% parse_item(TEXT, CATEGORY, NAME, APPEAERENCE_ID, QUANTITY, BUC, ENCHANTMENT, EFFECTS, CALLED, NAMED, ...)
+jp_name("short sword", "wakizashi").
+jp_name("broadsword", "ninja-to").
+jp_name("flail", "nunchaku").
+jp_name("glaive", "naginata").
+jp_name("lock pick", "osaku").
+jp_name("wooden harp", "koto").
+jp_name("magic harp", "magic koto").
+jp_name("knife", "shito").
+jp_name("plate mail", "tanko").
+jp_name("helmet", "kabuto").
+jp_name("leather gloves", "yugake").
+jp_name("food ration", "gunyoki").
+jp_name("booze", "sake").
+
+test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS) :-
+    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, _), DESCRIPTION).
+
+item_desc(N, BUC, GR, POIS, ER, PR, S, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CH, LIT, POS, COST) -->
+    count(N),
+    empty(EM),
+    buc_status(BUC, HOLY),
+    grease(GR),
+    poison(POIS),
+    erosion(ER),
+    proofed(PR),
+    partly(S),
+    enchantment(ENCH),
+    ` `, obj_desc(CATEGORY, NAME, HOLY, N),
+    called(CALL),
+    named(NAMED),
+    contains(CONT, EM),
+    charges(CH),
+    lit(LIT),
+    position(POS),
+    shop_cost(COST).
+nth_of(NTH, L, M) --> letters(C), {atom_codes(M, C), nth0(NTH, L, M)}.
+one_of(L) --> nth_of(_, L, _).
+
+% letters matches any sequences of uppercase or lowercase characters separated by whitespace
+letters([]) --> [].
+letters([C|S]) --> [C], {[X,Y] = `Az`, between(X, Y, C); code_type(C, white)}, letters(S).
+
+int(sign, [S|U]) -->
+    sign(S),
+    int(no_sign, U).
+int(no_sign, [D0|D]) -->
+    digit(D0),
+    digits(D).
+
+integer(S, N) -->
+    int(S, C),
+    {number_codes(N, C)}.
+
+sign(S) --> [S], {[S] = `+`; [S] = `-`}.
+
+digit(D) --> [D], {code_type(D, digit)}.
+
+digits([D|T]) -->
+    digit(D), !,
+    digits(T).
+digits([]) --> [].
+
+count(1) --> `a`| `an`| `the` .
+% this is a semplification, there could be more than two
+count(2) --> `some` .
+count(N) --> integer(no_sign, N).
+
+empty(1) --> ` empty` .
+empty(0) --> [].
+
+buc_status(BUC, _) --> ` `, nth_of(_, [cursed, uncursed, blessed], BUC).
+%H \= 0 if holy/unholy water
+buc_status(H, H) --> [].
+
+box(0) --> [].
+box(BOX) --> ` `, nth_of(_, [broken, locked, unlocked], BOX).
+
+grease(0) --> [].
+grease(1) --> ` greased` .
+
+poison(0) --> [].
+poison(1) --> ` poisoned` .
+
+erosion(ER) -->
+    erosion1(ER1, [rusty, cracked, burnt]),
+    erosion1(ER2, [corroded, rotted]),
+    {ER is max(ER1, ER2)}.
+erosion1(0, _) --> [].
+erosion1(ER, L) -->
+    nth_of(ER1, ['', ' very', ' thoroughly'], _),
+    ` `, one_of(L),
+    {ER is ER1+1}.
+
+proofed(0) --> [].
+proofed(PR) --> ` `, nth_of(_, [fixed, tempered, fireproof, rustproof, corrodeproof], PR).
+
+partly(0) --> [].
+partly(1) --> ` partly `, (`used`| `eaten`).
+partly(1) --> ` diluted` .
+
+enchantment(unk) --> [].
+enchantment(E) --> ` `, integer(sign, E).
+
+% plural names end with 's' 
+s(1) --> [].
+s(N) --> {N > 1}, `s` .
+
+pair_of(WHAT, N) --> `pair`, s(N), ` of `, letters(WHAT).
+
+% obj_desc is already prefixed with a space
+obj_desc(potion, "water", blessed, N) --> `potion`, s(N), ` of holy water` .
+obj_desc(potion, "water", cursed, N) --> `potion`, s(N), ` of unholy water` .
+obj_desc(CAT, ONAME, 0, N) -->
+    by_name(CAT, CNAME, N), {
+	string_codes(NAME, CNAME),
+	(NAME = ONAME; jp_name(ONAME, NAME)),
+	raw_object(CAT, ONAME, _, _, _, _, _)
+    }.
+obj_desc(CAT, NAME, 0, N) -->
+    by_desc(CAT, CDESC, N), {
+	string_codes(DESC, CDESC),
+	description(ID, DESC),
+	object(CAT, NAME, _, _, _, _, ID)
+    }.
+
+by_desc(scroll, CDESC, N) -->
+    `scroll`, s(N), ` labeled `, letters(CDESC).
+by_desc(boots, CDESC, N) --> pair_of(CDESC, N).
+by_desc(gloves, CDESC, N) --> pair_of(CDESC, N).
+by_desc(CAT, CDESC, N) -->
+    letters(CDESC), ` `, nth_of(_, [gem, potion, scroll, ring, wand, spellbook], CAT), s(N).
+
+by_name(CAT, CNAME, N) -->
+    nth_of(_, [potion, scroll, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
+by_name(boots, CNAME, N) --> pair_of(CNAME, N).
+by_name(gloves, CNAME, N) --> pair_of(CNAME, N).
+by_name(tool, `lenses`, N) --> pair_of(`lenses`, N).
+
+called(0) --> [].
+called(CALL) -->
+    ` called `, letters(CCALL),
+    {atom_codes(CALL, CCALL)}.
+
+named(0) --> [].
+named(NAME) -->
+    ` named `, letters(CNAME),
+    {atom_codes(NAME, CNAME)}.
+
+contains(N, 0) --> ` containing `, integer(no_sign, N), ` item`, s(N).
+contains(0, _) --> [].
+
+charges(0) --> [].
+charges(R:C) --> ` (`, integer(no_sign, R), `:`, integer(no_sign, C), `)` .
+charges(R:0) --> ` (`, integer(no_sign, R), `:-1)` .
+% candelabrum
+charges(0:C) --> ` (`, integer(no_sign, C), ` of 7 candle`, s(C).
+
+lit(0) --> [].
+lit(1) --> ` (lit)` .
+% candelabrum
+lit(0) --> ` attached)` .
+lit(1) --> `, lit)` .
+
+position(0) --> [].
+position(0) --> ` (laid by you)` .
+% when polymorphed, your "hand" might be something different
+position(on) --> ` (on `, (`left`| `right`), ` hand)` .
+position(on) --> ` (being worn`, (``| `; slippery`), `)` .
+position(quiver) --> ` (in quiver`, (``| ` pouch`), `)` .
+position(quiver) --> ` (at the ready)` .
+position(wielded) --> ` (wielded)` .
+position(wielded) -->
+    ` (`,
+       (``| `thethered `),
+       (`weapon`| `wielded`),
+       ` in`,
+       (``| ` left`| ` right`),
+       ` hand)` .
+position(offhand) --> ` (alternate weapon; not wielded)` .
+position(attached) --> ` (`, (`chained`| `attached`), ` to you)` .
+position(attached) --> ` (attached to `, letters(_), `)` .
+% todo
+shop_cost(0) --> [].
