@@ -416,6 +416,8 @@ wand("sleep", 50, 175, 1, ray).
 wand("death", 5, 500, 1, ray).
 wand("lightning", 40, 175, 1, ray).
 
+% coin(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, MATERIAL)
+coin(410, "gold piece", 1000, 0.01, gold).
 % gem(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, GVAL, NUTR, MOHS, MATERIAL)
 gem(411, "dilithium crystal", 2, 1, 4500, 15, 5, gemstone).
 gem(412, "diamond", 3, 1, 4000, 15, 10, gemstone).
@@ -454,8 +456,13 @@ rock(443, "loadstone", 10, 500, 1, 1, 10, 6).
 rock(444, "touchstone", 8, 10, 45, 1, 10, 6).
 rock(445, "flint", 10, 10, 1, 0, 10, 7).
 rock(446, "rock", 100, 10, 0, 0, 10, 7).
-% coin(NAME, ABOUNDANCE, MATERIAL, WORTH, WEIGHT)
-coin("gold piece", 1000, gold, 1, 0.01).
+
+% heavy_obj(APPEAERENCE, NAME, ABOUNDANCE, WEIGHT, MATERIAL)
+heavy_obj(447, "boulder", 100, 6000, mineral).
+heavy_obj(448, "statue", 900, 2500, mineral).
+heavy_obj(449, "heavy iron ball", 1000, 480, iron).
+heavy_obj(450, "iron chain", 1000, 120, iron).
+
 % object/7 is a unified view of all objects
 object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
     raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL_RAW, APPEARENCE),
@@ -463,7 +470,6 @@ object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) 
     (MATERIAL_RAW = rnd_material
     -> material(APPEARENCE_ID, MATERIAL)
     ;  MATERIAL = MATERIAL_RAW).    
-
 % raw_object/7 is a unified view of all objects, without setting the actual APPEARENCE_ID, or MATERIAL if they can be determined by can_be/2 and material/2(this is left to object/7)
 % raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE)
 raw_object(amulet, NAME, ABOUNDANCE, 150, 20, iron, rnd_amulet) :-
@@ -472,8 +478,8 @@ raw_object(ring, NAME, 1, BASE_PRICE, 3, rnd_material, rnd_ring) :-
     ring(NAME, _, BASE_PRICE, _, _, _).
 raw_object(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass, APPEARENCE) :-
     potion(APPEARENCE, NAME, _, _, ABOUNDANCE, BASE_PRICE).
-raw_object(spell, NAME, ABOUNDANCE, BASE_PRICE, 50, rnd_material, APPEARENCE) :-
-    spell(APPEARENCE, NAME, _, ABOUNDANCE, _, LEVEL, _, _), BASE_PRICE is LEVEL*100.
+raw_object(spellbook, NAME, ABOUNDANCE, BASE_PRICE, 50, rnd_material, APPEARENCE) :-
+    spellbook(APPEARENCE, NAME, _, ABOUNDANCE, _, LEVEL, _, _), BASE_PRICE is LEVEL*100.
 raw_object(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper, APPEARENCE) :-
     scroll(APPEARENCE, NAME, _, ABOUNDANCE, BASE_PRICE).
 raw_object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, rnd_material, rnd_wand) :-
@@ -488,8 +494,12 @@ raw_object(tool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) 
     tool(APPEARENCE_ID, NAME, _, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
 raw_object(food, NAME, ABOUNDANCE, 0/*TODO*/, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     food(APPEARENCE_ID, NAME, ABOUNDANCE, _, WEIGHT, _, MATERIAL, _).
+raw_object(coin, NAME, ABOUNDANCE, 1, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    coin(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, MATERIAL).
 raw_object(rock, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, mineral, APPEARENCE_ID) :- 
     rock(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, _, _, _).
+raw_object(heavy_obj, NAME, ABOUNDANCE, 0, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    heavy_obj(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, MATERIAL).
 raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
     armor(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, _, _).
 raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
@@ -546,7 +556,7 @@ sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT) :-
 % rnd_range(RND_APPEARENCE, APPEARECE_RANGE)
 rnd_range(rnd_potion, 272-296).
 rnd_range(rnd_scroll, 298-338).
-rnd_range(rnd_spell, 340-379).
+rnd_range(rnd_spellbook, 340-379).
 rnd_range(rnd_wand, 383-409).
 rnd_range(rnd_ring, 150-177).
 rnd_range(rnd_helm, 78-81).
@@ -793,7 +803,7 @@ description(337, "XOR OTA").
 description(338, "STRC PRST SKRZ KRK").
 % rnd_scroll end
 description(339, "unlabeled").
-% rnd_spell start
+% rnd_spellbook start
 description(340, "parchment").
 description(341, "vellum").
 description(342, "ragged").
@@ -834,7 +844,7 @@ description(376, "shining").
 description(377, "dull").
 description(378, "thin").
 description(379, "thick").
-% rnd_spell end
+% rnd_spellbook end
 description(380, "plain").
 description(381, "paperback").
 description(382, "papyrus").
