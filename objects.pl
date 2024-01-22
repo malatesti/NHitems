@@ -1012,8 +1012,8 @@ nth_of(NTH, L, M) --> letters(C), {atom_codes(M, C), nth0(NTH, L, M)}.
 one_of(L) --> nth_of(_, L, _).
 
 % letters matches any sequences of uppercase or lowercase characters separated by whitespace
-letters([]) --> [].
 letters([C|S]) --> [C], {[X,Y] = `Az`, between(X, Y, C); code_type(C, white)}, letters(S).
+letters([]) --> [].
 
 int(sign, [S|U]) -->
     sign(S),
@@ -1047,38 +1047,38 @@ buc_status(BUC, _) --> ` `, nth_of(_, [cursed, uncursed, blessed], BUC).
 %H \= 0 if holy/unholy water
 buc_status(H, H) --> [].
 
-box(0) --> [].
 box(BOX) --> ` `, nth_of(_, [broken, locked, unlocked], BOX).
+box(0) --> [].
 
-grease(0) --> [].
 grease(1) --> ` greased` .
+grease(0) --> [].
 
-poison(0) --> [].
 poison(1) --> ` poisoned` .
+poison(0) --> [].
 
 erosion(ER) -->
     erosion1(ER1, [rusty, cracked, burnt]),
     erosion1(ER2, [corroded, rotted]),
     {ER is max(ER1, ER2)}.
-erosion1(0, _) --> [].
 erosion1(ER, L) -->
     nth_of(ER1, ['', ' very', ' thoroughly'], _),
     ` `, one_of(L),
     {ER is ER1+1}.
+erosion1(0, _) --> [].
 
-proofed(0) --> [].
 proofed(PR) --> ` `, nth_of(_, [fixed, tempered, fireproof, rustproof, corrodeproof], PR).
+proofed(0) --> [].
 
-partly(0) --> [].
 partly(1) --> ` partly `, (`used`| `eaten`).
 partly(1) --> ` diluted` .
+partly(0) --> [].
 
-enchantment(unk) --> [].
 enchantment(E) --> ` `, integer(sign, E).
+enchantment(unk) --> [].
 
 % plural names end with 's' 
-s(1) --> [].
 s(N) --> {N > 1}, `s` .
+s(1) --> [].
 
 pair_of(WHAT, N) --> `pair`, s(N), ` of `, letters(WHAT).
 
@@ -1111,51 +1111,50 @@ by_name(boots, CNAME, N) --> pair_of(CNAME, N).
 by_name(gloves, CNAME, N) --> pair_of(CNAME, N).
 by_name(tool, `lenses`, N) --> pair_of(`lenses`, N).
 
-called(0) --> [].
 called(CALL) -->
     ` called `, letters(CCALL),
     {atom_codes(CALL, CCALL)}.
+called(0) --> [].
 
-named(0) --> [].
 named(NAME) -->
     ` named `, letters(CNAME),
     {atom_codes(NAME, CNAME)}.
+named(0) --> [].
 
 contains(N, 0) --> ` containing `, integer(no_sign, N), ` item`, s(N).
 contains(0, _) --> [].
 
-charges(0) --> [].
 charges(R:C) --> ` (`, integer(no_sign, R), `:`, integer(no_sign, C), `)` .
 charges(R:0) --> ` (`, integer(no_sign, R), `:-1)` .
 % candelabrum
 charges(0:C) --> ` (`, integer(no_sign, C), ` of 7 candle`, s(C).
+charges(0) --> [].
 
-lit(0) --> [].
-lit(1) --> ` (lit)` .
 % candelabrum
 lit(0) --> ` attached)` .
 lit(1) --> `, lit)` .
+% other light sources
+lit(1) --> ` (lit)` .
+lit(0) --> [].
 
-position(0) --> [].
-% egg
-position(0) --> ` (laid by you)` .
 % when polymorphed, your "hand" might be something different
 position(on) --> ` (on `, (`left`| `right`), ` hand)` .
 position(on) --> ` (being worn`, (``| `; slippery`), `)` .
 position(quiver) --> ` (in quiver`, (``| ` pouch`), `)` .
 position(quiver) --> ` (at the ready)` .
-position(wielded) --> ` (wielded)` .
-position(wielded) -->
+position(hand) --> ` (wielded)` .
+position(POSITION) -->
     ` (`,
        (``| `thethered `),
        (`weapon`| `wielded`),
-       ` in `,
-       (``| `left `| `right `),
-       `hand)` .
+       ` in `, letters(HAND), `)`,
+    {atom_codes(POSITION, HAND)}.
 position(offhand) --> ` (alternate weapon; not wielded)` .
-position(attached) --> ` (`, (`chained`| `attached`), ` to you)` .
-position(attached) --> ` (attached to `, letters(_), `)` .
-% todo
-shop_cost(0) --> [].
-shop_cost(C) --> ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
+position(attached(WHO)) -->
+    ` (`, (`chained`| `attached`), ` to `, letters(CWHO), `)`,
+    {atom_codes(WHO, CWHO)}.
+position(0) --> ` (laid by you)` . % egg
+position(0) --> [].
 
+shop_cost(C) --> ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
+shop_cost(0) --> [].
