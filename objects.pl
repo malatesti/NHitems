@@ -1008,7 +1008,7 @@ item_desc(N, BUC, GR, POIS, ER, PR, S, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, 
     lit(LIT),
     position(POS),
     shop_cost(COST).
-nth_of(NTH, L, M) --> letters(C), {atom_codes(M, C), nth0(NTH, L, M)}.
+nth_of(NTH, L, M) --> {nth0(NTH, L, M), atom_codes(M, C)}, letters(C).
 one_of(L) --> nth_of(_, L, _).
 
 % letters matches any sequences of uppercase or lowercase characters separated by whitespace
@@ -1085,18 +1085,16 @@ pair_of(WHAT, N) --> `pair`, s(N), ` of `, letters(WHAT).
 % obj_desc is already prefixed with a space
 obj_desc(potion, "water", blessed, N) --> `potion`, s(N), ` of holy water` .
 obj_desc(potion, "water", cursed, N) --> `potion`, s(N), ` of unholy water` .
-obj_desc(CAT, ONAME, 0, N) -->
-    by_name(CAT, CNAME, N), {
-	string_codes(NAME, CNAME),
+obj_desc(CAT, ONAME, 0, N) --> {
+	raw_object(CAT, ONAME, _, _, _, _, _),
 	(NAME = ONAME; jp_name(ONAME, NAME)),
-	raw_object(CAT, ONAME, _, _, _, _, _)
-    }.
-obj_desc(CAT, NAME, 0, N) -->
-    by_desc(CAT, CDESC, N), {
-	string_codes(DESC, CDESC),
+	string_codes(NAME, CNAME)
+    }, by_name(CAT, CNAME, N).
+obj_desc(CAT, NAME, 0, N) --> {
+	object(CAT, NAME, _, _, _, _, ID),
 	description(ID, DESC),
-	object(CAT, NAME, _, _, _, _, ID)
-    }.
+	string_codes(DESC, CDESC)
+    }, by_desc(CAT, CDESC, N).
 
 by_desc(scroll, CDESC, N) -->
     `scroll`, s(N), ` labeled `, letters(CDESC).
