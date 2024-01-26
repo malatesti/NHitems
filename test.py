@@ -72,19 +72,13 @@ class stochastic_matrix:
 prolog = Prolog()
 rnd_objects_by_category = {}
 prolog.consult("objects.pl")
-for res in prolog.query("raw_object(CAT, O, _, _, _, _, APPEARENCE), rnd_range(APPEARENCE, _)"):
-    obj, category = res["O"], res["CAT"]
+for res in prolog.query("rnd_range(RND, _), raw_object(CATEGORY, NAME, ABOUNDANCE, _, _, _, RND)"):
+    obj, category, abd = res["NAME"], res["CATEGORY"], res["ABOUNDANCE"]
     if category not in rnd_objects_by_category:
-        rnd_objects_by_category[category] = []
-    rnd_objects_by_category[category].append(obj.decode())
+        rnd_objects_by_category[category] = ([],[])
+    rnd_objects_by_category[category][0].append(obj.decode())
+    rnd_objects_by_category[category][1].append(abd)
 
-
-def get_aboundance(prolog, cat, obj):
-    res = list(prolog.query(f'raw_object({cat}, "{obj}", ABOUNDANCE, _, _, _, _)'))
-    assert len(res) == 1, (obj, res)
-    return res[0]["ABOUNDANCE"]
-
-
-matrices = {k: stochastic_matrix(objs, [
-    get_aboundance(prolog, k, obj) for obj in objs
-]) for k, objs in rnd_objects_by_category.items()}
+matrices = {k: stochastic_matrix(objs, abds)
+            for k, (objs, abds)
+            in rnd_objects_by_category.items()}
