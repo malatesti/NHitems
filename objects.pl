@@ -1011,8 +1011,8 @@ item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CAL
 nth_of(NTH, L, M) --> {nth0(NTH, L, M), atom_codes(M, C)}, letters(C).
 one_of(L) --> nth_of(_, L, _).
 
-% any sequence of ascii characters
-letters([C|S]) --> [C], {code_type(C, ascii)}, letters(S).
+% any sequence of ascii characters, no paretheses
+letters([C|S]) --> [C], {code_type(C, ascii), [C] \= `(`, [C] \= `)`}, letters(S).
 letters([]) --> [].
 
 int(sign, [S|U]) -->
