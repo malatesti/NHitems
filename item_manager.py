@@ -7,7 +7,7 @@ class Item_manager:
     def __init__(self):
         self.prolog = Prolog()
         rnd_objects_by_category = {}
-        self.prolog.consult("../objects.pl")
+        self.prolog.consult("objects.pl")
         for res in self.prolog.query("rnd_range(RND, MIN-MAX), raw_object(CATEGORY, NAME, ABOUNDANCE, _, _, _, RND)"):
             category, obj, min_app, max_app, abd = res["CATEGORY"], res["NAME"], res["MIN"], res["MAX"], res["ABOUNDANCE"]
             if category not in rnd_objects_by_category:
@@ -41,6 +41,17 @@ class Item_manager:
             return True
         return False
 
+    def can_be(self, appearence, objects):
+        mat = self.get_stochastic(appearence)
+        if mat is not None:
+            # objects and mat.objects must have at least one object in common
+            assert any(o for o in mat.objects if o in objects), objects
+            for o in mat.objects:
+                if o not in objects:
+                    mat.is_not(appearence, o)
+            return True
+        return False
+
     def get_possible_objects(self, appearence):
         mat = self.get_stochastic(appearence)
         if mat is not None:
@@ -63,30 +74,44 @@ class Item_manager:
         return cat
 
     def parse_item(self, item_desc):
-        res = self.prolog.query("phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST), `{item_desc}`)")
+        res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, _, CALL, NAMED, CONT, CHARGES, LIT, POS, COST), `{item_desc}`)"))
         assert len(res), item_desc
         return self.Item(
-            [r["NAME"] for r in res],
-            res[0]["CATEGORY"],
-            res[0]["N"],
-            res[0]["BUC"],
-            res[0]["ENCH"],
-            res[0]["CHARGES"],
-            res[0]["LIT"],
-            res[0]["POS"],
-            res[0]["COST"],
-            res[0]["GREASED"],
-            res[0]["POIS"],
-            res[0]["EROSION"],
-            res[0]["PROOF"],
-            res[0]["PART"],
-            res[0]["CALL"],
-            res[0]["NAMED"],
-            res[0]["CONT"])
+            res[0]["CATEGORY"], # item category
+            res[0]["N"], # number of items in stack
+            res[0]["BUC"], # curse/bless status
+            res[0]["ENCH"], # enchantment
+            res[0]["CHARGES"], # charges
+            res[0]["LIT"], # is it lit?
+            res[0]["POS"], # item position (wielded, in hands, offhand, in hand...)
+            res[0]["COST"], # item cost, when in shop
+            res[0]["GREASED"], # has the item been greased?
+            res[0]["POIS"], # has the item been poisoned?
+            res[0]["EROSION"], # is the item eroded?
+            res[0]["PROOF"], # has the item been proofed? (fireproof, waterproof...)
+            res[0]["PART"], # is the item diluted or partly eaten?
+            res[0]["CALL"], # how it is called
+            res[0]["NAMED"], # how it is named
+            res[0]["CONT"]) # how many items contains, if item is a container
 
     class Item:
-        def __init__(self, possible_objects, category, count, buc_status):#TODO
-            pass
+        def __init__(self, category, count, buc_status, enchantment, charges, lit, position, cost, greased, poisoned, erosion, proofed, partial, called, named, contents):
+            self.category = category
+            self.count = count
+            self.buc_status = buc_status
+            self.enchantment = enchantment
+            self.charges = charges
+            self.lit = lit
+            self.position = position
+            self.cost = cost
+            self.greased = greased
+            self.poisoned = poisoned
+            self.erosion = erosion
+            self.proofed = proofed
+            self.partial = partial
+            self.called = called
+            self.named = named
+            self.contents = contents
 
     class Stochastic_matrix:
         def __init__(self, objs, aboundance):
