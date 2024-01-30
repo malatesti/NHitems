@@ -990,29 +990,29 @@ jp_name("booze", "sake").
 test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS, COST) :-
     phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, COST), DESCRIPTION).
 
-item_desc(N, BUC, GR, POIS, ER, PR, S, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CH, LIT, POS, COST) -->
+item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST) -->
     count(N),
-    empty(EM),
+    empty(EMPTY),
     buc_status(BUC, HOLY),
-    grease(GR),
+    grease(GREASED),
     poison(POIS),
-    erosion(ER),
-    proofed(PR),
-    partly(S),
+    erosion(EROSION),
+    proofed(PROOF),
+    partly(PART),
     enchantment(ENCH),
     ` `, obj_desc(CATEGORY, NAME, HOLY, N),
     called(CALL),
     named(NAMED),
-    contains(CONT, EM),
-    charges(CH),
+    contains(CONT, EMPTY),
+    charges(CHARGES),
     lit(LIT),
     position(POS),
     shop_cost(COST).
 nth_of(NTH, L, M) --> {nth0(NTH, L, M), atom_codes(M, C)}, letters(C).
 one_of(L) --> nth_of(_, L, _).
 
-% letters matches any sequences of uppercase or lowercase characters separated by whitespace
-letters([C|S]) --> [C], {[X,Y] = `Az`, between(X, Y, C); code_type(C, white)}, letters(S).
+% any sequence of ascii characters
+letters([C|S]) --> [C], {code_type(C, ascii)}, letters(S).
 letters([]) --> [].
 
 int(sign, [S|U]) -->
@@ -1066,7 +1066,7 @@ erosion1(ER, L) -->
     {ER is ER1+1}.
 erosion1(0, _) --> [].
 
-proofed(PR) --> ` `, nth_of(_, [fixed, tempered, fireproof, rustproof, corrodeproof], PR).
+proofed(PROOF) --> ` `, nth_of(_, [fixed, tempered, fireproof, rustproof, corrodeproof], PROOF).
 proofed(0) --> [].
 
 partly(1) --> ` partly `, (`used`| `eaten`).
