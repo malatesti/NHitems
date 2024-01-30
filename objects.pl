@@ -9,6 +9,7 @@ Or with the following python program, given an in-game glyph GLY:
 |   DESC = nethack.objdescr.from_idx(ID).oc_descr
 Some objects don't have a fixed appearence, that's why their appearence is prefixed with rnd_. The can_be/2 predicate maps such random appearences to all the possibilities.
 */
+charisma(8).
 % projectile(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, HITBONUS, MATERIAL, SUB, DAMAGE_TO_SMALL_MONSTERS, DAMAGE_TO_LARGE_MONSTERS)
 projectile(1, "arrow", 55, 1, 2, 0, iron, p_bow, 3.5, 3.5).
 projectile(2, "elven arrow", 20, 1, 2, 0, wood, p_bow, 4.0, 3.5).
@@ -533,20 +534,20 @@ price_multiplier(16-17, 3/4).
 price_multiplier(18-18, 2/3).
 price_multiplier(19-25, 1/2).
 
-% buy_price(APPEARENCE_ID, CHARISMA, OBJ, COST, EXPENSIVE)
-buy_price(APPEARENCE_ID, CHARISMA, OBJ, COST, EXPENSIVE) :- 
+% buy_price(CATEGORY, OBJ, CHARISMA, COST, EXPENSIVE)
+buy_price(CATEGORY, OBJ, CHARISMA, COST, EXPENSIVE) :- 
     price_multiplier(MIN-MAX, M/D),
     between(MIN, MAX, CHARISMA),
-    object(_, OBJ, _, BASE_PRICE, _, _, APPEARENCE_ID),
+    raw_object(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
     between(0, 2, EXPENSIVE),
     COST is (
 	(BASE_PRICE * M * 4**EXPENSIVE * 10)
 	div
 	(D * 3**EXPENSIVE)
 	+ 5) div 10.
-% sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT)
-sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT) :-
-    object(_, OBJ, _, BASE_PRICE, _, _, APPEARENCE_ID),
+% sell_price(CATEGORY, OBJ, OFFER, DISCOUNT)
+sell_price(CATEGORY, OBJ, OFFER, DISCOUNT) :-
+    raw_object(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
     between(0, 1, DISCOUNT),
     OFFER is (
 	(BASE_PRICE * 3**DISCOUNT * 10)
@@ -988,9 +989,9 @@ jp_name("food ration", "gunyoki").
 jp_name("booze", "sake").
 
 test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS, COST) :-
-    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, COST), DESCRIPTION).
+    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, COST, _), DESCRIPTION).
 
-item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST) -->
+item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, EXPENSIVE) -->
     count(N),
     empty(EMPTY),
     buc_status(BUC, HOLY),
@@ -1007,7 +1008,7 @@ item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CAL
     charges(CHARGES),
     lit(LIT),
     position(POS),
-    shop_cost(COST).
+    shop_cost(COST, CATEGORY, NAME, EXPENSIVE).
 nth_of(NTH, L, M) --> {nth0(NTH, L, M), atom_codes(M, C)}, letters(C).
 one_of(L) --> nth_of(_, L, _).
 
@@ -1161,5 +1162,9 @@ position(attached(WHO)) -->
 position(0) --> ` (laid by you)` . % egg
 position(0) --> [].
 
-shop_cost(C) --> ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
-shop_cost(0) --> [].
+shop_cost(C, CATEGORY, NAME, EXPENSIVE) -->
+    {
+	charisma(CHARISMA),
+	buy_price(CATEGORY, NAME, CHARISMA, C, EXPENSIVE)
+    }, ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
+shop_cost(0, _, _, 0) --> [].
