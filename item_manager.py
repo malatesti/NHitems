@@ -74,9 +74,10 @@ class Item_manager:
         return cat
 
     def parse_item(self, item_desc):
-        res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, _, CALL, NAMED, CONT, CHARGES, LIT, POS, COST), `{item_desc}`)"))
-        assert len(res), item_desc
+        res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, _), `{item_desc}`)"))
+        assert len(res), f"can't parse: {item_desc}"
         return self.Item(
+            [r["NAME"].decode() for r in res], # possible objects this item can be
             res[0]["CATEGORY"], # item category
             res[0]["N"], # number of items in stack
             res[0]["BUC"], # curse/bless status
@@ -95,7 +96,8 @@ class Item_manager:
             res[0]["CONT"]) # how many items contains, if item is a container
 
     class Item:
-        def __init__(self, category, count, buc_status, enchantment, charges, lit, position, cost, greased, poisoned, erosion, proofed, partial, called, named, contents):
+        def __init__(self, possible_objects, category, count, buc_status, enchantment, charges, lit, position, cost, greased, poisoned, erosion, proofed, partial, called, named, contents):
+            self.possible_objects = possible_objects
             self.category = category
             self.count = count
             self.buc_status = buc_status
