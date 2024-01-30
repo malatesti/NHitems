@@ -1085,12 +1085,19 @@ pair_of(WHAT, N) --> `pair`, s(N), ` of `, letters(WHAT).
 % obj_desc is already prefixed with a space
 obj_desc(potion, "water", blessed, N) --> `potion`, s(N), ` of holy water` .
 obj_desc(potion, "water", cursed, N) --> `potion`, s(N), ` of unholy water` .
-obj_desc(CAT, ONAME, 0, N) --> {
+obj_desc(CAT, ONAME, 0, N) -->
+    {
+	raw_object(CAT, ONAME, _, _, _, _, _),
+	atom_codes(CAT, CCAT)
+    }, letters(CCAT), s(N).
+obj_desc(CAT, ONAME, 0, N) -->
+    {
 	raw_object(CAT, ONAME, _, _, _, _, _),
 	(NAME = ONAME; jp_name(ONAME, NAME)),
 	string_codes(NAME, CNAME)
     }, by_name(CAT, CNAME, N).
-obj_desc(CAT, NAME, 0, N) --> {
+obj_desc(CAT, NAME, 0, N) -->
+    {
 	object(CAT, NAME, _, _, _, _, ID),
 	description(ID, DESC),
 	string_codes(DESC, CDESC)
