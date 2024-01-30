@@ -553,7 +553,7 @@ sell_price(APPEARENCE_ID, OBJ, OFFER, DISCOUNT) :-
 	div
 	(2 * 4**DISCOUNT)
 	+ 5) div 10.
-% rnd_range(RND_APPEARENCE, APPEARECE_RANGE)
+% rnd_range(RND_APPEARENCE, APPEARENCE_RANGE)
 rnd_range(rnd_potion, 272-296).
 rnd_range(rnd_scroll, 298-338).
 rnd_range(rnd_spellbook, 340-379).
@@ -577,7 +577,7 @@ can_be(rnd_fluorite, 415).
 can_be(rnd_fluorite, 417).
 can_be(rnd_fluorite, 429).
 % description(APPEARENCE_ID, DESC)
-% only unknown object need a description
+% only unknown objects need a description
 description(2, "runed arrow").
 description(3, "crude arrow").
 description(5, "bamboo arrow").
