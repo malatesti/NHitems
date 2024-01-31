@@ -264,40 +264,40 @@ tool(233, "drum of earthquake", 0, 1, 1, 2, 25, 25, leather).
 % questitem(APPEARENCE, NAME, WEIGHT)
 questitem(237, "candelabrum of invocation", 10).
 questitem(238, "bell of opening", 10).
-% food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, MATERIAL, NUTRITION)
-food(239, "tripe ration", 140, 2, 10, 0, flesh, 200).
-food(240, "corpse", 0, 1, none, 0, flesh, 0).
-food(241, "egg", 85, 1, 1, 1, flesh, 80).
-food(242, "meatball", 0, 1, 1, 0, flesh, 5).
-food(243, "meat stick", 0, 1, 1, 0, flesh, 5).
-food(244, "huge chunk of meat", 0, 20, 400, 0, flesh, 2000).
-food(245, "meat ring", 0, 1, 5, 0, flesh, 5).
-food(246, "glob of gray ooze", 0, 2, 20, 0, flesh, 20).
-food(247, "glob of brown pudding", 0, 2, 20, 0, flesh, 20).
-food(248, "glob of green slime", 0, 2, 20, 0, flesh, 20).
-food(249, "glob of black pudding", 0, 2, 20, 0, flesh, 20).
-food(250, "kelp frond", 0, 1, 1, 0, veggy, 30).
-food(251, "eucalyptus leaf", 3, 1, 1, 0, veggy, 30).
-food(252, "apple", 15, 1, 2, 0, veggy, 50).
-food(253, "orange", 10, 1, 2, 0, veggy, 80).
-food(254, "pear", 10, 1, 2, 0, veggy, 50).
-food(255, "melon", 10, 1, 5, 0, veggy, 100).
-food(256, "banana", 10, 1, 2, 0, veggy, 80).
-food(257, "carrot", 15, 1, 2, 0, veggy, 50).
-food(258, "sprig of wolfsbane", 7, 1, 1, 0, veggy, 40).
-food(259, "clove of garlic", 7, 1, 1, 0, veggy, 40).
-food(260, "slime mold", 75, 1, 5, 0, veggy, 250).
-food(261, "lump of royal jelly", 0, 1, 2, 0, veggy, 200).
-food(262, "cream pie", 25, 1, 10, 0, veggy, 100).
-food(263, "candy bar", 13, 1, 2, 0, veggy, 100).
-food(264, "fortune cookie", 55, 1, 1, 0, veggy, 40).
-food(265, "pancake", 25, 2, 2, 0, veggy, 200).
-food(266, "lembas wafer", 20, 2, 5, 0, veggy, 800).
-food(267, "cram ration", 20, 3, 15, 0, veggy, 600).
-food(268, "food ration", 380, 5, 20, 0, veggy, 800).
-food(269, "K-ration", 0, 1, 10, 0, veggy, 400).
-food(270, "C-ration", 0, 1, 10, 0, veggy, 300).
-food(271, "tin", 75, 0, 10, 1, metal, 0).
+% food(APPEARENCE, NAME, ABOUNDANCE, DELAY, WEIGHT, UNK, BASE_PRICE, MATERIAL, NUTRITION)
+food(239, "tripe ration", 140, 2, 10, 0, 15, flesh, 200).
+food(240, "corpse", 0, 1, none, 0, 5, flesh, 0).
+food(241, "egg", 85, 1, 1, 1, 9, flesh, 80).
+food(242, "meatball", 0, 1, 1, 0, 5, flesh, 5).
+food(243, "meat stick", 0, 1, 1, 0, 5, flesh, 5).
+food(244, "huge chunk of meat", 0, 20, 400, 0, 105, flesh, 2000).
+food(245, "meat ring", 0, 1, 5, 0, 5, flesh, 5).
+food(246, "glob of gray ooze", 0, 2, 20, 0, 6, flesh, 20).
+food(247, "glob of brown pudding", 0, 2, 20, 0, 6, flesh, 20).
+food(248, "glob of green slime", 0, 2, 20, 0, 6, flesh, 20).
+food(249, "glob of black pudding", 0, 2, 20, 0, 6, flesh, 20).
+food(250, "kelp frond", 0, 1, 1, 0, 6, veggy, 30).
+food(251, "eucalyptus leaf", 3, 1, 1, 0, 6, veggy, 30).
+food(252, "apple", 15, 1, 2, 0, 7, veggy, 50).
+food(253, "orange", 10, 1, 2, 0, 9, veggy, 80).
+food(254, "pear", 10, 1, 2, 0, 7, veggy, 50).
+food(255, "melon", 10, 1, 5, 0, 10, veggy, 100).
+food(256, "banana", 10, 1, 2, 0, 9, veggy, 80).
+food(257, "carrot", 15, 1, 2, 0, 7, veggy, 50).
+food(258, "sprig of wolfsbane", 7, 1, 1, 0, 7, veggy, 40).
+food(259, "clove of garlic", 7, 1, 1, 0, 7, veggy, 40).
+food(260, "slime mold", 75, 1, 5, 0, 17, veggy, 250).
+food(261, "lump of royal jelly", 0, 1, 2, 0, 15, veggy, 200).
+food(262, "cream pie", 25, 1, 10, 0, 10, veggy, 100).
+food(263, "candy bar", 13, 1, 2, 0, 10, veggy, 100).
+food(264, "fortune cookie", 55, 1, 1, 0, 7, veggy, 40).
+food(265, "pancake", 25, 2, 2, 0, 15, veggy, 200).
+food(266, "lembas wafer", 20, 2, 5, 0, 45, veggy, 800).
+food(267, "cram ration", 20, 3, 15, 0, 35, veggy, 600).
+food(268, "food ration", 380, 5, 20, 0, 45, veggy, 800).
+food(269, "K-ration", 0, 1, 10, 0, 25, veggy, 400).
+food(270, "C-ration", 0, 1, 10, 0, 20, veggy, 300).
+food(271, "tin", 75, 0, 10, 1, 5, metal, 0).
 % potion(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, BASE_PRICE)
 potion(297, "water", 0, 0, 92, 100).
 potion(rnd_potion, "gain ability", 1, 0, 42, 300).
@@ -493,8 +493,8 @@ raw_object(container, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE
     container(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
 raw_object(tool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     tool(APPEARENCE_ID, NAME, _, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
-raw_object(food, NAME, ABOUNDANCE, 0/*TODO*/, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
-    food(APPEARENCE_ID, NAME, ABOUNDANCE, _, WEIGHT, _, MATERIAL, _).
+raw_object(food, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+    food(APPEARENCE_ID, NAME, ABOUNDANCE, _, WEIGHT, _, BASE_PRICE, MATERIAL, _).
 raw_object(coin, NAME, ABOUNDANCE, 1, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     coin(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, MATERIAL).
 raw_object(rock, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, mineral, APPEARENCE_ID) :- 
