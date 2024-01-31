@@ -1008,7 +1008,7 @@ item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CAL
     lit(LIT),
     position(POS),
     shop_cost(COST, CATEGORY, NAME, CHARISMA, EXPENSIVE).
-nth_of(NTH, L, M) --> {nth0(NTH, L, M), atom_codes(M, C)}, letters(C).
+nth_of(NTH, L, M) --> letters(C), {atom_codes(M, C), nth0(NTH, L, M)}.
 one_of(L) --> nth_of(_, L, _).
 
 % any sequence of ascii characters, no paretheses
@@ -1086,22 +1086,22 @@ pair_of(WHAT, N) --> `pair`, s(N), ` of `, letters(WHAT).
 obj_desc(potion, "water", blessed, N) --> `potion`, s(N), ` of holy water` .
 obj_desc(potion, "water", cursed, N) --> `potion`, s(N), ` of unholy water` .
 obj_desc(CAT, ONAME, 0, N) -->
-    {
-	raw_object(CAT, ONAME, _, _, _, _, _),
-	atom_codes(CAT, CCAT)
-    }, letters(CCAT), s(N).
+    letters(CCAT), s(N), {
+	atom_codes(CAT, CCAT),
+	raw_object(CAT, ONAME, _, _, _, _, _)
+    }.
 obj_desc(CAT, ONAME, 0, N) -->
-    {
-	raw_object(CAT, ONAME, _, _, _, _, _),
+    by_name(CAT, CNAME, N), {
+	string_codes(NAME, CNAME),
 	(NAME = ONAME; jp_name(ONAME, NAME)),
-	string_codes(NAME, CNAME)
-    }, by_name(CAT, CNAME, N).
+	raw_object(CAT, ONAME, _, _, _, _, _)
+    }.
 obj_desc(CAT, NAME, 0, N) -->
-    {
-	object(CAT, NAME, _, _, _, _, ID),
+     by_desc(CAT, CDESC, N), {
+	string_codes(DESC, CDESC),
 	description(ID, DESC),
-	string_codes(DESC, CDESC)
-    }, by_desc(CAT, CDESC, N).
+	object(CAT, NAME, _, _, _, _, ID)
+    }.
 
 by_desc(scroll, CDESC, N) -->
     `scroll`, s(N), ` labeled `, letters(CDESC).
@@ -1162,7 +1162,6 @@ position(0) --> ` (laid by you)` . % egg
 position(0) --> [].
 
 shop_cost(C, CATEGORY, NAME, CHARISMA, EXPENSIVE) -->
-    {
-	buy_price(CATEGORY, NAME, CHARISMA, C, EXPENSIVE)
-    }, ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)` .
+    ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)`,
+    {buy_price(CATEGORY, NAME, CHARISMA, C, EXPENSIVE)}.
 shop_cost(0, _, _, 0) --> [].
