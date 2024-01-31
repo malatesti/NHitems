@@ -68,11 +68,6 @@ class Item_manager:
             p[0] /= sum_abd
         return sorted(possibilities, reverse=True)
 
-    def get_category(self, appearence):
-        cat = [res["CATEGORY"] for res in self.prolog.query(f"once(object(CATEGORY, _, _, _, _, _, {appearence}))")]
-        assert len(cat) == 1, cat
-        return cat
-
     def parse_item(self, item_desc, charisma = "_"):
         res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, {charisma}, _), `{item_desc}`)"))
         assert len(res), f"can't parse: {item_desc}"
