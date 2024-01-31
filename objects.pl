@@ -1161,4 +1161,4 @@ position(0) --> [].
 shop_cost(C, CATEGORY, NAME, CHARISMA, EXPENSIVE) -->
     ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)`,
     {buy_price(CATEGORY, NAME, CHARISMA, C, EXPENSIVE)}.
-shop_cost(0, _, _, 0) --> [].
+shop_cost(0, _, _, _, 0) --> [].
