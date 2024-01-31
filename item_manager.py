@@ -1,7 +1,7 @@
 # testing for database(objects.pl) interaction
 from pyswip import Prolog
-import numpy as np
-
+from item import Item
+from stochastic_matrix import Stochastic_matrix
 
 class Item_manager:
     def __init__(self):
@@ -19,7 +19,7 @@ class Item_manager:
         self.matrices = []
         for (min_app, max_app, objs, abds) in rnd_objects_by_category.values():
             self.appearence_ranges.append((min_app, max_app))
-            self.matrices.append(self.Stochastic_matrix(objs, abds))
+            self.matrices.append(Stochastic_matrix(objs, abds))
 
     def get_stochastic(self, appearence):
         for (i, (min_app, max_app)) in enumerate(self.appearence_ranges):
@@ -71,7 +71,7 @@ class Item_manager:
     def parse_item(self, item_desc, charisma = "_"):
         res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, {charisma}, _), `{item_desc}`)"))
         assert len(res), f"can't parse: {item_desc}"
-        return self.Item(
+        return Item(
             set(r["NAME"].decode() for r in res), # possible objects this item can be
             res[0]["CATEGORY"], # item category
             res[0]["N"], # number of items in stack
@@ -89,89 +89,3 @@ class Item_manager:
             res[0]["CALL"], # how it is called
             res[0]["NAMED"], # how it is named
             res[0]["CONT"]) # how many items contains, if item is a container
-
-    class Item:
-        def __init__(self, possible_objects, category, count, buc_status, enchantment, charges, lit, position, cost, greased, poisoned, erosion, proofed, partial, called, named, contents):
-            self.possible_objects = possible_objects
-            self.category = category
-            self.count = count
-            self.buc_status = buc_status
-            self.enchantment = enchantment
-            self.charges = charges
-            self.lit = lit
-            self.position = position
-            self.cost = cost
-            self.greased = greased
-            self.poisoned = poisoned
-            self.erosion = erosion
-            self.proofed = proofed
-            self.partial = partial
-            self.called = called
-            self.named = named
-            self.contents = contents
-
-    class Stochastic_matrix:
-        def __init__(self, objs, aboundance):
-            n = len(objs)
-            assert n == len(aboundance)
-            self.objects = objs
-            self.appearences = []
-            self.aboundance = aboundance
-            self.probabilities = np.ones((n, n))/n
-            self.c, self.r = np.ones((2, n))
-
-        def reset(self):
-            self.probabilities[:] = 1/len(self.objects)
-
-        def mse(self, mat):
-            return ((np.concatenate(
-                (mat.sum(axis=0),
-                 mat.sum(axis=1))
-            ) - 1)**2).mean()
-
-        def get_bistochastic(self, max_it, tolerance):
-            b = self.probabilities * self.c * self.r.reshape(-1, 1)
-            if self.mse(b) > self.mse(self.probabilities):
-                self.c[:] = self.r[:] = 1  # reset
-            for i in range(max_it):
-                self.c = 1/(self.r @ self.probabilities)
-                self.r = 1/(self.probabilities @ self.c)
-                b[:] = self.probabilities * self.c * self.r.reshape(-1, 1)
-                if self.mse(b) <= tolerance:
-                    return (b, i+1)
-            return (None, max_it)
-
-        def get_prob(self, mat, appearence, obj):
-            assert obj in self.objects
-            if appearence not in self.appearences:  # not found yet
-                assert len(self.appearences) < len(self.objects)
-                return mat[-1, self.objects.index(obj)]
-            return mat[self.appearences.index(appearence),
-                       self.objects.index(obj)]
-
-        def get_possible_objects(self, mat, appearence):
-            return sorted(([self.get_prob(mat, appearence, obj), obj]
-                          for obj in self.objects), reverse=True)
-
-        def is_not(self, appearence, obj):
-            assert obj in self.objects
-            assert appearence in self.appearences
-            row = self.probabilities[self.appearences.index(appearence)]
-            row[self.objects.index(obj)] = 0
-            row /= row.sum()
-
-        def known(self, appearence, obj):
-            assert obj in self.objects
-            assert appearence in self.appearences
-            self.probabilities[self.appearences.index(appearence), :] = 0
-            self.probabilities[self.appearences.index(appearence),
-                               self.objects.index(obj)] = 1
-
-        def found(self, appearence):
-            if appearence not in self.appearences:  # first time
-                self.appearences.append(appearence)
-                assert len(self.appearences) <= len(self.objects)
-            row = self.probabilities[self.appearences.index(appearence)]
-            row *= self.aboundance
-            row /= row.sum()
-
