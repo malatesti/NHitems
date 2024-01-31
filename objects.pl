@@ -987,9 +987,6 @@ jp_name("leather gloves", "yugake").
 jp_name("food ration", "gunyoki").
 jp_name("booze", "sake").
 
-test_desc(DESCRIPTION, N, CATEGORY-NAME, BUC, ER, ENCH, CH, POS, COST) :-
-    phrase(item_desc(N, BUC, _, _, ER, _, _, ENCH, CATEGORY, NAME, _, _, _, CH, _, POS, COST, _), DESCRIPTION).
-
 item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, CHARISMA, EXPENSIVE) -->
     count(N),
     empty(EMPTY),
