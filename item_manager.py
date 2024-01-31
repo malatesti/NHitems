@@ -73,11 +73,11 @@ class Item_manager:
         assert len(cat) == 1, cat
         return cat
 
-    def parse_item(self, item_desc):
-        res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, _), `{item_desc}`)"))
+    def parse_item(self, item_desc, charisma = "_"):
+        res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, {charisma}, _), `{item_desc}`)"))
         assert len(res), f"can't parse: {item_desc}"
         return self.Item(
-            [r["NAME"].decode() for r in res], # possible objects this item can be
+            set(r["NAME"].decode() for r in res), # possible objects this item can be
             res[0]["CATEGORY"], # item category
             res[0]["N"], # number of items in stack
             res[0]["BUC"], # curse/bless status
