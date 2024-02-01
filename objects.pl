@@ -1105,14 +1105,18 @@ by_desc(scroll, CDESC, N) -->
 by_desc(boots, CDESC, N) --> pair_of(CDESC, N).
 by_desc(gloves, CDESC, N) --> pair_of(CDESC, N).
 by_desc(CAT, CDESC, N) -->
-    letters(CDESC), ` `, nth_of(_, [gem, potion, scroll, ring, wand, spellbook], CAT), s(N).
+    letters(CDESC), ` `, nth_of(_, [gem, potion, scroll, amulet, ring, wand, spellbook], CAT), s(N).
+% catch-all
+by_desc(_, CDESC, N) --> letters(CDESC), s(N).
 
 by_name(CAT, CNAME, N) -->
-    nth_of(_, [potion, scroll, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
-by_name(gem, CNAME, N) --> letters(CNAME), (`` | ` stone`).
+    nth_of(_, [potion, scroll, amulet, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
+by_name(gem, CNAME, N) --> letters(CNAME), ` stone`, s(N).
 by_name(boots, CNAME, N) --> pair_of(CNAME, N).
 by_name(gloves, CNAME, N) --> pair_of(CNAME, N).
 by_name(tool, `lenses`, N) --> pair_of(`lenses`, N).
+% catch-all
+by_name(_, CNAME, N) --> letters(CNAME), s(N).
 
 called(CALL) -->
     ` called `, letters(CCALL),
