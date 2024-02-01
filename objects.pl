@@ -1109,6 +1109,7 @@ by_desc(CAT, CDESC, N) -->
 
 by_name(CAT, CNAME, N) -->
     nth_of(_, [potion, scroll, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
+by_name(gem, CNAME, N) --> letters(CNAME), (`` | ` stone`).
 by_name(boots, CNAME, N) --> pair_of(CNAME, N).
 by_name(gloves, CNAME, N) --> pair_of(CNAME, N).
 by_name(tool, `lenses`, N) --> pair_of(`lenses`, N).
