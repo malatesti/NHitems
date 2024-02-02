@@ -2,36 +2,48 @@ import numpy as np
 
 class Stochastic_matrix:
     def __init__(self, objs, aboundance):
+        """Make a new nxn stochastic matrix where all elements are equal to 1/n.
+        The sum of the elements of any row must be equal to 1.
+        This sum must not be changed by any method"""
         n = len(objs)
         assert n == len(aboundance)
         self.objects = objs
+        # appearences are added with self.found, starting with empty list
         self.appearences = []
+        # this is used by self.found to update probabilities
         self.aboundance = aboundance
+        # this is used by self.get_bistochastic to approximate(and remember) a bistochastic matrix
         self.probabilities = np.ones((n, n))/n
         self.c, self.r = np.ones((2, n))
 
     def reset(self):
+        """Set all elements to their initial value"""
         self.probabilities[:] = 1/len(self.objects)
 
-    def mse(self, mat):
-        return ((np.concatenate(
-            (mat.sum(axis=0),
-             mat.sum(axis=1))
-        ) - 1)**2).mean()
-
     def get_bistochastic(self, max_it, tolerance):
+        """Approximate a new bistochastic matrix by applying the Sinkhorn-Knopp algorithm"""
+        def bis_mse(mat):
+            """Return the mean square error, where error is the difference between 1 and the sum on the rows and the columns of the given matrix"""
+            return ((np.concatenate(
+                (mat.sum(axis=0),
+                 mat.sum(axis=1))
+            ) - 1)**2).mean()
         b = self.probabilities * self.c * self.r.reshape(-1, 1)
-        if self.mse(b) > self.mse(self.probabilities):
+        # should i reset or keep the vectors self.c and self.r?
+        if bis_mse(b) > bis_mse(self.probabilities):
             self.c[:] = self.r[:] = 1  # reset
         for i in range(max_it):
+            # update c to normalize columns
             self.c = 1/(self.r @ self.probabilities)
+            # update r to normalize rows
             self.r = 1/(self.probabilities @ self.c)
             b[:] = self.probabilities * self.c * self.r.reshape(-1, 1)
-            if self.mse(b) <= tolerance:
+            if bis_mse(b) <= tolerance:
                 return (b, i+1)
         return (None, max_it)
 
     def get_prob(self, mat, appearence, obj):
+        """Get the probability that obj has the given appearence, given the probability matrix"""
         assert obj in self.objects
         if appearence not in self.appearences:  # not found yet
             assert len(self.appearences) < len(self.objects)
@@ -40,10 +52,14 @@ class Stochastic_matrix:
                    self.objects.index(obj)]
 
     def get_possible_objects(self, mat, appearence):
+        """Get a list of pairs (p, object) such that object has p probability to have the given appearence.
+        The objects with higer probability are at the beginning of the list.
+        For the probabilities to be accurate, the given matrix must be bistochastic"""
         return sorted(([self.get_prob(mat, appearence, obj), obj]
                       for obj in self.objects), reverse=True)
 
     def is_not(self, appearence, obj):
+        """Set the probability that object has the given appearence to 0"""
         assert obj in self.objects
         assert appearence in self.appearences
         row = self.probabilities[self.appearences.index(appearence)]
@@ -51,6 +67,7 @@ class Stochastic_matrix:
         row /= row.sum()
 
     def known(self, appearence, obj):
+        """Set the probability that object has the given appearence to 1"""
         assert obj in self.objects
         assert appearence in self.appearences
         self.probabilities[self.appearences.index(appearence), :] = 0
@@ -58,7 +75,9 @@ class Stochastic_matrix:
                            self.objects.index(obj)] = 1
 
     def found(self, appearence):
-        if appearence not in self.appearences:  # first time
+        """By finding an object with given appearence, the probabilities regarding this appearence must be updated considering the aboundance of the possible objects"""
+        # found for the first time?
+        if appearence not in self.appearences:
             self.appearences.append(appearence)
             assert len(self.appearences) <= len(self.objects)
         row = self.probabilities[self.appearences.index(appearence)]
