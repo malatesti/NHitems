@@ -1,10 +1,15 @@
 import numpy as np
 
 class Stochastic_matrix:
+    """A square matrix where the sum of the elements any row is equal to 1.
+    In this context, the element at row i and column j is the probability of
+    the object j to have randomized appearence i, and the sum of any row is indeed equal
+    to 1 because, in Nethack, a randomized appearence can only be used by one object.
+    If we consider the fact that an object can only have one appearence, then we also
+    need the sum of the elemets of any row to be equal to one, thus a bistochastic matrix
+    """
     def __init__(self, objs, aboundance):
-        """Make a new nxn stochastic matrix where all elements are equal to 1/n.
-        The sum of the elements of any row must be equal to 1.
-        This sum must not be changed by any method"""
+        """Make a new nxn stochastic matrix where all elements are equal to 1/n"""
         n = len(objs)
         assert n == len(aboundance)
         self.objects = objs
