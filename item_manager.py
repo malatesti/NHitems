@@ -1,7 +1,8 @@
 # testing for database(objects.pl) interaction
 from pyswip import Prolog
-from item import Item
 from stochastic_matrix import Stochastic_matrix
+from collections import namedtuple
+Item = namedtuple("Item", ["possible_objects", "category", "count", "buc_status", "enchantment", "charges", "lit", "position", "cost", "greased", "poisoned", "erosion", "proofed", "partial", "called", "named", "contents"])
 
 class Item_manager:
     def __init__(self):
