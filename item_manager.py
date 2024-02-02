@@ -1,11 +1,20 @@
-# testing for database(objects.pl) interaction
 from pyswip import Prolog
 from stochastic_matrix import Stochastic_matrix
 from collections import namedtuple
 Item = namedtuple("Item", ["possible_objects", "category", "count", "buc_status", "enchantment", "charges", "lit", "position", "cost", "greased", "poisoned", "erosion", "proofed", "partial", "called", "named", "contents"])
 
 class Item_manager:
+    """Manages all items in a Nethack game.
+    An item is an object(that may be unknown at the start of the game),
+    has an appearence(that is what we see),
+    a text description(used to describe the item in game),
+    some attributes(may vary between different objects).
+    Some objects have a random appearence(https://nethackwiki.com/wiki/Randomized_appearance),
+    that is why the class stores a probability matrix for every kind of objects that share the possible random appearences.
+    All the data for objects, appearences and items attributes is gathered from objects.pl
+    """
     def __init__(self):
+        """Consult objects.pl and initialize all the probability matrix, with the range of appearences associated with the matrix"""
         self.prolog = Prolog()
         rnd_objects_by_category = {}
         self.prolog.consult("objects.pl")
@@ -23,12 +32,15 @@ class Item_manager:
             self.matrices.append(Stochastic_matrix(objs, abds))
 
     def get_stochastic(self, appearence):
+        """Select and return one of the probability matrix by the given appearence"""
         for (i, (min_app, max_app)) in enumerate(self.appearence_ranges):
             if min_app <= appearence <= max_app:
                 return self.matrices[i]
         return None
 
     def found(self, appearence):
+        """Found an object with given appearence.
+        The manager must update the corresponding matrix"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
             mat.found(appearence)
@@ -36,6 +48,8 @@ class Item_manager:
         return False
 
     def is_not(self, appearence, obj):
+        """Found that an object can't have the given appearence.
+        The manager must update the corresponding matrix"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
             mat.is_not(appearence, obj)
@@ -43,6 +57,8 @@ class Item_manager:
         return False
 
     def can_be(self, appearence, objects):
+        """Found that the object possibilities of the given appearence can be restricted to the given list of objects.
+        The manager must update the corresponding matrix"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
             # objects and mat.objects must have at least one object in common
@@ -54,6 +70,9 @@ class Item_manager:
         return False
 
     def get_possible_objects(self, appearence):
+        """Return a list of pairs (p, object) such that object has p probability to have the given appearence.
+        If the given appearence is one of the many randomized appearences, use the associated probability matrix,
+        otherwise, query objects.pl"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
             (bis, i) = mat.get_bistochastic(10000, 1e-9)
@@ -70,6 +89,7 @@ class Item_manager:
         return sorted(possibilities, reverse=True)
 
     def parse_item(self, item_desc, charisma = "_"):
+        """Parse the given item description, eventually taking in consideration charisma to have an accurate price identification"""
         res = list(self.prolog.query(f"phrase(item_desc(N, BUC, GREASED, POIS, EROSION, PROOF, PART, ENCH, CATEGORY, NAME, CALL, NAMED, CONT, CHARGES, LIT, POS, COST, {charisma}, _), `{item_desc}`)"))
         assert len(res), f"can't parse: {item_desc}"
         return Item(
