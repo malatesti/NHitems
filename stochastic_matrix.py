@@ -1,12 +1,12 @@
 import numpy as np
 
 class Stochastic_matrix:
-    """A square matrix where the sum of the elements any row is equal to 1.
+    """A square matrix where the sum of the elements of every row is equal to 1.
     In this context, the element at row i and column j is the probability of
     the object j to have randomized appearence i, and the sum of any row is indeed equal
     to 1 because, in Nethack, a randomized appearence can only be used by one object.
     If we consider the fact that an object can only have one appearence, then we also
-    need the sum of the elemets of any row to be equal to one, thus a bistochastic matrix
+    need the sum of the elemets of every row to be equal to one, thus a bistochastic matrix
     """
     def __init__(self, objs, aboundance):
         """Make a new nxn stochastic matrix where all elements are equal to 1/n"""
@@ -34,7 +34,7 @@ class Stochastic_matrix:
                  mat.sum(axis=1))
             ) - 1)**2).mean()
         b = self.probabilities * self.c * self.r.reshape(-1, 1)
-        # should i reset or keep the vectors self.c and self.r?
+        # should I reset or keep the vectors self.c and self.r?
         if bis_mse(b) > bis_mse(self.probabilities):
             self.c[:] = self.r[:] = 1  # reset
         for i in range(max_it):
