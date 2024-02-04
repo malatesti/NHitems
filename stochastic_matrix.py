@@ -25,6 +25,12 @@ class Stochastic_matrix:
         """Set all elements to their initial value"""
         self.probabilities[:] = 1/len(self.objects)
 
+    def add_appearence_if_missing(self, appearence):
+        """If appearence is new, add it to the list"""
+        if appearence not in self.appearences:
+            self.appearences.append(appearence)
+            assert len(self.appearences) <= len(self.objects)
+
     def get_bistochastic(self, max_it, tolerance):
         """Approximate a new bistochastic matrix by applying the Sinkhorn-Knopp algorithm"""
         def bis_mse(mat):
@@ -66,7 +72,7 @@ class Stochastic_matrix:
     def is_not(self, appearence, obj):
         """Set the probability that object has the given appearence to 0"""
         assert obj in self.objects
-        assert appearence in self.appearences
+        self.add_appearence_if_missing(appearence)
         row = self.probabilities[self.appearences.index(appearence)]
         row[self.objects.index(obj)] = 0
         row /= row.sum()
@@ -74,17 +80,14 @@ class Stochastic_matrix:
     def known(self, appearence, obj):
         """Set the probability that object has the given appearence to 1"""
         assert obj in self.objects
-        assert appearence in self.appearences
+        self.add_appearence_if_missing(appearence)
         self.probabilities[self.appearences.index(appearence), :] = 0
         self.probabilities[self.appearences.index(appearence),
                            self.objects.index(obj)] = 1
 
     def found(self, appearence):
         """By finding an object with given appearence, the probabilities regarding this appearence must be updated considering the aboundance of the possible objects"""
-        # found for the first time?
-        if appearence not in self.appearences:
-            self.appearences.append(appearence)
-            assert len(self.appearences) <= len(self.objects)
+        self.add_appearence_if_missing(appearence)
         row = self.probabilities[self.appearences.index(appearence)]
         row *= self.aboundance
         row /= row.sum()
