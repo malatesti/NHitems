@@ -4,6 +4,7 @@ def id_score(possible_answers, guess, correct_answer):
     (this function is the same for all random appearences, so appearence doesn't have to be a function parameter)"""
     assert correct_answer in possible_answers
     assert all(a in possible_answers for a in guess)
+    assert len(guess)
     if correct_answer not in guess:
         return -10 # agent made a mistake
     # the more accurate the guess, the closer the score is to +1
