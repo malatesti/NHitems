@@ -86,7 +86,7 @@ class Stochastic_matrix:
                            self.objects.index(obj)] = 1
 
     def found(self, appearence):
-        """By finding an object with given appearence, the probabilities regarding this appearence must be updated considering the aboundance of the possible objects"""
+        """By finding an object with given appearence, the probabilities associated with this appearence must be updated considering the aboundance of the possible objects"""
         self.add_appearence_if_missing(appearence)
         row = self.probabilities[self.appearences.index(appearence)]
         row *= self.aboundance
