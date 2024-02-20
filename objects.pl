@@ -298,7 +298,6 @@ food(269, "K-ration", 0, 1, 10, 0, 25, veggy, 400).
 food(270, "C-ration", 0, 1, 10, 0, 20, veggy, 300).
 food(271, "tin", 75, 0, 10, 1, 5, metal, 0).
 % potion(APPEARENCE, NAME, MAGICAL, POWER, ABOUNDANCE, BASE_PRICE)
-potion(297, "water", 0, 0, 92, 100).
 potion(rnd_potion, "gain ability", 1, 0, 42, 300).
 potion(rnd_potion, "restore ability", 1, 0, 40, 100).
 potion(rnd_potion, "confusion", 1, confusion, 42, 100).
@@ -324,6 +323,8 @@ potion(rnd_potion, "sickness", 0, 0, 42, 50).
 potion(rnd_potion, "fruit juice", 0, 0, 42, 50).
 potion(rnd_potion, "acid", 0, 0, 10, 250).
 potion(rnd_potion, "oil", 0, 0, 30, 250).
+potion(297, "water", 0, 0, 92, 100).
+potion(297, "water", 0, 0, 92, 5).
 % scroll(APPEARENCE, NAME, MAGICAL, ABOUNDANCE, BASE_PRICE)
 scroll(rnd_scroll, "enchant armor", 1, 63, 80).
 scroll(rnd_scroll, "destroy armor", 1, 45, 100).
@@ -1112,11 +1113,13 @@ by_desc(_, CDESC, N) --> letters(CDESC), s(N).
 by_name(CAT, CNAME, N) -->
     nth_of(_, [potion, scroll, amulet, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
 by_name(gem, CNAME, N) --> letters(CNAME), ` stone`, s(N).
+by_name(food, `tin`, N) --> `tin`, s(N), ` of `, letters(_).
+by_name(rock, `flint`, N) --> `flint stone`, s(N).
 by_name(boots, CNAME, N) --> pair_of(CNAME, N).
 by_name(gloves, CNAME, N) --> pair_of(CNAME, N).
 by_name(tool, `lenses`, N) --> pair_of(`lenses`, N).
 % catch-all
-by_name(_, CNAME, N) --> letters(CNAME), s(N).
+by_name(_, CNAME, N) --> letters(CNAME), (`` | s(N)).
 
 called(CALL) -->
     ` called `, letters(CCALL),
@@ -1164,6 +1167,6 @@ position(0) --> ` (laid by you)` . % egg
 position(0) --> [].
 
 shop_cost(C, CATEGORY, NAME, CHARISMA, EXPENSIVE) -->
-    ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), letters(_) ,`)`,
+    ` (`, (`unpaid`|`contents`|`for sale`), `, `, integer(no_sign, C), ` zorkmids` ,`)`,
     {buy_price(CATEGORY, NAME, CHARISMA, C, EXPENSIVE)}.
 shop_cost(0, _, _, _, 0) --> [].
