@@ -6,7 +6,7 @@ class Stochastic_matrix:
     the object j to have randomized appearence i, and the sum of any row is indeed equal
     to 1 because, in Nethack, a randomized appearence can only be used by one object.
     If we consider the fact that an object can only have one appearence, then we also
-    need the sum of the elemets of every row to be equal to one, thus a bistochastic matrix
+    need the sum of the elemets of every column to be equal to one, thus a bistochastic matrix
     """
     def __init__(self, objs, aboundance):
         """Make a new nxn stochastic matrix where all elements are equal to 1/n"""
