@@ -75,7 +75,7 @@ class Item_manager:
         otherwise, query objects.pl"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
-            (bis, i) = mat.get_bistochastic(10000, 1e-9)
+            (bis, i) = mat.get_bistochastic(10000, 1e-6)
             # print(i)
             if bis is not None:
                 return mat.get_possible_objects(bis, appearence)
@@ -87,12 +87,6 @@ class Item_manager:
         for p in possibilities:
             p[0] /= sum_abd
         return sorted(possibilities, reverse=True)
-
-    def get_answer(self, appearence, treshold):
-        """answer the question: what objects have probability > treshold/N to have the given appearence?
-        N = number of possible objects that can have the given appearence"""
-        possibilities = self.get_possible_objects(appearence)
-        return [o[1] for o in possibilities if o[0] > treshold / len(possibilities)]
 
     def parse_item(self, item_desc, charisma = "_"):
         """Parse the given item description, eventually taking in consideration charisma to have an accurate price identification"""
