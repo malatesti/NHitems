@@ -1113,6 +1113,7 @@ by_desc(_, CDESC, N) --> letters(CDESC), s(N).
 by_name(CAT, CNAME, N) -->
     nth_of(_, [potion, scroll, amulet, ring, wand, spellbook], CAT), s(N), ` of `, letters(CNAME).
 by_name(gem, CNAME, N) --> letters(CNAME), ` stone`, s(N).
+by_name(food, `clove of garlic`, _) --> `cloves of garlic` .
 by_name(food, `tin`, N) --> `tin`, s(N), ` of `, letters(_).
 by_name(rock, `flint`, N) --> `flint stone`, s(N).
 by_name(boots, CNAME, N) --> pair_of(CNAME, N).
