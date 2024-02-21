@@ -12,12 +12,17 @@ def id_score(possible_answers, guess, correct_answer):
     # if len(guess) == len(possible_answers), then score = 0(the agent doesn't know useful information)
     return (1 - (len(guess) - 1) / (len(possible_answers) - 1))**2
 
-def get_answer(itm_mgr, appearence, treshold):
+def get_answer_bis(itm_mgr, appearence, treshold):
     """answer the question: what objects have probability > treshold/N to have the given appearence?
     N = number of possible objects that can have the given appearence"""
     possibilities = itm_mgr.get_possible_objects(appearence)
     return [o for p,o in possibilities if p > treshold / len(possibilities)]
 
+def get_answer_stoc(itm_mgr, appearence, treshold):
+    stoc = itm_mgr.get_stochastic(appearence)
+    possibilities = stoc.get_possible_objects(stoc.probabilities, appearence)
+    return [o for p,o in possibilities if p > treshold / len(possibilities)]
+    
 def total_score(itm_manager, correct_answers, probability_treshold):
     """Get the final agent score, after the agent used itm_manager in an episode
     correct_answers is a dictionary where correct_answers[appearence] = object_name
@@ -32,7 +37,7 @@ def total_score(itm_manager, correct_answers, probability_treshold):
         random_appearences.extend(range(min_app, max_app))
     return sum(
         id_score(itm_manager.get_stochastic(a).objects,
-                 get_answer(itm_manager, a, probability_treshold),
+                 get_answer_bis(itm_manager, a, probability_treshold),
                  correct_answers[a])
         for a in random_appearences
         if a in correct_answers)
