@@ -1,14 +1,18 @@
 import random
 import minihack, gym
 import numpy as np
-from item_manager import Item_manager
 from nle import nethack as nh
-from path_finding import *
 from collections import namedtuple
+from item_manager import Item_manager
+from path_finding import *
 from identification_score import total_score
+from agent_id_answers import *
 
 def is_floor(g):
     return nh.glyph_to_cmap(g) in [12, 19, 20, 21, 22]
+
+def is_stair(g):
+    return nh.glyph_to_cmap(g) in [23, 24]
 
 def is_door(g):
     return nh.glyph_to_cmap(g) in [13, 14, 15, 16]
@@ -20,7 +24,7 @@ def is_altar(g):
     return nh.glyph_to_cmap(g) == 27
 
 def is_passable(g):
-    return any(is_x(g) for is_x in [is_floor, is_door, is_object, is_altar])
+    return any(is_x(g) for is_x in [is_floor, is_stair, is_door, is_object, is_altar])
 
 def is_wall(g):
     return nh.glyph_to_cmap(g) in [1, 2]
@@ -83,11 +87,11 @@ def useful_info(obs):
 def step(env, action, level, pos, render=False):
     saved_glyphs = {p: level[p] for p in neighbours(level, pos)}
     saved_glyphs[pos] = level[pos]
-    obs = env.step(env.actions.index(action))[0]
+    obs, _, done, _ = env.step(env.actions.index(action))
     if render: env.render()
     pos, level, msg, cha, inventory = useful_info(obs)
     level[pos] = saved_glyphs[pos]
-    return pos, level, msg, cha, inventory
+    return pos, level, msg, cha, inventory, done
     
 
 def shortest_path_to_goal(level, position, goal_priority, randomized=True):
@@ -99,7 +103,7 @@ def shortest_path_to_goal(level, position, goal_priority, randomized=True):
         lambda p: order(list(reachable_tiles(level, p))), # what tiles can be reached from position p?
         -np.ones(level.shape)) # all tile costs are initialized to -1(= unknown cost)
 
-MAX_STEPS = 1600
+MAX_STEPS = 3000
 env = gym.make(
     "MiniHack-Skill-Custom-v0",
     des_file = """
@@ -128,91 +132,117 @@ env = gym.make(
     observation_keys = ('glyphs', 'tty_chars', 'blstats', 'inv_glyphs', 'inv_letters', 'inv_strs'),
     wizard=True,
 )
+results = {
+    'random':[],
+    'uniform':[],
+    'stochastic':[],
+    'no-occour-check':[],
+    'bistochastic':[]}
 
-pos, level, msg, cha, inv = useful_info(env.reset())
-level[pos] = nh.GLYPH_CMAP_OFF + 19
-env.render()
-itm_mgr = Item_manager()
-starting_inventory = ((l, g, itm_mgr.parse_item(string).possible_objects.pop()) for l, g, string in inv)
-rooms_explored = [False, False]
-visited = []
+def episode():
+    pos, level, msg, cha, inv = useful_info(env.reset())
+    level[pos] = nh.GLYPH_CMAP_OFF + 19
+    #env.render()
+    itm_mgr = Item_manager()
+    itm_mgr2 = Item_manager()
+    starting_inventory = [(l, g, itm_mgr.parse_item(string).possible_objects.pop()) for l, g, string in inv]
+    rooms_explored = [False, False]
+    visited = []
 
-for l, _, name in starting_inventory:
-    if name == 'pick-axe': # pick-axe is not allowed in shops...
-        step(env, nh.Command.DROP, level, pos)
-        step(env, l, level, pos)
+    for l, _, name in starting_inventory:
+        if name == 'pick-axe': # pick-axe is not allowed in shops...
+            step(env, nh.Command.DROP, level, pos)
+            step(env, l, level, pos)
 
-def goal_priority(position):
-    if position in visited:
-        return 0, None # don't go back to visited goals
-    glyph = level[position]
-    if is_object(glyph):
-        return 4, 'object' # first find all the objects(highest priority)
-    if any(is_stone(level[n]) for n in neighbours(level, position)):
-        return 3, 'exploration' # then explore
-    if rooms_explored != [True, True] and any(is_stone(level[s])
-           for n in neighbours(level, position) if is_wall(level[n])
-           for s in neighbours(level, n)):
-        return 2, 'secret' # then search for secrets
-    if is_altar(glyph):
-        return 1, 'altar'
-    return 0, None
+    def goal_priority(position):
+        glyph = level[position]
+        if is_altar(glyph):
+            return 1, 'altar'
+        if position in visited:
+            return 0, None # don't go back to visited goals
+        if is_object(glyph):
+            return 3, 'object' # first find all the objects(highest priority)
+        if any(is_stone(level[n]) for n in neighbours(level, position)):
+            return 2, 'exploration' # then explore
+        if rooms_explored != [True, True] and any(is_stone(level[s])
+               for n in neighbours(level, position) if is_wall(level[n])
+               for s in neighbours(level, n)):
+            return 2 - chebyshev_dist(position, (level.shape[0]/2, level.shape[1]/2))/level.shape[1], 'secret' # then search for secrets
+        return 0, None
+    done = False
+    while not done:
 
-while True:
-    
-    path, goal_type = shortest_path_to_goal(level, pos, goal_priority) or ([pos, random.choice(list(reachable_tiles(level, pos)))], 'random walk')
-    # print(goal_type)
+        path, goal_type = shortest_path_to_goal(level, pos, goal_priority) or ([pos, random.choice(list(reachable_tiles(level, pos)))], 'random walk')
+        # print(goal_type)
 
-    for _ in range(4):
-        step(env, nh.Command.ESC, level, pos)
-        next_pos = follow_path(pos, path)
+        for _ in range(4):
+            step(env, nh.Command.ESC, level, pos)
+            next_pos = follow_path(pos, path)
 
-        if next_pos is None: # goal is reached, now check wich goal it is
-            if goal_type != "random walk":
-                visited.append(pos)
-            if goal_type == 'object':
-                appearence = nh.glyph_to_obj(level[pos])
-                itm_mgr.found(appearence)
-                if 'You see here ' in msg:
-                    itm = itm_mgr.parse_item(msg[msg.index('You see here ') + len('You see here ') : msg.index('.', msg.index('You see here '))], cha)
-                    itm_mgr.can_be(appearence, itm.possible_objects)
-                    if itm.cost:
-                        rooms_explored[0] = True
-                    else:
-                        rooms_explored[1] = True
-                        _, _, msg, cha, _ = step(env, nh.Command.PICKUP, level, pos, render=True)
-                else: # "Things that are here:"
-                    step(env, nh.Command.PICKUP, level, pos, render=True)
-                    step(env, nh.Command.PICKUP, level, pos, render=True)
-                    _, _, msg, _, inv = step(env, nh.MiscAction.MORE, level, pos, render=True)
-            elif goal_type == 'exploration':
-                can_move = list(reachable_tiles(level, pos))
-                if len(can_move) == 1 or len(can_move) == 2 and manhattan_dist(*can_move) == 1:
-                    step(env, nh.TextCharacters.NUM_3, level, pos)
+            if next_pos is None: # goal is reached, now check wich goal it is
+                if goal_type != "random walk":
+                    visited.append(pos)
+                if goal_type == 'object':
+                    appearence = nh.glyph_to_obj(level[pos])
+                    itm_mgr.found(appearence)
+                    if 'You see here ' in msg:
+                        dot = msg.find('.', msg.index('You see here '))
+                        if(dot == -1):
+                            msg += ' zorkmids).'
+                            dot = msg.find('.', msg.index('You see here '))
+                        itm = itm_mgr.parse_item(msg[msg.index('You see here ') + len('You see here ') : dot], cha)
+                        itm_mgr.can_be(appearence, itm.possible_objects)
+                        itm_mgr2.can_be(appearence, itm.possible_objects)
+                        if itm.cost:
+                            rooms_explored[0] = True
+                        else:
+                            rooms_explored[1] = True
+                            _, _, msg, cha, _, done = step(env, nh.Command.PICKUP, level, pos)
+                    else: # "Things that are here:"
+                        step(env, nh.Command.PICKUP, level, pos)
+                        step(env, nh.Command.PICKUP, level, pos)
+                        _, _, msg, _, inv, done = step(env, nh.MiscAction.MORE, level, pos)
+                elif goal_type == 'exploration':
+                    can_move = list(reachable_tiles(level, pos))
+                    if len(can_move) == 1 or len(can_move) == 2 and manhattan_dist(*can_move) == 1:
+                        step(env, nh.TextCharacters.NUM_2, level, pos)
+                        step(env, nh.TextCharacters.NUM_2, level, pos)
+                        _, level, msg, cha, _, done = step(env, nh.Command.SEARCH, level, pos)
+                elif goal_type == 'secret':
                     step(env, nh.TextCharacters.NUM_2, level, pos)
-                    _, level, msg, cha, _ = step(env, nh.Command.SEARCH, level, pos, render=True)
-            elif goal_type == 'secret':
-                step(env, nh.TextCharacters.NUM_3, level, pos)
-                step(env, nh.TextCharacters.NUM_2, level, pos)
-                _, level, msg, cha, _ = step(env, nh.Command.SEARCH, level, pos, render=True)
-            elif goal_type == 'altar':
-                step(env, nh.WizardCommand.WIZIDENTIFY, level, pos)
-                step(env, nh.WizardCommand.WIZIDENTIFY, level, pos)
-                pos, level, msg, cha, inv = step(env, nh.MiscAction.MORE, level, pos)
-                step(env, nh.Command.ESC, level, pos, render=True)
-                correct_identification = {g: itm_mgr.parse_item(string).possible_objects.pop()
-                                          for _, g, string in inv
-                                          # do not consider starting inventory(items in it are identified from the beginning)
-                                          if g not in set(i[1] for i in starting_inventory)}
-                print('total identification score :', total_score(itm_mgr, correct_identification, 0.25))
-                exit(0)
-            break
-        if msg == 'You are carrying too much to get through.':
-            assert 0, 'item hauling not implemented'
-        if msg.startswith('The scroll turns to dust as you pick it up.'):
-            step(env, nh.MiscAction.MORE, level, pos)
-        if not next_pos in reachable_tiles(level, pos):
-            break # something is in the way
-        if is_door(level[next_pos]) and msg in ['This door is locked.', 'WHAMMM!!!']:
-            step(env, nh.Command.KICK, level, pos)
-        pos, level, msg, cha, inv = step(env, move_action(pos, next_pos), level, pos, render=True)
+                    step(env, nh.TextCharacters.NUM_2, level, pos)
+                    _, level, msg, cha, _, done = step(env, nh.Command.SEARCH, level, pos)
+                elif goal_type == 'altar':
+                    step(env, nh.WizardCommand.WIZIDENTIFY, level, pos)
+                    step(env, nh.WizardCommand.WIZIDENTIFY, level, pos)
+                    pos, level, msg, cha, inv, done = step(env, nh.MiscAction.MORE, level, pos)
+                    step(env, nh.Command.ESC, level, pos)
+                    correct_identification = {g: itm_mgr.parse_item(string).possible_objects.pop()
+                                              for _, g, string in inv
+                                              # do not consider starting inventory(items in it are identified from the beginning)
+                                              if g not in set(i[1] for i in starting_inventory)
+                                              and any(m <= g <= M for m,M in itm_mgr.appearence_ranges)}
+                    results['random'].append(total_score(itm_mgr, correct_identification, rnd_answer))
+                    results['uniform'].append(total_score(itm_mgr, correct_identification, uni_answer))
+                    results['stochastic'].append(total_score(itm_mgr, correct_identification, stoc_answer))
+                    results['no-occour-check'].append(total_score(itm_mgr2, correct_identification, complete_answer))
+                    results['bistochastic'].append(total_score(itm_mgr, correct_identification, complete_answer))
+                    return
+                break
+            if msg == 'You are carrying too much to get through.':
+                return # assert 0, 'item hauling not implemented'
+            if msg.startswith('The scroll turns to dust as you pick it up.'):
+                step(env, nh.MiscAction.MORE, level, pos)
+            if not next_pos in reachable_tiles(level, pos):
+                break # something is in the way
+            if is_door(level[next_pos]) and msg in ['This door is locked.', 'WHAMMM!!!']:
+                step(env, nh.Command.KICK, level, pos)
+            pos, level, msg, cha, inv, done = step(env, move_action(pos, next_pos), level, pos)
+for i in range(10):
+    print("ep ", i)
+    episode()
+from matplotlib import pyplot as plt
+for k,v in results.items():
+    plt.plot(v, label=k)
+plt.legend()
+plt.show()
