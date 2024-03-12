@@ -466,44 +466,44 @@ heavy_obj(450, "iron chain", 1000, 120, iron).
 
 % object/7 is a unified view of all objects
 object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
-    raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL_RAW, APPEARENCE),
+    object_type(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL_RAW, APPEARENCE),
     can_be(APPEARENCE, APPEARENCE_ID),
     (MATERIAL_RAW = rnd_material
     -> material(APPEARENCE_ID, MATERIAL)
     ;  MATERIAL = MATERIAL_RAW).    
-% raw_object/7 is a unified view of all objects, without setting the actual APPEARENCE_ID, or MATERIAL if they can be determined by can_be/2 and material/2(this is left to object/7)
-% raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE)
-raw_object(amulet, NAME, ABOUNDANCE, 150, 20, iron, rnd_amulet) :-
+% object_type/7 is a unified view of all objects, without setting the actual APPEARENCE_ID, or MATERIAL if they can be determined by can_be/2 and material/2(this is left to object/7)
+% object_type(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE)
+object_type(amulet, NAME, ABOUNDANCE, 150, 20, iron, rnd_amulet) :-
     amulet(NAME, _, ABOUNDANCE).
-raw_object(ring, NAME, 1, BASE_PRICE, 3, rnd_material, rnd_ring) :-
+object_type(ring, NAME, 1, BASE_PRICE, 3, rnd_material, rnd_ring) :-
     ring(NAME, _, BASE_PRICE, _, _, _).
-raw_object(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass, APPEARENCE) :-
+object_type(potion, NAME, ABOUNDANCE, BASE_PRICE, 20, glass, APPEARENCE) :-
     potion(APPEARENCE, NAME, _, _, ABOUNDANCE, BASE_PRICE).
-raw_object(spellbook, NAME, ABOUNDANCE, BASE_PRICE, 50, rnd_material, APPEARENCE) :-
+object_type(spellbook, NAME, ABOUNDANCE, BASE_PRICE, 50, rnd_material, APPEARENCE) :-
     spellbook(APPEARENCE, NAME, _, ABOUNDANCE, _, LEVEL, _, _), BASE_PRICE is LEVEL*100.
-raw_object(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper, APPEARENCE) :-
+object_type(scroll, NAME, ABOUNDANCE, BASE_PRICE, 5, paper, APPEARENCE) :-
     scroll(APPEARENCE, NAME, _, ABOUNDANCE, BASE_PRICE).
-raw_object(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, rnd_material, rnd_wand) :-
+object_type(wand, NAME, ABOUNDANCE, BASE_PRICE, 7, rnd_material, rnd_wand) :-
     wand(NAME, ABOUNDANCE, BASE_PRICE, _, _).
-raw_object(gem, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE) :- 
+object_type(gem, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE) :- 
     gem(APPEARENCE, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, _, _, MATERIAL).
-raw_object(launcher, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(launcher, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     launcher(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL, _).
-raw_object(container, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(container, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     container(APPEARENCE_ID, NAME, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
-raw_object(tool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(tool, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     tool(APPEARENCE_ID, NAME, _, _, _, ABOUNDANCE, WEIGHT, BASE_PRICE, MATERIAL).
-raw_object(food, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(food, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     food(APPEARENCE_ID, NAME, ABOUNDANCE, _, WEIGHT, _, BASE_PRICE, MATERIAL, _).
-raw_object(coin, NAME, ABOUNDANCE, 1, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(coin, NAME, ABOUNDANCE, 1, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     coin(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, MATERIAL).
-raw_object(rock, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, mineral, APPEARENCE_ID) :- 
+object_type(rock, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, mineral, APPEARENCE_ID) :- 
     rock(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, BASE_PRICE, _, _, _).
-raw_object(heavy_obj, NAME, ABOUNDANCE, 0, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
+object_type(heavy_obj, NAME, ABOUNDANCE, 0, WEIGHT, MATERIAL, APPEARENCE_ID) :- 
     heavy_obj(APPEARENCE_ID, NAME, ABOUNDANCE, WEIGHT, MATERIAL).
-raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
+object_type(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
     armor(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, _, _).
-raw_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
+object_type(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID) :-
     damaging_object(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, _, _, _, _).
 % armor/9 is a unified view of all defensive objects that provide armor class
 % armor(CATEGORY, NAME, ABOUNDANCE, BASE_PRICE, WEIGHT, MATERIAL, APPEARENCE_ID, ARMOR_CLASS, MAGIC_CANCELLATION)
@@ -538,7 +538,7 @@ price_multiplier(19-25, 1/2).
 buy_price(CATEGORY, OBJ, CHARISMA, COST, EXPENSIVE) :- 
     price_multiplier(MIN-MAX, M/D),
     between(MIN, MAX, CHARISMA),
-    raw_object(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
+    object_type(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
     between(0, 2, EXPENSIVE),
     COST is (
 	(BASE_PRICE * M * 4**EXPENSIVE * 10)
@@ -547,7 +547,7 @@ buy_price(CATEGORY, OBJ, CHARISMA, COST, EXPENSIVE) :-
 	+ 5) div 10.
 % sell_price(CATEGORY, OBJ, OFFER, DISCOUNT)
 sell_price(CATEGORY, OBJ, OFFER, DISCOUNT) :-
-    raw_object(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
+    object_type(CATEGORY, OBJ, _, BASE_PRICE, _, _, _),
     between(0, 1, DISCOUNT),
     OFFER is (
 	(BASE_PRICE * 3**DISCOUNT * 10)
@@ -1086,13 +1086,13 @@ obj_desc(potion, "water", cursed, N) --> `potion`, s(N), ` of unholy water` .
 obj_desc(CAT, ONAME, 0, N) -->
     letters(CCAT), s(N), {
 	atom_codes(CAT, CCAT),
-	raw_object(CAT, ONAME, _, _, _, _, _)
+	object_type(CAT, ONAME, _, _, _, _, _)
     }.
 obj_desc(CAT, ONAME, 0, N) -->
     by_name(CAT, CNAME, N), {
 	string_codes(NAME, CNAME),
 	(NAME = ONAME; jp_name(ONAME, NAME)),
-	raw_object(CAT, ONAME, _, _, _, _, _)
+	object_type(CAT, ONAME, _, _, _, _, _)
     }.
 obj_desc(CAT, NAME, 0, N) -->
      by_desc(CAT, CDESC, N), {
@@ -1150,11 +1150,11 @@ lit(1) --> ` (lit)` .
 lit(0) --> [].
 
 % when polymorphed, your "hand" might be something different
-position(on) --> ` (on `, (`left`| `right`), ` hand)` .
+position(hand) --> ` (on `, (`left`| `right`), ` hand)` .
+position(hand) --> ` (wielded)` .
 position(on) --> ` (being worn`, (``| `; slippery`), `)` .
 position(quiver) --> ` (in quiver`, (``| ` pouch`), `)` .
 position(quiver) --> ` (at the ready)` .
-position(hand) --> ` (wielded)` .
 position(POSITION) -->
     ` (`,
        (``| `thethered `),

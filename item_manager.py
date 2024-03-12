@@ -18,7 +18,7 @@ class Item_manager:
         self.prolog = Prolog()
         rnd_objects_by_category = {}
         self.prolog.consult("objects.pl")
-        for res in self.prolog.query("rnd_range(RND, MIN-MAX), raw_object(CATEGORY, NAME, ABOUNDANCE, _, _, _, RND)"):
+        for res in self.prolog.query("rnd_range(RND, MIN-MAX), object_type(CATEGORY, NAME, ABOUNDANCE, _, _, _, RND)"):
             category, obj, min_app, max_app, abd = res["CATEGORY"], res["NAME"], res["MIN"], res["MAX"], res["ABOUNDANCE"]
             if category not in rnd_objects_by_category:
                 rnd_objects_by_category[category] = (min_app, max_app, [], [])
@@ -62,7 +62,7 @@ class Item_manager:
         mat = self.get_stochastic(appearence)
         if mat is not None:
             # objects and mat.objects must have at least one object in common
-            assert any(o for o in mat.objects if o in objects), objects
+            assert any(o in objects for o in mat.objects), objects
             for o in mat.objects:
                 if o not in objects:
                     mat.is_not(appearence, o)
