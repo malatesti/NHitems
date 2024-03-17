@@ -3,7 +3,7 @@ from stochastic_matrix import Stochastic_matrix
 from collections import namedtuple
 Item = namedtuple("Item", ["possible_objects", "category", "count", "buc_status", "enchantment", "charges", "lit", "position", "cost", "greased", "poisoned", "erosion", "proofed", "partial", "called", "named", "contents"])
 
-class Item_manager:
+class Item_manager_sk:
     """Manages all items in a Nethack game.
     An item is an object(that may be unknown at the start of the game),
     has an appearence(that is what we see),
