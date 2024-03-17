@@ -3,7 +3,8 @@ import minihack, gym
 import numpy as np
 from nle import nethack as nh
 from collections import namedtuple
-from item_manager import Item_manager
+from item_manager_sk import Item_manager_sk
+from item_manager_mc import Item_manager_mc
 from path_finding import *
 from identification_score import total_score
 from agent_id_answers import *
@@ -84,8 +85,12 @@ def useful_info(obs):
         obs['blstats'][nh.NLE_BL_CHA], \
         zip(obs['inv_letters'], (nh.glyph_to_obj(g) for g in obs['inv_glyphs'] if g < nh.MAX_GLYPH), (bytes(s).rstrip(b'\0').decode() for s in obs['inv_strs']))
 
+reset = False
 def step(env, action, level, pos, render=False):
     saved_glyphs = {p: level[p] for p in neighbours(level, pos)}
+    if not saved_glyphs:
+        reset = True
+        return False
     saved_glyphs[pos] = level[pos]
     obs, _, done, _ = env.step(env.actions.index(action))
     if render: env.render()
@@ -135,17 +140,23 @@ env = gym.make(
 results = {
     'random':[],
     'uniform':[],
-    'stochastic':[],
-    'no-occour-check':[],
-    'bistochastic':[]}
+    'greedy':[],
+    'Monte Carlo':[],
+    'Sinkhorn Knopp':[]}
+
+itm_mgrsk = None
+itm_mgrmc = None
 
 def episode():
+    reset = False
     pos, level, msg, cha, inv = useful_info(env.reset())
     level[pos] = nh.GLYPH_CMAP_OFF + 19
     #env.render()
-    itm_mgr = Item_manager()
-    itm_mgr2 = Item_manager()
-    starting_inventory = [(l, g, itm_mgr.parse_item(string).possible_objects.pop()) for l, g, string in inv]
+    # item manager 1 (uses the Sinkhorn Knopp algorithm for probability estimation)
+    itm_mgrsk = Item_manager_sk()
+    # item manager 2 (uses the Monte Carlo for probability estimation)
+    itm_mgrmc = Item_manager_mc()
+    starting_inventory = [(l, g, itm_mgrsk.parse_item(string).possible_objects.pop()) for l, g, string in inv]
     rooms_explored = [False, False]
     visited = []
 
@@ -170,7 +181,7 @@ def episode():
             return 2 - chebyshev_dist(position, (level.shape[0]/2, level.shape[1]/2))/level.shape[1], 'secret' # then search for secrets
         return 0, None
     done = False
-    while not done:
+    while (not reset) and (not done):
 
         path, goal_type = shortest_path_to_goal(level, pos, goal_priority) or ([pos, random.choice(list(reachable_tiles(level, pos)))], 'random walk')
         # print(goal_type)
@@ -184,15 +195,16 @@ def episode():
                     visited.append(pos)
                 if goal_type == 'object':
                     appearence = nh.glyph_to_obj(level[pos])
-                    itm_mgr.found(appearence)
+                    itm_mgrsk.found(appearence)
+                    itm_mgrmc.found(appearence)
                     if 'You see here ' in msg:
                         dot = msg.find('.', msg.index('You see here '))
                         if(dot == -1):
                             msg += ' zorkmids).'
                             dot = msg.find('.', msg.index('You see here '))
-                        itm = itm_mgr.parse_item(msg[msg.index('You see here ') + len('You see here ') : dot], cha)
-                        itm_mgr.can_be(appearence, itm.possible_objects)
-                        itm_mgr2.can_be(appearence, itm.possible_objects)
+                        itm = itm_mgrsk.parse_item(msg[msg.index('You see here ') + len('You see here ') : dot], cha)
+                        itm_mgrsk.can_be(appearence, itm.possible_objects)
+                        itm_mgrmc.can_be(appearence, itm.possible_objects)
                         if itm.cost:
                             rooms_explored[0] = True
                         else:
@@ -217,16 +229,19 @@ def episode():
                     step(env, nh.WizardCommand.WIZIDENTIFY, level, pos)
                     pos, level, msg, cha, inv, done = step(env, nh.MiscAction.MORE, level, pos)
                     step(env, nh.Command.ESC, level, pos)
-                    correct_identification = {g: itm_mgr.parse_item(string).possible_objects.pop()
+                    correct_identification = {g: itm_mgrsk.parse_item(string).possible_objects.pop()
                                               for _, g, string in inv
                                               # do not consider starting inventory(items in it are identified from the beginning)
                                               if g not in set(i[1] for i in starting_inventory)
-                                              and any(m <= g <= M for m,M in itm_mgr.appearence_ranges)}
-                    results['random'].append(total_score(itm_mgr, correct_identification, rnd_answer))
-                    results['uniform'].append(total_score(itm_mgr, correct_identification, uni_answer))
-                    results['stochastic'].append(total_score(itm_mgr, correct_identification, stoc_answer))
-                    results['no-occour-check'].append(total_score(itm_mgr2, correct_identification, complete_answer))
-                    results['bistochastic'].append(total_score(itm_mgr, correct_identification, complete_answer))
+                                              and any(m <= g <= M for m,M in itm_mgrsk.appearence_ranges)}
+                    results['random'].append(total_score(itm_mgrsk, correct_identification, rnd_answer))
+                    results['uniform'].append(total_score(itm_mgrsk, correct_identification, uni_answer))
+                    results['greedy'].append(total_score(itm_mgrsk, correct_identification, stoc_answer))
+                    print('storing Monte Carlo results...')
+                    results['Monte Carlo'].append(total_score(itm_mgrmc, correct_identification, complete_answer))
+                    print('storing Sinkhorn Knopp results...')
+                    results['Sinkhorn Knopp'].append(total_score(itm_mgrsk, correct_identification, complete_answer))
+                    print('done')
                     return
                 break
             if msg == 'You are carrying too much to get through.':
@@ -238,7 +253,7 @@ def episode():
             if is_door(level[next_pos]) and msg in ['This door is locked.', 'WHAMMM!!!']:
                 step(env, nh.Command.KICK, level, pos)
             pos, level, msg, cha, inv, done = step(env, move_action(pos, next_pos), level, pos)
-for i in range(10):
+for i in range(30):
     print("ep ", i)
     episode()
 from matplotlib import pyplot as plt
@@ -246,3 +261,4 @@ for k,v in results.items():
     plt.plot(v, label=k)
 plt.legend()
 plt.show()
+means = [[k,sum(v)/len(v)] for k,v in results.items()]

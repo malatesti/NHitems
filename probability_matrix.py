@@ -1,3 +1,4 @@
+from itertools import permutations
 import numpy as np
 '''
 Questo modello permette all'agente di vedere quale sia la probabilità che un oggetto abbia una certa apparenza in una partita di Nethack.
@@ -51,6 +52,30 @@ def found(arr, appearence):
 def get_probability(arr, appearence, obj):
     return arr[appearences.index(appearence), objects.index(obj)]
 
+def perm_matrs(n, constraints):
+    def possible_perm(perm):
+        return not (perm * constraints).any()
+    return filter(possible_perm, np.eye(n)[list(permutations(range(n)))])
+
+def multinomial_mass(p, x):
+    assert len(p) == len(x), (p,x)
+    fact = lambda r: 1 if r <= 1 else r * fact(r-1)
+    fcn = fact(sum(x))
+    d = 1
+    for i in x:
+        d *= fact(i)
+    P = 1
+    for i in range(len(p)):
+        P *= p[i]**x[i]
+    return (fcn/d)*P
+
+# prob that ( perm @ Gen = y ) given the occourrence vector y and constraints
+def get_prb(perm, y, constr):
+    if (perm * constr).any():
+        return 0
+    p = np.array(aboundance, dtype='float64')
+    p /= sum(p)
+    return multinomial_mass(p, perm.transpose() @ y)
 
 a = np.ones((4, 4))/4  # all appearences have same probability
 
@@ -61,6 +86,12 @@ for i in range(50):
 print("I find some information about riding gloves(must be fumbling)")
 is_not(a, "riding gloves", "gauntlets of power")
 is_not(a, "riding gloves", "gauntlets of dexterity")
+
+
+Y = np.array([0, 50, 0, 0])
+constr = np.zeros((4,4))
+constr[2,2] = 1
+constr[2,3] = 1
 
 mse = lambda x,y: ((x-y)**2).mean()
 from1 = []
@@ -74,7 +105,3 @@ for i in range(100):
 print("I am ", get_probability(b, "riding gloves", "gauntlets of fumbling")*100, "% sure that riding gloves are gauntlets of fumbling")
 print("I am ", get_probability(b, "padded gloves", "gauntlets of power")*100, "% sure that padded gloves are gauntlets of power")
 print("I am ", get_probability(b, "padded gloves", "leather gloves")*100, "% sure that padded gloves are leather gloves")
-
-from matplotlib import pyplot as plt
-plt.plot(from1)
-plt.show()
