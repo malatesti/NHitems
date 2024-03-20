@@ -555,16 +555,16 @@ sell_price(CATEGORY, OBJ, OFFER, DISCOUNT) :-
 	(2 * 4**DISCOUNT)
 	+ 5) div 10.
 % rnd_range(RND_APPEARENCE, APPEARENCE_RANGE)
-rnd_range(rnd_potion, 272-296).
-rnd_range(rnd_scroll, 298-338).
-rnd_range(rnd_spellbook, 340-379).
-rnd_range(rnd_wand, 383-409).
-rnd_range(rnd_ring, 150-177).
 rnd_range(rnd_helm, 78-81).
 rnd_range(rnd_cloak, 125-128).
 rnd_range(rnd_gloves, 136-139).
 rnd_range(rnd_boots, 143-149).
+rnd_range(rnd_ring, 150-177).
 rnd_range(rnd_amulet, 178-186).
+rnd_range(rnd_potion, 272-296).
+rnd_range(rnd_scroll, 298-338).
+rnd_range(rnd_spellbook, 340-379).
+rnd_range(rnd_wand, 383-409).
 % can_be(APPEARENCE, APPEARENCE_ID)
 can_be(ID, ID) :- integer(ID).
 can_be(RND, ID) :- rnd_range(RND, MIN-MAX), between(MIN, MAX, ID).

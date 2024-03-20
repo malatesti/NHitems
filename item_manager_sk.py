@@ -11,13 +11,13 @@ class Item_manager_sk:
     some attributes(may vary between different objects).
     Some objects have a random appearence(https://nethackwiki.com/wiki/Randomized_appearance),
     that is why the class stores a probability matrix for every kind of objects that share the possible random appearences.
-    All the data for objects, appearences and items attributes is gathered from objects.pl
+    All the data for objects, appearences and items attributes is gathered from prolog_file
     """
-    def __init__(self):
-        """Consult objects.pl and initialize all the probability matrix, with the range of appearences associated with the matrix"""
+    def __init__(self, prolog_file):
+        """Consult prolog_file and initialize all the probability matrix, with the range of appearences associated with the matrix"""
         self.prolog = Prolog()
         rnd_objects_by_category = {}
-        self.prolog.consult("objects.pl")
+        self.prolog.consult(prolog_file)
         for res in self.prolog.query("rnd_range(RND, MIN-MAX), object_type(CATEGORY, NAME, ABOUNDANCE, _, _, _, RND)"):
             category, obj, min_app, max_app, abd = res["CATEGORY"], res["NAME"], res["MIN"], res["MAX"], res["ABOUNDANCE"]
             if category not in rnd_objects_by_category:
@@ -72,7 +72,7 @@ class Item_manager_sk:
     def get_possible_objects(self, appearence):
         """Return a list of pairs (p, object) such that object has p probability to have the given appearence.
         If the given appearence is one of the many randomized appearences, use the associated probability matrix,
-        otherwise, query objects.pl"""
+        otherwise, query prolog_file"""
         mat = self.get_stochastic(appearence)
         if mat is not None:
             (bis, i) = mat.get_bistochastic(10000, 1e-6)

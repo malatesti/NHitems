@@ -92,8 +92,8 @@ class Multinomial:
             nx = factorial(sum(self.occourrence_vector)) / prod(factorial(x) for x in self.occourrence_vector)
 
             # associate to every possible permutation Perm the probability that Perm Generator = occourrence vector
-            permutation_probability = [(P, nx*prod(p**x for p, x in zip(self.p, [self.occourrence_vector[i] for i in P])))
-                                       for P in permutations_sample(self.constraints, 2048)]
+            permutation_probability = ((P, nx*prod(p**x for p, x in zip(self.p, [self.occourrence_vector[i] for i in P])))
+                                       for P in permutations_sample(self.constraints, 2048))
             self.probability_matrix = np.zeros((k,k))
             sum_prob = 0
             for perm, prob in permutation_probability:

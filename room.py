@@ -153,9 +153,9 @@ def episode():
     level[pos] = nh.GLYPH_CMAP_OFF + 19
     #env.render()
     # item manager 1 (uses the Sinkhorn Knopp algorithm for probability estimation)
-    itm_mgrsk = Item_manager_sk()
+    itm_mgrsk = Item_manager_sk("objects.pl")
     # item manager 2 (uses the Monte Carlo for probability estimation)
-    itm_mgrmc = Item_manager_mc()
+    itm_mgrmc = Item_manager_mc("objects.pl")
     starting_inventory = [(l, g, itm_mgrsk.parse_item(string).possible_objects.pop()) for l, g, string in inv]
     rooms_explored = [False, False]
     visited = []
@@ -253,7 +253,7 @@ def episode():
             if is_door(level[next_pos]) and msg in ['This door is locked.', 'WHAMMM!!!']:
                 step(env, nh.Command.KICK, level, pos)
             pos, level, msg, cha, inv, done = step(env, move_action(pos, next_pos), level, pos)
-for i in range(30):
+for i in range(100):
     print("ep ", i)
     episode()
 from matplotlib import pyplot as plt
