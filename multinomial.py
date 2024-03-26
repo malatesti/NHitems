@@ -1,14 +1,32 @@
 import numpy as np
 
+# uncomment and use this function to generate random constrained permutations with csp
+# from constraint import *
+# def permutations_sample_csp(constraints, n):
+#     k = len(constraints)
+#     p = Problem()
+#     p.addVariables(range(k), range(k))
+#     p.addConstraint(AllDifferentConstraint(), range(k))
+#     for i in range(k):
+#         p.addConstraint(InSetConstraint([j for j in range(k) if constraints[j,i] == 0]), [i])
+#     perm = []
+#     i = 0
+#     for sol in p.getSolutionIter():
+#         perm.append([sol[u] for u in range(k)])
+#         i += 1
+#         if i == n:
+#             break
+#     return perm
+
 def permutations_sample(constraints, n):
     k = len(constraints)
     assert k < 256, "k is too big, this will not work"
     if k <= 8:
         # k is small, then we can return all possible k! permutations
         from itertools import permutations
-        return [p for p in permutations(range(k)) if not constraints[range(k), p].any()]
-    possible_numbers_by_place = [(j, [i for i in range(k) if constraints[j,i] == 0]) for j in range(k)]
-    possible_numbers_by_place = [(j, ps) for j, ps in possible_numbers_by_place if len(ps) < k/2]
+        return [p for p in permutations(range(k)) if not constraints[p ,range(k)].any()]
+    possible_numbers_by_place = [(j, [i for i in range(k) if constraints[i, j] == 0]) for j in range(k)]
+    possible_numbers_by_place = [(j, ps) for j, ps in possible_numbers_by_place if len(ps) < k/4]
     perms = []
     N = n*4
     while len(perms) < min(n, N):
@@ -22,10 +40,13 @@ def permutations_sample(constraints, n):
         if len(sequence) > len(set(sequence)):
             continue
         rest = np.array([[i,0] for i in range(k) if i not in strict[:,0]])
-        # get the permutation of the remaining values
-        rest[:,1] = np.random.permutation([x for x in range(k) if x not in sequence])
-        # check that all of them respect the constraints
-        if constraints[rest[:, 0], rest[:, 1]].any():
+        for i in range(n // 4):
+            # get the permutation of the remaining values
+            rest[:,1] = np.random.permutation([x for x in range(k) if x not in sequence])
+            # check that all of them respect the constraints
+            if not constraints[rest[:, 1], rest[:, 0]].any():
+                break
+        else:
             continue
         perm = np.zeros(k, dtype='uint8')
         # fit them into final permutation and add to list
@@ -58,21 +79,12 @@ class Multinomial:
             self.probability_matrix = None
         self.occourrence_vector[self.appearences.index(appearence)] += 1
 
-    def is_not(self, appearence):
+    def is_not(self, appearence, obj):
+        assert obj in self.objects
         self.add_appearence_if_missing(appearence)
         if self.probability_matrix is not None:
             self.probability_matrix = None
         self.constraints[self.appearences.index(appearence), self.objects.index(obj)] = 1
-
-    def can_be(self, appearence, objects):
-        self.add_appearence_if_missing(appearence)
-        # objects and self.objects must have at least one object in common
-        assert any(o in objects for o in self.objects), objects
-        for o in self.objects:
-            if o not in objects:
-                if self.probability_matrix is not None:
-                    self.probability_matrix = None
-                self.constraints[self.appearences.index(appearence), self.objects.index(o)] = 1
 
     def get_prob(self, mat, appearence, obj):
         """Get the probability that obj has the given appearence, given the probability matrix"""
@@ -93,11 +105,11 @@ class Multinomial:
 
             # associate to every possible permutation Perm the probability that Perm Generator = occourrence vector
             permutation_probability = ((P, nx*prod(p**x for p, x in zip(self.p, [self.occourrence_vector[i] for i in P])))
-                                       for P in permutations_sample(self.constraints, 2048))
+                                       for P in permutations_sample_csp(self.constraints, 2048))
             self.probability_matrix = np.zeros((k,k))
             sum_prob = 0
             for perm, prob in permutation_probability:
-                self.probability_matrix[range(k),perm] += prob
+                self.probability_matrix[perm, range(k)] += prob
                 sum_prob += prob
 
             self.probability_matrix /= sum_prob

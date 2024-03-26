@@ -141,21 +141,15 @@ results = {
     'random':[],
     'uniform':[],
     'greedy':[],
-    'Monte Carlo':[],
     'Sinkhorn Knopp':[]}
-
-itm_mgrsk = None
-itm_mgrmc = None
 
 def episode():
     reset = False
     pos, level, msg, cha, inv = useful_info(env.reset())
     level[pos] = nh.GLYPH_CMAP_OFF + 19
     #env.render()
-    # item manager 1 (uses the Sinkhorn Knopp algorithm for probability estimation)
+    # item manager (uses the Sinkhorn Knopp algorithm for probability estimation)
     itm_mgrsk = Item_manager_sk("objects.pl")
-    # item manager 2 (uses the Monte Carlo for probability estimation)
-    itm_mgrmc = Item_manager_mc("objects.pl")
     starting_inventory = [(l, g, itm_mgrsk.parse_item(string).possible_objects.pop()) for l, g, string in inv]
     rooms_explored = [False, False]
     visited = []
@@ -196,7 +190,6 @@ def episode():
                 if goal_type == 'object':
                     appearence = nh.glyph_to_obj(level[pos])
                     itm_mgrsk.found(appearence)
-                    itm_mgrmc.found(appearence)
                     if 'You see here ' in msg:
                         dot = msg.find('.', msg.index('You see here '))
                         if(dot == -1):
@@ -204,7 +197,6 @@ def episode():
                             dot = msg.find('.', msg.index('You see here '))
                         itm = itm_mgrsk.parse_item(msg[msg.index('You see here ') + len('You see here ') : dot], cha)
                         itm_mgrsk.can_be(appearence, itm.possible_objects)
-                        itm_mgrmc.can_be(appearence, itm.possible_objects)
                         if itm.cost:
                             rooms_explored[0] = True
                         else:
@@ -237,9 +229,6 @@ def episode():
                     results['random'].append(total_score(itm_mgrsk, correct_identification, rnd_answer))
                     results['uniform'].append(total_score(itm_mgrsk, correct_identification, uni_answer))
                     results['greedy'].append(total_score(itm_mgrsk, correct_identification, stoc_answer))
-                    print('storing Monte Carlo results...')
-                    results['Monte Carlo'].append(total_score(itm_mgrmc, correct_identification, complete_answer))
-                    print('storing Sinkhorn Knopp results...')
                     results['Sinkhorn Knopp'].append(total_score(itm_mgrsk, correct_identification, complete_answer))
                     print('done')
                     return

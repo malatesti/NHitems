@@ -63,7 +63,11 @@ class Item_manager_mc:
         """Found that the object possibilities of the given appearence can be restricted to the given list of objects. """
         mul = self.get_multinomial(appearence)
         if mul is not None:
-            mul.can_be(appearence, objects)
+            # objects and mul.objects must have at least one object in common
+            assert any(o in objects for o in mul.objects), objects
+            for o in mul.objects:
+                if o not in objects:
+                    mul.is_not(appearence, o)
             return True
         return False
 

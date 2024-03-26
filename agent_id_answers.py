@@ -13,4 +13,5 @@ def stoc_answer(im, a):
     return stoc.get_possible_objects(stoc.probabilities, a)[0][1]
 
 def complete_answer(im, a):
-    return im.get_possible_objects(a)[0][1]
+    b = im.get_possible_objects(a)
+    return b[0][1]
