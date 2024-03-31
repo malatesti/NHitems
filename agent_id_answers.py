@@ -5,7 +5,23 @@ def rnd_answer(im, a):
     return choice(obj)
 
 def uni_answer(im, a):
-    obj = [o for p,o in im.get_possible_objects(a) if p != 0]
+    stoc = im.get_stochastic(a)
+    V = stoc.probabilities.copy()
+    V[V>0] = 1
+
+    n = len(V)
+    dirty = True
+    while dirty:
+        dirty = False
+        for i in range(n):
+            if V[i].sum() == 1:
+                for j in range(n):
+                    if V[i,j] == 1 and not V[:,j].sum() == 1:
+                        V[:,j] = 0
+                        V[i,j] = 1
+                        dirty = True
+    
+    obj = [o for p,o in stoc.get_possible_objects(V, a) if p > 0]
     return choice(obj)
 
 def stoc_answer(im, a):

@@ -226,6 +226,7 @@ def episode():
                                               # do not consider starting inventory(items in it are identified from the beginning)
                                               if g not in set(i[1] for i in starting_inventory)
                                               and any(m <= g <= M for m,M in itm_mgrsk.appearence_ranges)}
+                    print('ok...')
                     results['random'].append(total_score(itm_mgrsk, correct_identification, rnd_answer))
                     results['uniform'].append(total_score(itm_mgrsk, correct_identification, uni_answer))
                     results['greedy'].append(total_score(itm_mgrsk, correct_identification, stoc_answer))
@@ -242,7 +243,7 @@ def episode():
             if is_door(level[next_pos]) and msg in ['This door is locked.', 'WHAMMM!!!']:
                 step(env, nh.Command.KICK, level, pos)
             pos, level, msg, cha, inv, done = step(env, move_action(pos, next_pos), level, pos)
-for i in range(100):
+for i in range(10):
     print("ep ", i)
     episode()
 from matplotlib import pyplot as plt
